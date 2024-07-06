@@ -1,2 +1,9 @@
 
 @import './style/tailwind.css';
+@import url('https://fonts.cdnfonts.com/css/recoleta');
+
+body {
+    font-family: 'Recoleta', sans-serif;
+  }
+  
+                                                
