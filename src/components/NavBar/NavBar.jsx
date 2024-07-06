@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
-import logo from '../assets/logoTemporary.png';
+import logo from '../../assets/logoTemporary.png';
+
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
