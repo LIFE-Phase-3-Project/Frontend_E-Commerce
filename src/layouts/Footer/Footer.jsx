@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-      <footer className=" mx-auto bg-custom-green rounded-t-lg shadow m-4 dark:bg-gray-800">
+      <footer className=" mx-auto mb-0 bg-custom-green rounded-t-lg shadow m-4 dark:bg-gray-800">
         <div className="p-3 mx-7 md:flex md:items-center md:justify-between">
           <span className="text-sm text-cream sm:text-center dark:text-gray-400 text-xs">
             © 2024 <a href="" className="hover:underline">Ecommerce</a>. All Rights Reserved.

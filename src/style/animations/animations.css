@@ -1,0 +1,14 @@
+@keyframes scrollLeft {
+    to {
+      left: -200px;
+    }
+}
+
+@keyframes scrollRight {
+  0% {
+    left: calc(-200px * 8);
+  }
+  100% {
+    left: 100%;
+  }
+}

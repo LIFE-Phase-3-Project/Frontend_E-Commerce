@@ -1,6 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
-import logo from '../../assets/logoTemporary.png';
+import logo from '../../assets/images/logos/logoTemporary.png';
 
 
 const navigation = [
@@ -17,7 +17,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className="bg-custom-green rounded-b-lg">
+    <Disclosure as="nav" className="bg-custom-green fixed top-0 left-0 right-0 z-50 rounded-b-lg">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -38,9 +38,9 @@ export default function NavBar() {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
+                {navigation.map((item, key) => (
                   <a
-                    key={item.name}
+                    key={key}
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(

@@ -1,0 +1,26 @@
+@keyframes head-image-animation {
+    0% {
+        opacity: 1;
+        scale: 1;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    65% {
+        opacity: 0.15;
+    }
+    78% {
+        opacity: 0.1;
+    }
+    85% {
+        opacity: 0;
+        scale: 2.75;
+    }
+    100% {
+        opacity: 0;
+        scale: 1;
+    }
+}

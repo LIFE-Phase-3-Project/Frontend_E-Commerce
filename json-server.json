@@ -1,0 +1,61 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Title",
+            "description": "Des",
+            "image": ["https://", "https://"],
+            "price": 500.00,
+            "ratings": 1,
+            "reviews": [],
+            "location": {
+                "country": "",
+                "city": ""
+            },
+            "stock": 1
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "title": "",
+            "description": "des",
+            "products": []
+        }
+    ],
+    "brands": [
+        {
+            "id": 1,
+            "title": "",
+            "description": "",
+            "image": "",
+            "products": []
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "",
+            "email": "",
+            "phoneNumber": "",
+            "role": "",
+            "address": "",
+            "reviews": [],
+            "history": [],
+            "wishlist": 1
+        }
+    ],
+    "wishlists": [
+        {
+            "id": 1,
+            "products": []
+        }
+    ],
+    "discountCodes": [
+        {
+            "id": 1,
+            "code": "",
+            "percentage": 20
+        }
+    ]
+}
