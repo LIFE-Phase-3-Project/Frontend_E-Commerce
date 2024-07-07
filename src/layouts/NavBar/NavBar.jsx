@@ -1,6 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import React, { useState, useEffect } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/images/logos/logoTemporary.png';
 
 function NavBar() {
@@ -17,23 +18,26 @@ function classNames(...classes) {
 }
 
 const [backgroundColor, setBackgroundColor] = useState("transparent");
+// const[textColor, setTextColor] = useState("cream");
 
 window.onscroll = () => {
     if (window.scrollY > 300) {
       setBackgroundColor("bg-custom-green")
+      // setTextColor("text-cream")
     } else {
       setBackgroundColor("transparent")
+      // setTextColor("text-custom-green")
     }
 };
 
 
   return (
-    <Disclosure as="nav" class="nav" className={`fixed top-0 left-0 right-0 z-50 rounded-b-lg ${backgroundColor}`}>
-      <div className={`mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 `} >
+    <Disclosure as="nav" class="nav" className={`fixed top-0 left-0 right-0 z-50 rounded-b-lg ${backgroundColor} `}>
+      <div className={`mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  `} >
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}
-            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-cream hover:bg-on-hover-green hover:text-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <DisclosureButton className={`group relative inline-flex items-center justify-center rounded-md p-2  hover:bg-on-hover-green hover:text-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}>
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
               <img aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" src={logo} />
@@ -68,11 +72,11 @@ window.onscroll = () => {
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
-              className="relative rounded-full bg-gray-800 p-1 text-cream hover:text-cream focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              className="relative rounded-full  p-1 text-cream hover:text-cream focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
               <span className="absolute -inset-1.5" />
               <span className="sr-only">View notifications</span>
-            {/**Icon to be added */}
+              <FontAwesomeIcon icon={faTruck} className='bg-transparent' />
             </button>
 
             {/* Profile dropdown */}

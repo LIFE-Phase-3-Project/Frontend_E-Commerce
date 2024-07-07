@@ -10,7 +10,11 @@ module.exports = {
         "green-dark": "#186049",
         "green-medium": "#3F9469",
         "on-hover-green": "#2a443a",
-        "cream":"#FAEED1"
+        "cream":"#FAEED1",
+        "custom-purple": "#774C5D",
+        "on-hover-purple":"#5f3d4a",
+        "light-pink":"#EECCAC",
+        "on-hover-pink":"#e4ae7c",
       }
     },
     screens:{

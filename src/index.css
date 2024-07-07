@@ -1,6 +1,7 @@
 
 @import './style/tailwind.css';
 @import url('https://fonts.cdnfonts.com/css/recoleta');
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 body {
     font-family: 'Recoleta', sans-serif;
