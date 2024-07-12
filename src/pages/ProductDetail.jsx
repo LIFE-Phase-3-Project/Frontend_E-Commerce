@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
-import ReviewSection from "../components/review/ReviewSection";
-import Recommendations from "../components/recommendations/Recommendations";
+import ReviewSection from "../components/product-details/review/ReviewSection";
+import Recommendations from "../components/product-details/recommendations/Recommendations";
 
 const ProductDetail = () => {
     const [productDetailItemStock, setProductDetailItem] = useState({
