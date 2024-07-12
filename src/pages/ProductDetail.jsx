@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
-import ReviewSection from "../components/home/review/ReviewSection";
+import ReviewSection from "../components/review/ReviewSection";
+import Recommendations from "../components/recommendations/Recommendations";
 
 const ProductDetail = () => {
     const [productDetailItemStock, setProductDetailItem] = useState({
@@ -76,7 +77,7 @@ const ProductDetail = () => {
  
 
     return (
-      <div>
+      
     <section className="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
       {/* image gallery from library */}
       <div className={`container mx-auto px-4`}>
@@ -171,10 +172,11 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
-     
+      <ReviewSection/> 
+      <Recommendations />
     </section>
-     <ReviewSection/>
-     </div>
+    
+    
  
   );
 };
