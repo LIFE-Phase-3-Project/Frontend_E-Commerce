@@ -1,0 +1,166 @@
+@import url('../style/animations/like.css');
+
+.offer-discount {
+    font-family: 'Falling Sky', sans-serif;
+}
+
+.special-offers-content .offer-time {
+    font-family: 'Mymra Piano', sans-serif;
+}
+
+.special-offers {
+    box-shadow: 0 6px 10px #22222212;
+}
+
+
+
+/* Product Section */
+.products {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.product-section-left {
+    flex: 0.175;
+}
+
+.product-section-hamburger {
+    cursor: pointer;
+}
+
+.product-section-hamburger span{
+    height: 4px;
+    width: 28px;
+    margin-top: 3px;
+    
+    transition: all ease 0.3s;
+}
+
+.product-section-hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); transition: all ease 0.15s;}
+.product-section-hamburger.active span:nth-child(2) { display: none; }
+.product-section-hamburger.active span:nth-child(3) { transform: rotate(-45deg); transition: all ease 0.15s; }
+
+.product-section-hamburger span:first-child{
+    margin-top: 0;
+}
+
+.product-section-right {
+    flex: 0.8;
+}
+
+.search {
+    background-color: rgb(255, 253, 253);
+}
+
+.filters h3:hover {
+    background-color: #017a5452;
+    cursor: pointer;
+}
+
+.product-card .bg-image-color {
+    background-color: #f1ecec;
+    flex: 0.8;
+}
+
+.product-card-content {
+    flex: 0.2;
+}
+
+.wishlist-icon-active {
+    color: red;
+    animation: Like 0.5s forwards ease-in-out;
+}
+
+
+
+@media only screen and (max-width: 1370px) {
+    .product-section-left {
+        flex: 0.255;
+    }
+    .product-section-right {
+        flex: 0.72;
+    }
+
+   .product-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+   }
+}
+
+@media only screen and (max-width: 1050px) {
+   .product-cards { grid-template-columns: 1fr 1fr; }
+}
+
+@media only screen and (max-width: 768px) {
+   .product-section-left.active {
+    position: absolute;
+
+   }
+   .product-section-left.active {
+        flex: 0;
+        left:0;
+        right:0;
+        position: absolute;
+    }
+ 
+   .product-card {
+        height: 400px;
+   }
+
+    .product-section-left.active .filters {
+        width: 50%;
+        height: 100vh;
+        z-index: 999;
+        transition: all 0.3s ease;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+    }
+
+    .product-section-left.active .overlay {
+        display: block;
+    }
+
+    .product-section-hamburger.active {
+        position: fixed;
+        top: 18px;
+        z-index: 999;
+        left: calc(50% - 40px);
+        transition: right 0.3s ease;
+    }
+    
+
+}
+
+@media only screen and (max-width: 580px) {
+    .product-section-left.active .filters {
+        width: 70%;
+    }
+
+    .product-section-hamburger.active {
+        left: calc(70% - 40px);
+    }
+    
+    .product-card {
+        width: 230px;
+        height: 320px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .product-section-left.active {
+        flex: 1;
+        left: 0;
+        right: 0;
+        position: absolute;
+    }
+    /* .product-card {
+        width: 100%;
+        height: 300px;
+    } */
+}
