@@ -7,3 +7,10 @@ services:
     container_name: life-frontend
     ports:
       - "3000:3000"
+    networks:
+      - life-network
+
+networks:
+  life-network:
+    external: true
+    name: life-network
