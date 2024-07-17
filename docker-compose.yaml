@@ -1,0 +1,9 @@
+services:
+  life-frontend:
+    image: e-commerce-frontend:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: life-frontend
+    ports:
+      - "3000:3000"
