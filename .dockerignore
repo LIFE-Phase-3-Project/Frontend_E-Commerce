@@ -4,3 +4,7 @@ npm-debug.log
 *.md
 .git
 .gitignore
+Dockerfile
+.dockerignore
+.env
+.vscode
