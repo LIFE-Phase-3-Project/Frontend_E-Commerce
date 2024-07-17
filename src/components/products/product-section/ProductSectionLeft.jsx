@@ -29,9 +29,9 @@ export const ProductSectionLeft = ({ category = "" }) => {
             <Filters category={category} isHamburgerActive={isHamburgerActive} />
 
             <div onClick={handleClick} className={`product-section-hamburger absolute ${isHamburgerActive ? "active right-0 top-0" : ""} flex flex-col mt-3 md:hidden`}>
-                <span className="bg-custom-green"></span>
-                <span className="bg-custom-green"></span>
-                <span className="bg-custom-green"></span>
+                <span className="bg-custom-green dark:bg-blue-medium"></span>
+                <span className="bg-custom-green dark:bg-blue-medium"></span>
+                <span className="bg-custom-green dark:bg-blue-medium"></span>
             </div>
         </div>
     );

@@ -15,27 +15,13 @@
                 "city": "Prishtina"
             },
             "stock": 1,
-            "categoryId": 1
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
         },
         {
             "id": 2,
-            "title": "Lacoste-Women Polo",
-            "description": "Description of product",
-            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
-            "price": 320.00,
-            "discount": 50,
-            "color": "",
-            "ratings": 4,
-            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
-            "location": {
-                "country": "Denmark",
-                "city": "Copenhagen"
-            },
-            "stock": 5,
-            "categoryId": 1
-        },
-        {
-            "id": 3,
             "title": "Tshirt",
             "description": "Description of product",
             "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
@@ -49,11 +35,34 @@
                 "city": "Copenhagen"
             },
             "stock": 5,
-            "categoryId": 1
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
         },
         {
             "id": 4,
-            "title": "Tshirt",
+            "title": "ATshirt",
             "description": "Description of product",
             "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
             "price": 30.00,
@@ -66,7 +75,10 @@
                 "city": "Prishtine"
             },
             "stock": 10,
-            "categoryId": 1
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
         },
         {
             "id": 5,
@@ -83,7 +95,10 @@
                 "city": "Prishtine"
             },
             "stock": 10,
-            "categoryId": 1
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
         }
     ],
     "categories": [
@@ -227,6 +242,15 @@
             "id": 6,
             "code": "Donat5",
             "percentage": 5
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1,
+            "userId": 1,
+            "productId": 1,
+            "description": "",
+            "date": ""
         }
     ]
 }

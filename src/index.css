@@ -4,6 +4,10 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
 
 body {
-    font-family: 'Recoleta', sans-serif;
+    font-family: 'Acari Sans', sans-serif;
     background-color: rgb(246, 244, 244);
+}
+
+.dark {
+    background-color: #1a1919;
 }

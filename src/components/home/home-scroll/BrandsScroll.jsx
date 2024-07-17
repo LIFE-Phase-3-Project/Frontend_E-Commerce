@@ -6,13 +6,22 @@ import Nike from '../../../assets/images/logos/nike-logo.png'
 import Logitech from '../../../assets/images/logos/logitech-logo.png'
 import Dior from '../../../assets/images/logos/dior-logo.png'
 import LouisVuitton from '../../../assets/images/logos/louis-vuitton-logo.png'
+import { useEffect } from 'react';
+import i18n from '../../../i18n/i18n';
+import { useTranslation } from 'react-i18next';
 
 export const BrandsScroll = () => {
+    const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+        i18n.changeLanguage(navigator.changeLanguage);
+    }, [i18n])
+
     return (
         <div className="brands-scroll mt-24">
             <div className="brands-scroll-head flex justify-between my-24 items-end px-12 md:px-20 lg:px-24">
-                <h2 className='text-3xl text-green-800 text-center'>Brands</h2>
-                <a className='opacity-80' href="#">See more</a>
+                <h2 className='text-3xl text-green-800 dark:text-blue-900 text-center'>{t("brands")}</h2>
+                <a className='opacity-80 text-black dark:text-blue-100' href="#">{t("seeMore")}</a>
             </div>
             <div className="wrapper relative mt-20 overflow-hidden cursor-pointer">
                 <div className="item item1" style={{background: `url(${Nike})`, backgroundSize: 'cover'}}></div>

@@ -1,6 +1,15 @@
+import { useTranslation } from 'react-i18next';
 import '../../style/home.css';
+import '../../i18n/i18n';
+import { useEffect } from 'react';
 
 export const HomeHead = () => {
+    const { t, i18n } = useTranslation()
+
+    useEffect(() => {
+        i18n.changeLanguage(navigator.language);
+    }, [i18n]);
+
     return (
         <div className="home-head h-dvh ">
             <div className="home-head-image h-dvh w-full relative"></div>
@@ -9,7 +18,7 @@ export const HomeHead = () => {
                                 lg:w-5/12">
                 <h2>E-commerce</h2>
                 <p className='opacity-75'>
-                    Shop the Latest Trends and Timeless Classics: From cutting-edge fashion to enduring household staples, find everything you need in one place
+                    {t("homeHeadDescription")}
                 </p>
             </div>
         </div>

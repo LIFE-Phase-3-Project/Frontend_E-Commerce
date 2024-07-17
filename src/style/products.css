@@ -1,5 +1,14 @@
 @import url('../style/animations/like.css');
 
+:root {
+    --filters-bg: #017a5452;
+    --product-bg-color-image: #f1ecec;
+}
+.dark {
+    --filters-bg: #7a012752;
+    --product-bg-color-image: #122b4b8a;
+}
+
 .offer-discount {
     font-family: 'Falling Sky', sans-serif;
 }
@@ -52,12 +61,13 @@
 }
 
 .filters h3:hover {
-    background-color: #017a5452;
+    background-color: var(--filters-bg);
     cursor: pointer;
 }
 
 .product-card .bg-image-color {
-    background-color: #f1ecec;
+    /* background-color: #f1ecec; */
+    background-color: var(--product-bg-color-image);
     flex: 0.8;
 }
 
@@ -69,6 +79,8 @@
     color: red;
     animation: Like 0.5s forwards ease-in-out;
 }
+
+
 
 
 
@@ -91,20 +103,22 @@
 
 @media only screen and (max-width: 768px) {
    .product-section-left.active {
-    position: absolute;
-
-   }
-   .product-section-left.active {
+       position: absolute;
         flex: 0;
         left:0;
         right:0;
-        position: absolute;
     }
  
    .product-card {
         height: 400px;
    }
 
+    .product-section-left {
+        flex: 0.1;
+    }
+    .product-section-right {
+        flex: 0.9;
+    }
     .product-section-left.active .filters {
         width: 50%;
         height: 100vh;
@@ -139,6 +153,12 @@
 }
 
 @media only screen and (max-width: 580px) {
+    .product-section-left {
+        flex: 0.1;
+    }
+    .product-section-right {
+        flex: 0.9;
+    }
     .product-section-left.active .filters {
         width: 70%;
     }
@@ -148,7 +168,7 @@
     }
     
     .product-card {
-        width: 230px;
+        width: 100%;
         height: 320px;
     }
 }

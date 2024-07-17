@@ -5,6 +5,10 @@ body {
     overflow-x: hidden;
 }
 
+.find-joy h2 {
+  /* color: #042977 */
+}
+
 /* HomeHead */
 .home-head-image {
     background-image: url("https://static.vecteezy.com/system/resources/previews/028/247/826/non_2x/happy-young-man-and-woman-using-laptop-together-looking-at-screen-loving-couple-shopping-or-chatting-online-the-concept-of-couples-sharing-one-idea-together-photo.jpg");
@@ -106,18 +110,13 @@ body {
 }
 
 /* home store */
-.home-store-left {
-  background-color: #fff;
-  flex: 0.5
-}
+.home-store-left { background-color: #fff; flex: 0.5 }
+.dark .home-store-left { background-color: #111 }
 
-.home-store-right {
-  flex: 0.5;
-}
+.home-store-right { flex: 0.5; }
 
-.home-store-right-bottom {
-  background-color: #fff;
-}
+.home-store-right-bottom { background-color: #fff; }
+.dark .home-store-right-bottom { background-color: #111; }
 
 .home-store-right-top {
   background-color: #272727;     

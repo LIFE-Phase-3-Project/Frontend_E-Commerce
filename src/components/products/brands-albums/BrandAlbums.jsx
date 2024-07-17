@@ -41,7 +41,10 @@ export const BrandAlbums = () => {
                     <div key={key} className="brand-card w-96 
                                                 sm:w-60 
                                                 md:w-52
-                                                lg:w-56">
+                                                lg:w-56
+                                                text-black
+                                                dark:text-white
+                                                ">
                                                     
                         <Link to={"?clothes"}>
                             <div className="brand-card-image bg-center bg-cover w-full h-52 rounded-6

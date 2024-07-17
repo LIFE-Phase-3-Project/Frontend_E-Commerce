@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo, useCallback } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useGetAllProductsQuery } from "../../../redux/api/productsApi";
 import { SpecialOffersContent } from "./SpecialOffersContent";
 import { SpecialOffersImage } from "./SpecialOffersImage";
@@ -37,7 +37,9 @@ export const SpecialOffers = () => {
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsMouseInside(true)} 
             onMouseLeave={() => setIsMouseInside(false)} 
-            className="special-offers box-border overflow-hidden relative w-11/12 m-auto h-80 flex items-center justify-between rounded-lg bg-gradient-to-r from-green-extra-light to-white text-green-dark md:w-10/12 lg:max-w-7xl lg:w-7/12"
+            className="special-offers box-border overflow-hidden relative w-11/12 m-auto h-80 flex items-center justify-between rounded-lg md:w-10/12 lg:max-w-7xl lg:w-7/12
+                        text-green-dark bg-gradient-to-r from-green-extra-light to-white
+                        dark:text-pink-dark dark:bg-gradient-to-r dark:from-pink-extra-light dark:to-white"
             style={cardStyles}
         >
             <OfferDiscount />
