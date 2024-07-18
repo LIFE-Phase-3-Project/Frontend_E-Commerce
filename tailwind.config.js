@@ -27,6 +27,7 @@ module.exports = {
         "blue-dark": "#0d3ea7",
         "blue-medium": "#0840b8",
         "blue-light": "#0840b8",
+        "background-blue": "#1a1919",
         
         "pink-extra-dark": "#45122A",
         "pink-dark": "#60182F",

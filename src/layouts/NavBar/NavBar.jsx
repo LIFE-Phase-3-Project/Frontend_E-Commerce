@@ -3,14 +3,19 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/images/logos/logoTemporary.png';
+import { useLocation, matchPath  } from 'react-router-dom';
+import { MdOutlineNightlight } from "react-icons/md";
+import { MdOutlineNightlightRound } from "react-icons/md";
+import ToggleIconExample from "../../components/icons/LightModeToggle";
+
 
 function NavBar() {
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Clothes', href: '#', current: false },
-  { name: 'Home', href: '#', current: false },
-  { name: 'Technology', href: '#', current: false },
-  { name: 'School', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Clothes', href: '/clothes', current: false },
+  { name: 'Technology', href: '/technology', current: false },
+  { name: 'School', href: '/school', current: false },
+ 
 ]
 
 function classNames(...classes) {
@@ -18,21 +23,38 @@ function classNames(...classes) {
 }
 
 const [backgroundColor, setBackgroundColor] = useState("transparent");
+const[darkBackgroundColor, setDarkBackgroundColor] = useState("transparent");
+const location = useLocation();
 // const[textColor, setTextColor] = useState("cream");
 
-window.onscroll = () => {
-    if (window.scrollY > 300) {
-      setBackgroundColor("bg-custom-green")
-      // setTextColor("text-cream")
-    } else {
-      setBackgroundColor("transparent")
-      // setTextColor("text-custom-green")
-    }
-};
+
+
+useEffect(() => {
+  const path = location.pathname;
+  
+
+  if (path === '/products') {
+    setBackgroundColor("bg-custom-green");
+    setDarkBackgroundColor("bg-gray-800");
+  } else {
+    window.onscroll = () => {
+      if (window.scrollY > 300) {
+        setBackgroundColor("bg-custom-green")
+        setDarkBackgroundColor("bg-gray-800")
+        // setTextColor("text-cream")
+      }  else{
+        setBackgroundColor("transparent")
+        setDarkBackgroundColor("transparent")
+      }
+  };
+  }
+
+}, [location]);
+
 
 
   return (
-    <Disclosure as="nav" class="nav" className={`fixed top-0 left-0 right-0 z-50 rounded-b-lg ${backgroundColor} `}>
+    <Disclosure as="nav" class="nav" className={`fixed top-0 left-0 right-0 z-50 rounded-b-lg ${backgroundColor}  dark:${darkBackgroundColor} dark:text-cream`}>
       <div className={`mx-auto max-w-7xl px-2 sm:px-6 lg:px-8  `} >
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -114,6 +136,7 @@ window.onscroll = () => {
                 </MenuItem>
               </MenuItems>
             </Menu>
+            <ToggleIconExample/>
           </div>
         </div>
       </div>
@@ -141,3 +164,8 @@ window.onscroll = () => {
 }
 
 export default NavBar;
+
+
+
+
+

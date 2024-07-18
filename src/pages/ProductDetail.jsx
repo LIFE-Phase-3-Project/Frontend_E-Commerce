@@ -92,8 +92,8 @@ const ProductDetail = () => {
       </div>
     
 
-      <div className="mx-auto px-5 lg:px-5">
-        <h2 className="pt-3 text-2xl font-bold lg:pt-0">
+      <div className="mx-auto px-5 lg:px-5 dark:text-cream">
+        <h2 className="pt-3 text-2xl font-bold lg:pt-0 dark: text-cream">
           {productDetailItem.title}
         </h2>
         <div className="mt-1">
