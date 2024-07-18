@@ -7,14 +7,15 @@ import { useLocation, matchPath  } from 'react-router-dom';
 import { MdOutlineNightlight } from "react-icons/md";
 import { MdOutlineNightlightRound } from "react-icons/md";
 import DarkTheme from "../../components/theme/DarkModeToggle";
+import MenuItemComp from './MenuItemComp';
 
 
 function NavBar() {
-const navigation = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Clothes', href: '/clothes', current: false },
-  { name: 'Technology', href: '/technology', current: false },
-  { name: 'School', href: '/school', current: false },
+const details = [
+  { name: 'Home', href: '/', current: false , subCategories:["bedroom","bathroom"]},
+  { name: 'Clothes', href: '/clothes', current: false, subCategories:["Tshirt","Pants"] },
+  { name: 'Technology', href: '/technology', current: false , subCategories:["Phones","Laptop"]},
+  { name: 'School', href: '/school', current: false, subCategories:["Bags","Notebooks"] },
  
 ]
 
@@ -73,24 +74,12 @@ useEffect(() => {
                 src={logo} 
               />
             </div>
-            <div className="hidden sm:ml-6 sm:block">
-              <div className="flex space-x-4">
-                {navigation.map((item, key) => (
-                  <a
-                    key={key}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'font-bold text-cream' : 'relative text-cream hover:text-cream cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]',
-                      'rounded-md px-3 py-2 text-sm font-medium',
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
+            
+           <MenuItemComp details={details} />
+          
+          
           </div>
+
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
               type="button"
@@ -142,8 +131,8 @@ useEffect(() => {
       </div>
 
       <DisclosurePanel className="sm:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          {navigation.map((item) => (
+      <div className="space-y-1 px-2 pb-3 pt-2">
+          {details.map((item) => (
             <DisclosureButton
               key={item.name}
               as="a"
