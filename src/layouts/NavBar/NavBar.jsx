@@ -6,7 +6,7 @@ import logo from '../../assets/images/logos/logoTemporary.png';
 import { useLocation, matchPath  } from 'react-router-dom';
 import { MdOutlineNightlight } from "react-icons/md";
 import { MdOutlineNightlightRound } from "react-icons/md";
-import ToggleIconExample from "../../components/icons/LightModeToggle";
+import DarkTheme from "../../components/theme/DarkModeToggle";
 
 
 function NavBar() {
@@ -136,7 +136,7 @@ useEffect(() => {
                 </MenuItem>
               </MenuItems>
             </Menu>
-            <ToggleIconExample/>
+            <DarkTheme/>
           </div>
         </div>
       </div>
