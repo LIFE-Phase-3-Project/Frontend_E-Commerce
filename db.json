@@ -3,7 +3,7 @@
         {
             "id": 1,
             "title": "Lacoste T-Shirt",
-            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "image": [   "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",   "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",   "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600"],
             "description": "Des",
             "price": 500.00,
             "discount": 50,
@@ -18,7 +18,8 @@
             "category": {
                 "id": 1,
                 "title": "clothes"
-            }
+            },
+            "size":["XS","S","M","L","XL"]
         },
         {
             "id": 2,

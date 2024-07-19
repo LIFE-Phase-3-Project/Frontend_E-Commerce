@@ -9,72 +9,59 @@ import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import ReviewSection from "../components/product-details/review/ReviewSection";
 import Recommendations from "../components/product-details/recommendations/Recommendations";
 
+
 const ProductDetail = () => {
-    const [productDetailItemStock, setProductDetailItem] = useState({
-        stock: 1
-    });
-//dummydata to be replaced when the api comes
-  const productDetailItem = {
-    images: [
-      {
-        original:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-        thumbnail:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-      },
-      {
-        original:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-        thumbnail:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-      },
-      {
-        original:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-        thumbnail:
-          "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
-      },
-    ],
-    title: "Product title",
-    reviews: "150",
-    availability: true,
-    category: "camera",
-    price: 450,
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem exercitationem voluptate sint eius ea assumenda provident eos repellendus qui neque! Velit ratione illo maiores voluptates commodi eaque illum, laudantium non!",
-    size: ["S", "M", "L", "XL", "XXL"],//depending on thw product
-    color: ["gray", "violet", "red"],//depending on the product
-    stock: 1,
-    nextDayShipping: true
-    
-  }
- 
-  const plusMinuceButton =
-    "flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500";
- 
-    const increment = () => {
-        setProductDetailItem(prevState => ({
-          ...prevState,
-          stock: prevState.stock++
-        }));
-        console.log(productDetailItem.stock);
-      };
+  const [productDetailItem, setProductDetailItem] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-      const decrement = () =>{
-        setProductDetailItem(prevState => ({
-            ...prevState,
-            stock: prevState.stock--
-          
-          }));
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/products/1');
+        if (!response.ok) {
+          throw new Error('Failed to fetch product data');
+        }
+        const data = await response.json();
+        setProductDetailItem(data); 
+      } catch (error) {
+        console.error('Error fetching product data:', error);
+      } finally {
+        setLoading(false);
       }
+    };
 
+    fetchData();
+  }, []);
+
+  const increment = () => {
+    setProductDetailItem(prevState => ({
+      ...prevState,
+      stock: prevState.stock + 1 // Increment stock by 1
+    }));
+  };
+
+  const decrement = () => {
+    setProductDetailItem(prevState => ({
+      ...prevState,
+      stock: prevState.stock > 0 ? prevState.stock - 1 : 0 // Decrement stock, but not below 0
+    }));
+  };
+
+  const plusMinuceButton =
+  "flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500";
+  if (loading || !productDetailItem) {
+    return <div>Loading...</div>;
+  }
 
     //   useEffect(() => {
     //     console.log(`Stock changed to: ${productDetailItem.stock}`);
     //     // Any other side effects you want to perform when stock changes
     //   }, [productDetailItem.stock]);
 
- 
+    const images = productDetailItem.image.map((image, index) => ({
+      original: image,
+      thumbnail: index < productDetailItem.image.length - 1 ? productDetailItem.image[index + 1] : image
+    }));
 
     return (
       
@@ -85,7 +72,7 @@ const ProductDetail = () => {
           showBullets={false}
           showFullscreenButton={false}
           showPlayButton={false}
-          items={productDetailItem.images}
+          items={images}
         />
 
     
@@ -112,7 +99,7 @@ const ProductDetail = () => {
         </div>
         <p className="mt-5 font-bold">
           Availability:{" "}
-          {productDetailItem.availability ? (
+          {productDetailItem.stock ? (
             <span className="text-green-600">In Stock </span>
           ) : (
             <span className="text-red-600">Expired</span>
@@ -120,7 +107,7 @@ const ProductDetail = () => {
         </p>
         <p className="font-bold">
           Cathegory:{" "}
-          <span className="font-normal">{productDetailItem.category}</span>
+          <span className="font-normal">{productDetailItem.category.title}</span>
         </p>
         <p className="mt-4 text-4xl font-bold text-custom-green">
           ${productDetailItem.price}{" "}
@@ -128,7 +115,7 @@ const ProductDetail = () => {
         </p>
         <p className="mt-5 font-bold">
           
-          {productDetailItem.nextDayShipping ? (
+          {productDetailItem.location.country=="Kosove" ? (
             <span className="text-red-600 text-sm">Next Day Delivery  <FontAwesomeIcon icon={faCartShopping} /></span>
           ) : <></>}
         </p>
@@ -156,7 +143,7 @@ const ProductDetail = () => {
           <div className="flex">
             <button className={`${plusMinuceButton}` }  onClick={decrement}>−</button>
             <div className="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500" >
-              {productDetailItemStock.stock}
+              {productDetailItem.stock}
             </div>
             <button className={`${plusMinuceButton}`} onClick={increment}> +</button>
           </div>
@@ -172,7 +159,7 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
-      <ReviewSection/> 
+      <ReviewSection userId={productDetailItem.id}/> 
       <Recommendations />
     </section>
     
