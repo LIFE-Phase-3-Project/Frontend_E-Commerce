@@ -249,22 +249,22 @@
         {
             "id": 1,
             "userId": 1,
-            "productId": 1,
+            "productId": 2,
             "description": "good",
             "date": ""
         },
         {
-            "id": 1,
+            "id": 2,
             "userId": 1,
-            "productId": 1,
-            "description": "good",
+            "productId": 3,
+            "description": "somewhat good",
             "date": ""
         },
         {
-            "id": 1,
+            "id": 3,
             "userId": 1,
             "productId": 1,
-            "description": "good",
+            "description": "bad",
             "date": ""
         }
     ]

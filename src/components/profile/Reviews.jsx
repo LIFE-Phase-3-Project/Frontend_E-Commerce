@@ -12,8 +12,7 @@ export const Reviews = ({ reviewId }) => {
           throw new Error('Failed to fetch product data');
         }
         const data = await response.json();
-      
-        setReviews(data || []); 
+        setReviews(data || []);
       } catch (error) {
         console.error('Error fetching product data:', error);
       } finally {
@@ -24,6 +23,22 @@ export const Reviews = ({ reviewId }) => {
     fetchData();
   }, [reviewId]);
 
+  const handleDelete = (id) => {
+
+    setReviews(reviews.filter(review => review.id !== id));
+
+    // fetch(`http://localhost:8000/reviews/${id}`, { method: 'DELETE' })
+    //   .then(response => {
+    //     if (!response.ok) {
+    //       throw new Error('Failed to delete review');
+    //     }
+    //     console.log('Review deleted successfully');
+    //   })
+    //   .catch(error => {
+    //     console.error('Error deleting review:', error);
+    //   });
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -33,9 +48,9 @@ export const Reviews = ({ reviewId }) => {
   }
 
   return (
-    <ol className="relative border-s border-gray-200 dark:border-gray-700">                  
-      {reviews.map((review, index) => (
-        <li key={index} className="mb-10 ms-6">
+    <ol className="relative border-s border-gray-200 dark:border-gray-700 w-3/6">
+      {reviews.map((review) => (
+        <li key={review.id} className="mb-10 ms-6">
           <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
             <img className="rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="Reviewer image" />
           </span>
@@ -49,15 +64,15 @@ export const Reviews = ({ reviewId }) => {
             <div className="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
               {review.description}
             </div>
-            <button className="mt-2 px-4 py-2 bg-custom-purple text-white rounded">Delete</button>
+            <button
+              className="mt-2 px-4 py-2 bg-custom-purple hover:bg-on-hover-purple text-white rounded"
+              onClick={() => handleDelete(review.id)}
+            >
+              Delete
+            </button>
           </div>
         </li>
       ))}
     </ol>
   );
-}
-
-
-
-
-
+};
