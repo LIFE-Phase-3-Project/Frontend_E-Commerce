@@ -13,3 +13,6 @@ steps:
 
 images:
   - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
