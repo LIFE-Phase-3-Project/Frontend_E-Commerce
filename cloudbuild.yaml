@@ -1,14 +1,15 @@
 steps:
-- name: 'node:14'
-  entrypoint: 'bash'
-  args: ['-c', 'npm install && npm run build']
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - '-t'
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest' 
+      - '.'
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: [
-    'build', 
-    '-t', 'europe-west3-docker.pkg.dev/e-commerce-life/frontend-repo/frontend:latest', 
-    '.'
-  ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - push 
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
 
 images:
-- 'europe-west3-docker.pkg.dev/e-commerce-life/frontend-repo/frontend:latest'
+  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
