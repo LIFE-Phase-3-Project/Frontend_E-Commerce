@@ -3,13 +3,15 @@ import { setFilters } from "../../../redux/slices/productsSlice";
 import { useEffect } from "react";
 import i18n from "../../../i18n/i18n";
 import { useTranslation } from "react-i18next";
+import { changeActivePage } from "../../../redux/slices/paginationSlice";
 
 export const OrderBy = () => {
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
-
-
-    const orderBy = (e) => dispatch(setFilters({_sort: "title", _order: e.target.value}))
+    const orderBy = (e) => {
+        dispatch(changeActivePage(1))
+        dispatch(setFilters({_sort: "title", _order: e.target.value}))
+    }
     
     useEffect(() => {
         i18n.changeLanguage(navigator.language)

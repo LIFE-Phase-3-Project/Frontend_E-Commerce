@@ -27,7 +27,6 @@ module.exports = {
         "blue-dark": "#0d3ea7",
         "blue-medium": "#0840b8",
         "blue-light": "#0840b8",
-        "background-blue": "#1a1919",
         
         "pink-extra-dark": "#45122A",
         "pink-dark": "#60182F",
@@ -37,7 +36,15 @@ module.exports = {
         "pink-light-low-opacity": "#B26A81",
         "on-hover-pink": "#943F6A",
         "dark-cream":"#D1DDFA",
-        "dark-custom-purple": "#4C7766",
+        
+        "custom-purple": "#10002b",
+        "purple-extra-dark": "#240046",
+        "purple-dark": "#3c096c",
+        "purple-medium": "#5a189a",
+        "purple-light": "#7b2cbf",
+        "purple-extra-light": "#c77dff",
+
+
         "dark-on-hover-purple":"#3D5F52",
         "dark-light-pink":"#ACCEEE",
         "dark-on-hover-pink":"#7CB2E4",

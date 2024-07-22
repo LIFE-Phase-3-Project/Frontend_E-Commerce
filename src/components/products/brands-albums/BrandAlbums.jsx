@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
-import { useGetAllCategoriesQuery } from "../../../redux/api/categoriesApi"
 import { useEffect, useState } from "react";
+import { useGetAllBrandsQuery } from "../../../redux/api/brandsApi";
 
 export const BrandAlbums = () => {
-    const { data } = useGetAllCategoriesQuery();
+    const { data } = useGetAllBrandsQuery();
     const [documentWidth, setDocumentWidth] = useState(document.body.clientWidth);
     const [filteredData, setFilteredData] = useState([]);
 

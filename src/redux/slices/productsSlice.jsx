@@ -17,8 +17,13 @@ const productsSlice = createSlice({
             state.filters = { ...state.filters, ...action.payload };
         },
 
-        clearFilters: (state) => {
-            state.filters = {}
+        clearFilters: (state, action) => {
+            const { activePage, postsPerPage } = action.payload;
+            if(activePage || postsPerPage) {
+                state.filters = { _page: activePage, _per_page: postsPerPage}
+            } else {
+                state.filters = {}
+            }
         }
     }
 })

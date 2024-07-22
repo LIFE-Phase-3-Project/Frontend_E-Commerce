@@ -8,7 +8,7 @@ import { useCardStyles } from "./useCardStyles";
 import { Loader } from "../../../helpers/Loader";
 import { AppError } from "../../../helpers/AppError";
 
-export const SpecialOffers = () => {
+export const SpecialOffers = ({category=""}) => {
     const { data, error, isLoading } = useGetAllProductsQuery();
     const [randomProductId, setRandomProductId] = useState(0);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -43,7 +43,7 @@ export const SpecialOffers = () => {
             style={cardStyles}
         >
             <OfferDiscount />
-            <SpecialOffersContent productsWithOffers={productsWithOffers} randomProductId={randomProductId}/>
+            <SpecialOffersContent productsWithOffers={productsWithOffers} randomProductId={randomProductId} category={category}/>
             <SpecialOffersImage productsWithOffers={productsWithOffers} randomProductId={randomProductId}/>      
         </div>
     );

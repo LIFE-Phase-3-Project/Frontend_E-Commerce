@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { MultiRangeSlider } from "./multi-range-slider/MultiRangeSlider";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../../../../redux/slices/productsSlice";
+import { setFilters } from "../../../../../redux/slices/productsSlice";
+import { useDebounce } from "../../../../../helpers/hooks/useDebounce";
 
 export const Price = () => {
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(1000);
+    const debouncedMin = useDebounce(min, 500);
+    const debouncedMax = useDebounce(max, 500);
     const filters = useSelector((state) => state.products.filters);
 
-
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const handleMinChange = (e) => {
         const value = parseInt(e.target.value);
         if (!isNaN(value) && value >= 0 && value <= max) {
             setMin(value);
         }
-
     };
 
     const handleMaxChange = (e) => {
@@ -27,12 +28,12 @@ export const Price = () => {
     };
 
     useEffect(() => {
-        dispatch(setFilters({ price_gte: min}))
-    }, [min])
+        dispatch(setFilters({ price_gte: debouncedMin }));
+    }, [debouncedMin, dispatch]);
 
     useEffect(() => {
-        dispatch(setFilters({ price_lte: max }))
-    }, [max])
+        dispatch(setFilters({ price_lte: debouncedMax }));
+    }, [debouncedMax, dispatch]);
 
     useEffect(() => {
         if (!filters.price_gte && !filters.price_lte) {
@@ -43,10 +44,9 @@ export const Price = () => {
 
     return (
         <div className="price text-md p-3">
-            <div className="price-container flex">
-                <h3 className="w-20">Price: </h3>
-
-                <div className="inputs w-6/12 flex">
+            <div className="price-container flex justify-start items-center flex-wrap">
+                <h3 className="min-w-16">Price: </h3>
+                <div className="inputs w-12/12 lg:w-8/12 min-w-16 flex mt-2">
                     <input
                         type="text"
                         className="border border-green-light dark:border-pink-light w-full bg-transparent text-center"
@@ -62,7 +62,6 @@ export const Price = () => {
                     />
                 </div>
             </div>
-        
             <MultiRangeSlider
                 min={0}
                 max={1000}
