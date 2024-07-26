@@ -7,9 +7,7 @@ import { setTotalCount } from "../../../../redux/slices/paginationSlice";
 
 export const CategoryProducts = ({categoryId}) => {
     const filters = useSelector((state) => state.filters.filters);
-
     const { data, isLoading, error } = useGetAllProductsByCategoryQuery(categoryId,filters);
-
     const dispatch = useDispatch()
 
     useEffect(() => {

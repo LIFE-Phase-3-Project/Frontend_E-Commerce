@@ -1,7 +1,5 @@
 import { useDispatch } from "react-redux"
-// import { setFilters } from "../../../redux/slices/productsSlice";
 import { useEffect } from "react";
-import i18n from "../../../i18n/i18n";
 import { useTranslation } from "react-i18next";
 import { changeActivePage } from "../../../redux/slices/paginationSlice";
 import { setFilters } from "../../../redux/slices/filtersSlice";
@@ -11,7 +9,7 @@ export const OrderBy = () => {
     const { t, i18n } = useTranslation();
     const orderBy = (e) => {
         dispatch(changeActivePage(1))
-        dispatch(setFilters({_sort: "title", _order: e.target.value}))
+        dispatch(setFilters({SortOrder: e.target.value}))
     }
     
     useEffect(() => {
@@ -25,8 +23,8 @@ export const OrderBy = () => {
                             dark:bg-zinc-950 dark:text-white dark:outline-blue-light"
                 >
             <option value="" disabled selected>{t("orderBy")}</option>
-            <option value="asc">A-Z</option>
-            <option value="dasc">Z-A</option>
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
         </select>
     )
 }
