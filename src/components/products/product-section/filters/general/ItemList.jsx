@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const CategoryList = ({ items, renderItem }) => {
+export const ItemList = ({ items, renderItem }) => {
     return (
         <motion.div
             initial={{ y: -20, opacity: 0 }}

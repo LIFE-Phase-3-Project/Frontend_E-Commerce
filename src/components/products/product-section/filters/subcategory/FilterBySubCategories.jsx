@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetCategoryByIdQuery } from "../../../../../redux/api/categoriesApi";
 import { ProductsBySubCategories } from "./ProductsBySubCategories";
 import { FiltersDropdown } from "../general/FiltersDropDown";
-import { CategoryList } from "../general/CategoryList";
+import { ItemList } from "../general/ItemList";
 import { useSelector } from "react-redux";
 
 export const FilterBySubCategory = ({ category: categoryId, t }) => {
@@ -15,6 +15,9 @@ export const FilterBySubCategory = ({ category: categoryId, t }) => {
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);
 
+    console.log("Data")
+    console.log(data)
+
     useEffect(() => {
         data && setCategory(data[0])
     }, [category, data])
@@ -22,12 +25,12 @@ export const FilterBySubCategory = ({ category: categoryId, t }) => {
     return (
         <div className="filter-by-category">
             <FiltersDropdown
-                title={categoryId ? category?.title : t("categories")}
+                title={categoryId ? data?.categoryName : t("categories")}
                 isActive={isDropdownActive}
                 toggleDropdown={toggleDropdown}
             >
-                <CategoryList
-                        items={category?.subcategories || []}
+                <ItemList
+                        items={data?.subcategories || []}
                         renderItem={(subcategory, key) => (
                             <ProductsBySubCategories
                                 key={key}

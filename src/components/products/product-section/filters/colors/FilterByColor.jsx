@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { FiltersDropdown } from "../general/FiltersDropDown";
 import { Colors } from "./Colors";
-import { CategoryList } from "../general/CategoryList";
+import { ItemList } from "../general/ItemList";
 
 export const Color = () => {
     const colors = useMemo(() => [
@@ -51,7 +51,7 @@ export const Color = () => {
                 toggleDropdown={toggleDropdown}
               >
 
-          <CategoryList
+          <ItemList
               items={colors || []}
               renderItem={(color, key) => (
                   <Colors

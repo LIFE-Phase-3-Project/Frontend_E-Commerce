@@ -16,7 +16,7 @@ export const ProductCard = ({ product }) => {
         <div className="product-card relative w-64 h-96 mx-auto mt-10 lg:mt-6 flex flex-col">
             {isUserLoggedIn && <AddToWishListIcon product={product}/>}
 
-            <Link to={`${lastSegment === "products" ? product.category?.title + "/" + product.id : product.id }`} className="w-full h-full flex flex-col">
+            <Link to={`${lastSegment === "products" ? product?.categoryId + "/" + product.id : product.id }`} className="w-full h-full flex flex-col">
                 <ProductCardImage product={product}/>
                 <ProductCardContent product={product}/>
             </Link>

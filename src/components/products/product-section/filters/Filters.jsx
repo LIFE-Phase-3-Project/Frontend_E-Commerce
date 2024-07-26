@@ -36,7 +36,7 @@ export const Filters = ({ category = "", isHamburgerActive }) => {
                     ? <FilterBySubCategory category={category} t={t} />
                     : <FilterByCategory category={category} t={t}/>
                 }
-                <FilterByBrands t={t}/>
+                {/* <FilterByBrands t={t}/> */}
                 <Color />
                 <Price />
                 <h3 className="text-md p-3">{t("discountedProducts")}</h3>

@@ -39,7 +39,7 @@ export const AppRoutes = () => {
         const productDetailPattern = /^\/dashboard\/products\/\d+$/;
         const categoryDetailPattern = /^\/dashboard\/category\/\d+$/;
 
-        if (user?.role === "admin" && isDarkMode) {
+        if (user?.role === "admin" && isDarkMode && isDashboard) {
             document.body.style.backgroundColor = "#141b2d";
         } else if (
             createPattern.test(location.pathname) ||

@@ -43,8 +43,24 @@ export const productsApi = createApi({
         url: `Product/${id}`,
         method: 'DELETE',
       })
-    })
+    }),
+
+    getAllProductsByCategory: builder.query({
+      query: (id, filters= {}) => {
+        return {
+          url: `Product/category/${id}`,
+          params: filters
+        }
+      }
+    }),
   }),
 })
 
-export const { useGetAllProductsQuery, useGetProductByIdQuery, usePostProductMutation, useUpdateProductMutation, useDeleteProductMutation } = productsApi
+export const { 
+  useGetAllProductsQuery,
+  useGetProductByIdQuery,
+  usePostProductMutation,
+  useUpdateProductMutation,
+  useDeleteProductMutation, 
+  useGetAllProductsByCategoryQuery, 
+} = productsApi

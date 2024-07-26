@@ -7,8 +7,9 @@ export const AddToWishListIcon = ({ product }) => {
     const [addWishListEntry] = useAddWishListEntryMutation();
 
     const {data: wishlist} = useGetWishListEntriesQuery();
+    
     useEffect(() => {
-        const isProductInWishlist = wishlist.some(item => item.productId === product.id);
+        const isProductInWishlist = wishlist && wishlist.some(item => item.productId === product.id);
 
         setIsWishlistIconActive(isProductInWishlist);
     }, [product.id]);

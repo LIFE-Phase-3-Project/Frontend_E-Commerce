@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetAllCategoriesQuery } from "../../../../../redux/api/categoriesApi";
 import { FiltersDropdown } from "../general/FiltersDropDown";
-import { CategoryList } from "../general/CategoryList";
+import { ItemList } from "../general/ItemList";
 import { ProductsByCategories } from "./ProductsByCategories";
 import { useSelector } from "react-redux";
 
@@ -22,7 +22,7 @@ export const FilterByCategory = ({ category: categoryId, t }) => {
                     isActive={isDropdownActive}
                     toggleDropdown={toggleDropdown}
                 >
-                 <CategoryList
+                 <ItemList
                         items={data || []}
                         renderItem={(category,key) => (
                             <ProductsByCategories

@@ -8,8 +8,6 @@ export const MultiRangeSlider = ({ min, max, minVal, setMinVal, maxVal, setMaxVa
   const range = useRef(null);
   const filters = useSelector(state => state.filters.filters)
   
-  console.log("Filters here")
-  console.log(filters)
 
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),

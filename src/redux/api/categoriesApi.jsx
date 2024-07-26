@@ -22,7 +22,7 @@ export const categoriesApi = createApi({
       query: (id, filters={}) => {
         return {
           url: `Category/${id}`,
-          params: {id, ...filters}
+          params: filters
         }
       }
     }),

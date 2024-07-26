@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetAllBrandsQuery } from "../../../../../redux/api/brandsApi";
 import { FiltersDropdown } from "../general/FiltersDropDown";
-import { CategoryList } from "../general/CategoryList";
+import { ItemList } from "../general/ItemList";
 import { useSelector } from "react-redux";
 import { Brands } from "./Brands";
 
@@ -22,7 +22,7 @@ export const FilterByBrands = ({ t }) => {
                     isActive={isDropdownActive}
                     toggleDropdown={toggleDropdown}
                 >
-                 <CategoryList
+                 <ItemList
                         items={data || []}
                         renderItem={(brand, key) => (
                             <Brands
