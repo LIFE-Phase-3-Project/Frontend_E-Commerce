@@ -8,7 +8,7 @@ import { Brands } from "./Brands";
 export const FilterByBrands = ({ t }) => {
     const [isDropdownActive, setIsDropdownActive] = useState(false);
 
-    const filters = useSelector((state) => state.brands.filters);
+    const filters = useSelector((state) => state.filters.filters);
     const { data, isLoading } = useGetAllBrandsQuery({filters});
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);
@@ -24,8 +24,9 @@ export const FilterByBrands = ({ t }) => {
                 >
                  <CategoryList
                         items={data || []}
-                        renderItem={(brand) => (
+                        renderItem={(brand, key) => (
                             <Brands
+                                key={key}
                                 brand={brand}
                             />
                         )}/>

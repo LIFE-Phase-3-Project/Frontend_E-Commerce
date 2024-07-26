@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeActivePage } from "../../../../redux/slices/paginationSlice";
-import { setFilters } from '../../../../redux/slices/productsSlice';
 import { PaginationButton } from "./PaginationButton";
+import { setFilters } from "../../../../redux/slices/filtersSlice";
+
 export const Pagination = () => {
     const dispatch = useDispatch();
     const { activePage, postsPerPage, totalCount } = useSelector(state => state.pagination);
     const pages = Math.ceil(totalCount / postsPerPage);
 
+    
     useEffect(() => {
-        dispatch(setFilters({ _page: activePage, _per_page: postsPerPage }));
+        dispatch(setFilters({ page: activePage, pageSize: postsPerPage }));
     }, [activePage, dispatch, postsPerPage]);
 
     const handlePageChange = (newPage) => {

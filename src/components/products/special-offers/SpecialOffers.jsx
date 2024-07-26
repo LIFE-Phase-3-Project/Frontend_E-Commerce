@@ -17,7 +17,7 @@ export const SpecialOffers = ({category=""}) => {
     const handleMouseMove = useHandleMouseMove(setMousePosition);
     const cardStyles = useCardStyles(mousePosition);
   
-    const productsWithOffers = useMemo(() => data?.slice(0, 3), [data]);
+    const productsWithOffers = useMemo(() => data?.items?.slice(0, 3), [data]);
   
     useEffect(() => {
         if (productsWithOffers && productsWithOffers.length > 0 && !isMouseInside) { 

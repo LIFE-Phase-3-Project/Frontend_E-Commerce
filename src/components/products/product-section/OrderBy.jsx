@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux"
-import { setFilters } from "../../../redux/slices/productsSlice";
+// import { setFilters } from "../../../redux/slices/productsSlice";
 import { useEffect } from "react";
 import i18n from "../../../i18n/i18n";
 import { useTranslation } from "react-i18next";
 import { changeActivePage } from "../../../redux/slices/paginationSlice";
+import { setFilters } from "../../../redux/slices/filtersSlice";
 
 export const OrderBy = () => {
     const dispatch = useDispatch();

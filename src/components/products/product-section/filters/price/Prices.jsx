@@ -1,15 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { MultiRangeSlider } from "./multi-range-slider/MultiRangeSlider";
 import { useDispatch, useSelector } from "react-redux";
-import { setFilters } from "../../../../../redux/slices/productsSlice";
+// import { setFilters } from "../../../../../redux/slices/productsSlice";
 import { useDebounce } from "../../../../../helpers/hooks/useDebounce";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../../../i18n/i18n";
+import { setFilters } from "../../../../../redux/slices/filtersSlice";
 
 export const Price = () => {
     const [min, setMin] = useState(0);
     const [max, setMax] = useState(1000);
     const debouncedMin = useDebounce(min, 500);
     const debouncedMax = useDebounce(max, 500);
-    const filters = useSelector((state) => state.products.filters);
+    const filters = useSelector((state) => state.filters.filters);
+
+    const { t, i18n } = useTranslation();
+
+    useEffect(() => {
+        i18n.changeLanguage(navigator.language);
+    }, [i18n]);
+
 
     const dispatch = useDispatch();
 
@@ -27,25 +37,27 @@ export const Price = () => {
         }
     };
 
+
     useEffect(() => {
-        dispatch(setFilters({ price_gte: debouncedMin }));
+        dispatch(setFilters({ MinPrice: debouncedMin }));
     }, [debouncedMin, dispatch]);
 
     useEffect(() => {
-        dispatch(setFilters({ price_lte: debouncedMax }));
+        dispatch(setFilters({ MaxPrice: debouncedMax }));
     }, [debouncedMax, dispatch]);
 
     useEffect(() => {
-        if (!filters.price_gte && !filters.price_lte) {
+        if (!filters.MinPrice && !filters.MaxPrice) {
             setMin(0);
             setMax(1000);
+            console.log("Max " + max)
         }
     }, [filters]);
 
     return (
         <div className="price text-md p-3">
             <div className="price-container flex justify-start items-center flex-wrap">
-                <h3 className="min-w-16">Price: </h3>
+                <h3 className="min-w-16">{t("price")}: </h3>
                 <div className="inputs w-12/12 lg:w-8/12 min-w-16 flex mt-2">
                     <input
                         type="text"

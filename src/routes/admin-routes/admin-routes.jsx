@@ -1,4 +1,19 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Route } from "react-router-dom"
+import { AdminDashboard } from '../../pages/admin/AdminDashboard'
+import { AdminDashboardProducts } from '../../pages/admin/AdminDashboardProducts';
+import { AdminDashboardBrands } from '../../pages/admin/AdminDashboardBrands';
+import { AdminDashboardCategories } from '../../pages/admin/AdminDashboardCategories';
+import { AdminDashboardUsers } from '../../pages/admin/AdminDashboardUsers';
+import { AdminEditProduct } from '../../pages/admin/edit/AdminEditProduct';
+import { AdminCreateProduct } from '../../pages/admin/create/AdminCreateProduct';
 
 export const AdminRoutes = [
+    <Route key={uuidv4()} path="/dashboard" element={<AdminDashboard />}/>,
+    <Route key={uuidv4()} path="/dashboard/products" element={<AdminDashboardProducts />}/>,
+    <Route key={uuidv4()} path="/dashboard/products/:id" element={<AdminEditProduct />}/>,
+    <Route key={uuidv4()} path="/dashboard/products/create" element={<AdminCreateProduct />}/>,
+    <Route key={uuidv4()} path="/dashboard/categories" element={<AdminDashboardCategories />}/>,
+    <Route key={uuidv4()} path="/dashboard/brands" element={<AdminDashboardBrands />}/>,
+    <Route key={uuidv4()} path="/dashboard/users" element={<AdminDashboardUsers />}/>,
 ]

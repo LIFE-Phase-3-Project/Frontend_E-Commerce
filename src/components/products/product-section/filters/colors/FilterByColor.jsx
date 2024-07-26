@@ -53,8 +53,9 @@ export const Color = () => {
 
           <CategoryList
               items={colors || []}
-              renderItem={(color) => (
+              renderItem={(color, key) => (
                   <Colors
+                      key={key}
                       color={color}
                   />
               )}/>

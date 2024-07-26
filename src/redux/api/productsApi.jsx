@@ -10,21 +10,21 @@ export const productsApi = createApi({
 
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: (filter= {}) => {
+      query: (filters= {}) => {
         return {
-          url: "products",
-          params: filter
+          url: "Product/search",
+          params: filters
         }
       }
     }),
 
     getProductById: builder.query({
-      query: (id) => `products?id=${id}`,
+      query: (id) => `Product/${id}`,
     }),
 
     postProduct: builder.mutation({
       query: (newProduct) => ({
-        url: 'products',
+        url: 'Product',
         method: 'POST',
         body: newProduct,
       }),
@@ -32,7 +32,7 @@ export const productsApi = createApi({
 
     updateProduct: builder.mutation({
       query: ({ id, updatedProduct }) => ({
-        url: `products/${id}`,
+        url: `Product/${id}`,
         method: 'PUT', 
         body: updatedProduct,
       }),
@@ -40,7 +40,7 @@ export const productsApi = createApi({
 
     deleteProduct: builder.mutation({
       query: (id) => ({
-        url: `products/${id}`,
+        url: `Product/${id}`,
         method: 'DELETE',
       })
     })

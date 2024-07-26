@@ -7,9 +7,11 @@ import { useParams } from "react-router-dom";
 export const ProductsCategory = () => {
   const route = useParams();
 
+  console.log("route")
+  console.log(route.category)
   return (
     <div className="products products-category-page mt-32">
-        <SpecialOffers />
+        <SpecialOffers category={route.category}/>
         <BrandAlbums />
         <ProductSection category={route.category}/>
     </div>

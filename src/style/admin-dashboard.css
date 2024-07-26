@@ -1,0 +1,25 @@
+.dashboard-sidebar-hamburger span {
+    width: 26px;
+    height: 3px;
+    margin-top: 5px;
+    margin-right: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dashboard-sidebar-hamburger span:first-child{
+    margin-top: 0;
+}
+
+.dashboard-sidebar-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(11px);}
+.dashboard-sidebar-hamburger.active span:nth-child(2) { opacity: 0; }
+.dashboard-sidebar-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(11px); }
+
+@media (max-width: 768px) {
+    .translate-x-0 {
+        transform: translateX(0);
+    }
+    
+    .-translate-x-full {
+        transform: translateX(-80%);
+    }
+}

@@ -1,10 +1,15 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import "./mrs.css";
+import { useSelector } from "react-redux";
 
 export const MultiRangeSlider = ({ min, max, minVal, setMinVal, maxVal, setMaxVal, onChange }) => {
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const range = useRef(null);
+  const filters = useSelector(state => state.filters.filters)
+  
+  console.log("Filters here")
+  console.log(filters)
 
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
@@ -56,13 +61,21 @@ export const MultiRangeSlider = ({ min, max, minVal, setMinVal, maxVal, setMaxVa
     }
   };
 
+  useEffect(() => {
+    // if(!filters.price_gte || !filters.price_lte) {
+    //   setMinVal(0)
+    //   setMaxVal(1000)
+
+    // }
+  }, [filters])
+
   return (
     <div className="container h-16 flex items-center justify-center">
       <input
           type="range"
           min={min}
           max={max}
-          value={minVal}
+          defaultValue={minVal}
           onChange={handleMinChange}
           className="thumb thumb-left absolute w-10/12 outline-none h-0 pointer-events-none z-30"
           style={{ zIndex: minVal > max - 100 && "5" }}
@@ -71,7 +84,7 @@ export const MultiRangeSlider = ({ min, max, minVal, setMinVal, maxVal, setMaxVa
           type="range"
           min={min}
           max={max}
-          value={maxVal}
+          defaultValue={maxVal}
           onChange={handleMaxChange}
           className="thumb thumb-right absolute w-10/12 outline-none h-0 z-40 pointer-events-none"
       />

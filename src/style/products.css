@@ -3,12 +3,17 @@
 :root {
     --filters-bg: #017a5452;
     --product-bg-color-image: #f1ecec;
+    --scrollbar-thumb-color: #6AB29B;;
+    --scrollbar-thumb-color-hover: #186049;
 }
 .dark {
     --filters-bg: #7a012752;
     --product-bg-color-image: #122b4b8a;
+    --green-dark: #186049;
+    --scrollbar-thumb-color: #01329b;
+    --scrollbar-thumb-color-hover: #0d3ea7;
 }
-
+  
 .offer-discount {
     font-family: 'Falling Sky', sans-serif;
 }
@@ -64,6 +69,35 @@
     background-color: var(--filters-bg);
     cursor: pointer;
 }
+
+.filter-by-brands li:hover{
+    background-color: var(--filters-bg);
+}
+
+.filters-by li:hover {
+    background-color: var(--filters-bg);
+    transition: all ease-in-out 0.1s;
+}
+
+/* dropdown-content scrollbar */
+.dropdown-content::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+.dropdown-content::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+  
+.dropdown-content::-webkit-scrollbar-thumb {
+    /* background: #6AB29B; */
+    background: var(--scrollbar-thumb-color);
+    border-radius: 5px; 
+}
+  
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+background-color: var(--scrollbar-thumb-color-hover);
+}
+  
 
 .product-card .bg-image-color {
     /* background-color: #f1ecec; */

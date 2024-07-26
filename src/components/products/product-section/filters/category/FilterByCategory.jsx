@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 export const FilterByCategory = ({ category: categoryId, t }) => {
     const [isDropdownActive, setIsDropdownActive] = useState(false);
 
-    const filters = useSelector((state) => state.categories.filters);
+    const filters = useSelector((state) => state.filters.filters);
     const { data, isLoading } = useGetAllCategoriesQuery({filters});
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);
@@ -18,14 +18,15 @@ export const FilterByCategory = ({ category: categoryId, t }) => {
     return (
         <div className="filter-by-category">
             <FiltersDropdown
-                    title={categoryId ? data?.title : t("categories")}
+                    title={categoryId ? data?.categoryName : t("categories")}
                     isActive={isDropdownActive}
                     toggleDropdown={toggleDropdown}
                 >
                  <CategoryList
                         items={data || []}
-                        renderItem={(category) => (
+                        renderItem={(category,key) => (
                             <ProductsByCategories
+                                key={key}
                                 category={category}
                             />
                         )}/>

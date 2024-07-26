@@ -1,17 +1,19 @@
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
+import { useAddWishListEntryMutation, useGetWishListEntriesQuery } from "../../../../redux/api/wishListApi";
 
 export const AddToWishListIcon = ({ product }) => {
     const [isWishlistIconActive, setIsWishlistIconActive] = useState(false);
+    const [addWishListEntry] = useAddWishListEntryMutation();
 
+    const {data: wishlist} = useGetWishListEntriesQuery();
     useEffect(() => {
-        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const isProductInWishlist = wishlist.some(item => item.id === product.id);
-        
+        const isProductInWishlist = wishlist.some(item => item.productId === product.id);
+
         setIsWishlistIconActive(isProductInWishlist);
     }, [product.id]);
 
-    const handleWishlistIcon = () => {
+    const handleWishlistIcon = async () => {
         const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
         if (isWishlistIconActive) {
@@ -20,6 +22,12 @@ export const AddToWishListIcon = ({ product }) => {
         } else {
             wishlist.push(product);
             localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            try {
+                await addWishListEntry(product.id, product).unwrap();
+                setIsWishlistIconActive(true);
+            } catch (error) {
+                console.error('Failed to add to wishlist: ', error);
+            }
         }
 
         setIsWishlistIconActive(!isWishlistIconActive);
@@ -32,5 +40,5 @@ export const AddToWishListIcon = ({ product }) => {
                 : <IoHeartOutline size={25} className="wishlist-icon cursor-pointer text-black dark:text-gray-200" />
             }
         </div>
-    )
-}
+    );
+};

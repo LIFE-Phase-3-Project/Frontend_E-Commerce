@@ -10,7 +10,7 @@ export const FilterBySubCategory = ({ category: categoryId, t }) => {
     const [category, setCategory] = useState({})
 
     
-    const filters = useSelector((state) => state.products.filters);
+    const filters = useSelector((state) => state.filters.filters);
     const { data } = useGetCategoryByIdQuery(categoryId, {filters});
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);

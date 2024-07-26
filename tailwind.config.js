@@ -13,6 +13,7 @@ module.exports = {
         "green-medium": "#3F9469",
         "green-light": "#6AB29B",
         "green-extra-light": "#8cd6b6ac",
+        "green-super-light": "#a7fed88f",
         "green-light-low-opacity": "#6ab29b7e",
         "on-hover-green": "#2a443a",
         "cream":"#FAEED1",
@@ -20,6 +21,8 @@ module.exports = {
         "on-hover-purple":"#5f3d4a",
         "light-pink":"#EECCAC",
         "on-hover-pink":"#e4ae7c",
+        "overlay": "#000000b3",
+
 
         /* Dark mode colors */
         "custom-blue" : "rgb(17 24 39 / var(--tw-bg-opacity))",
@@ -48,6 +51,12 @@ module.exports = {
         "dark-on-hover-purple":"#3D5F52",
         "dark-light-pink":"#ACCEEE",
         "dark-on-hover-pink":"#7CB2E4",
+
+        // dark for admin dashboard
+        "admin-blue-color": "#141b2d",
+        "admin-sidebar-color": "#1F2A40",
+        "dashboard-light-color": "#727681",
+        "dashboard-extra-light": "#d0d1d5"
       }
     },
     screens:{

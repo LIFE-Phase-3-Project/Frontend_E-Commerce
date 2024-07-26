@@ -5,16 +5,16 @@ import { OrderBy } from "./OrderBy"
 import { ProductSectionLeft } from "./ProductSectionLeft"
 import { Search } from "./Search"
 import { useEffect } from "react"
-import { setFilters } from "../../../redux/slices/productsSlice"
 import { Pagination } from "./Pagination/Pagination"
 import { setPaginationValues } from "../../../redux/slices/paginationSlice"
+import { setFilters } from "../../../redux/slices/filtersSlice"
 
 export const ProductSection = ({category=""}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(setPaginationValues({activePage: 1, postsPerPage: 12}))
-        dispatch(setFilters({ _page: 1, _per_page: 12 }))
+        dispatch(setFilters({ page: 1, pageSize: 12 }))
     },[])
 
     return (

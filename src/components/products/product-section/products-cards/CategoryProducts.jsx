@@ -5,7 +5,7 @@ import { useGetCategoryByIdQuery } from "../../../../redux/api/categoriesApi";
 
 export const CategoryProducts = ({categoryId}) => {
     const [category, setCategory] = useState(null)
-    const filters = useSelector((state) => state.categories.filters);
+    const filters = useSelector((state) => state.filters.filters);
 
     const { data, error, isLoading } = useGetCategoryByIdQuery(categoryId,filters);
 
