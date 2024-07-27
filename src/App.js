@@ -5,17 +5,14 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 
-function App() {
-  
+function App() {  
   const location = useLocation();
   const darkMode = useSelector(state => state.darkTheme.darkMode);
-
-  console.log("darkMode")
-  console.log(darkMode)
 
   useEffect(() => {
     document.body.className = darkMode ? "dark" : ""
   }, [darkMode, location.pathName])
+
   return (
     <div className="App">
       

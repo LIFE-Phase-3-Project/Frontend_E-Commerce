@@ -12,3 +12,17 @@
     left: 100%;
   }
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-20px) rotate(6deg);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(20px) rotate(-6deg);
+  }
+}

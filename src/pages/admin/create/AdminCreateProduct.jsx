@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Modal } from "../../../helpers/Modal";
 import { CreateForm } from "../../../components/admin/create/CreateForm";
@@ -21,6 +22,11 @@ export const AdminCreateProduct = () => {
     const [modalMessage, setModalMessage] = useState("");
 
     const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        navigate(basePath);
+    };
 
     const fieldsForInput = [
         { field: "title", type: "text" },
@@ -94,7 +100,7 @@ export const AdminCreateProduct = () => {
 
     return (
         <div className="flex flex-col items-center py-5 relative">
-            <div className="return-back absolute top-4 left-5">
+            <div className="return-back absolute top-4 left-5 cursor-pointer" onClick={handleBackClick}>
                 <IoArrowBackSharp size={30} color="white"/>
             </div>
             <h2 className="text-white">Create a new product</h2>

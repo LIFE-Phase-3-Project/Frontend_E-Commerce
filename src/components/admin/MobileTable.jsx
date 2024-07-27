@@ -1,8 +1,11 @@
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import React from 'react';
+import { IoMdAdd } from "react-icons/io";
+import { MdNavigateBefore } from "react-icons/md";
+import { MdNavigateNext } from "react-icons/md";
 
-export const MobileTable = ({ name, data,theadTh, deletingId, handleDelete, page, setPage, nrOfPages }) => {
+export const MobileTable = ({ name, data,theadTh, deletingId, handleDelete, page, setPage, nrOfPages, itemName }) => {
     const handlePageChange = (prev=null) => {
         prev === "prev" ? setPage(page -1) : setPage(page +1)
         window.scrollTo(0, 0);
@@ -40,23 +43,29 @@ export const MobileTable = ({ name, data,theadTh, deletingId, handleDelete, page
                     </React.Fragment>
                 ))}
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
-                    <td colSpan={theadTh.length} className="text-end py-1 pr-16 text-sm">
-                    <button 
+                    <td className="text-center">
+                        <Link to={'create'} className="flex items-center justify-center">
+                            Create {itemName} <IoMdAdd className="ml-2" size={20}/>
+                        </Link>
+                    </td>
+
+                    <td className="text-end py-1 pr-8 text-sm flex items-center justify-end">
+                        <button 
                             disabled={page === 1}
                             onClick={() => handlePageChange("prev")}
                             className={page === 1 && "opacity-50"}
                             >
-                            Prev
+                            <MdNavigateBefore size={20}/>
                         </button>
                         
-                        <span className="mx-3">Page: {page} of {nrOfPages}</span>
+                        <span className="mx-3">{page} of {nrOfPages}</span>
                         
                         <button 
                             disabled={page === nrOfPages}
                             onClick={handlePageChange}
                             className={page === nrOfPages && "opacity-50"}
                             >
-                            Next
+                            <MdNavigateNext size={20}/>
                         </button>
                     </td>
                 </tr>

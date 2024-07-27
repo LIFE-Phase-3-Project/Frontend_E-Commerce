@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/images/logos/logoTemporary.png';
-import { useLocation, matchPath  } from 'react-router-dom';
+import { useLocation, matchPath, Navigate, useNavigate, Link  } from 'react-router-dom';
 import { MdOutlineNightlight } from "react-icons/md";
 import { MdOutlineNightlightRound } from "react-icons/md";
 import DarkTheme from "../../components/theme/DarkModeToggle";
 import MenuItemComp from './MenuItemComp';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLogout } from '../../redux/slices/userSlice'
 
 
 function NavBar() {
@@ -28,6 +30,15 @@ const[darkBackgroundColor, setDarkBackgroundColor] = useState("transparent");
 const location = useLocation();
 // const[textColor, setTextColor] = useState("cream");
 
+const user = useSelector(state => state.user);
+const dispatch = useDispatch();
+const navigate = useNavigate()
+
+
+const signOut = () => {
+  dispatch(setLogout())
+  navigate('/')
+}
 
 
 useEffect(() => {
@@ -108,20 +119,33 @@ useEffect(() => {
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                  <Link to="#" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     Your Profile
-                  </a>
+                  </Link>
                 </MenuItem>
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                  <Link to="#" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     WishList
-                  </a>
+                  </Link>
+                </MenuItem>
+
+                <MenuItem>
+                  <Link to="/products" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                    Products
+                  </Link>
                 </MenuItem>
                 
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                  { user?.isLoggedIn
+                  ? 
+                  <Link onClick={signOut} className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     Sign out
-                  </a>
+                  </Link>
+                  :
+                  <Link to="/login" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                    Log in
+                  </Link>
+                  }
                 </MenuItem>
               </MenuItems>
             </Menu>

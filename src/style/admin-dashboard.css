@@ -14,6 +14,16 @@
 .dashboard-sidebar-hamburger.active span:nth-child(2) { opacity: 0; }
 .dashboard-sidebar-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(11px); }
 
+.create-form {
+    margin-top: 10px;
+    min-width: 520px
+}
+
+@media (max-width: 1000px) {
+    .create-form {
+        min-width: 460px
+    }
+}
 @media (max-width: 768px) {
     .translate-x-0 {
         transform: translateX(0);
@@ -21,5 +31,9 @@
     
     .-translate-x-full {
         transform: translateX(-80%);
+    }
+
+    .create-form {
+        min-width: 270px
     }
 }

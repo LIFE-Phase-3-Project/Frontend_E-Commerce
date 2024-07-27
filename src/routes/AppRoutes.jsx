@@ -7,9 +7,13 @@ import ScrollToTop from "./ScrollToTop";
 import { useSelector } from "react-redux";
 import { AdminDashboardSideBar } from "../layouts/sidebar/admin/AdminDashboardSideBar";
 import { useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import { Login } from "../pages/auth/Login";
+import { Register } from "../pages/auth/Register";
+
 
 export const AppRoutes = () => {
-    const routesWithoutNavbar = ["/login"];
+    const routesWithoutNavbar = ["/login", "/register"];
     const isDarkMode = useSelector(state => state.darkTheme.darkMode);
     const location = useLocation();
     const user = useSelector(state => state.user);
@@ -62,6 +66,14 @@ export const AppRoutes = () => {
                     <Routes>
                         {DefaultRoutes}
                         {user?.role === "admin" && AdminRoutes}
+
+                        {
+                            !user.isLoggedIn &&
+                            <>
+                                <Route key={uuidv4()} path="/login" element={<Login />}/>
+                                <Route key={uuidv4()} path="/register" element={<Register />}/>                      
+                            </>
+                        }
                         <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl">Page not found</h1></div>} />
                     </Routes>
                 </div>

@@ -7,8 +7,6 @@ import { useGetWishListEntriesQuery } from "../redux/api/wishListApi";
 export const Products = () => {
   const { data } = useGetWishListEntriesQuery();
 
-  console.log("data")
-  console.log(data)
   return (
     <div className="products mt-32">
       <SpecialOffers />

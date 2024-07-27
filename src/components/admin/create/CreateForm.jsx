@@ -1,3 +1,8 @@
+import { ArrayInputFields } from "./ArrayInputFields";
+import { TextInputFields } from "./TextInputFields";
+import { NumberInputFields } from "./NumberInputFields";
+import { Formik } from "formik";
+
 export const CreateForm = ({ fieldsForInput, formData, setFormData, onSubmit, isAdding }) => {
 
     const handleChange = (e) => {
@@ -24,71 +29,32 @@ export const CreateForm = ({ fieldsForInput, formData, setFormData, onSubmit, is
     };
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-admin-sidebar-color px-10 border-2 border-green-medium shadow-md shadow-green-light-low-opacity dark:border-dashboard-light-color rounded-lg w-5/12 p-4">
-            <div className="grid grid-cols-1 gap-4">
-                {fieldsForInput
-                    .filter(({ type }) => type === "text")
-                    .map(({ field, type }) => (
-                        <div key={field} className="mb-4 w-full flex flex-col justify-center m-auto">
-                            <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
-                                {field}
-                            </label>
-                            <input
-                                className="mt-1 block w-full p-2 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md"
-                                type={type}
-                                id={field}
-                                name={field}
-                                value={formData[field] || ''}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-            </div>
-            <div className="grid grid-cols-1 gap-4">
-                {fieldsForInput
-                    .filter(({ type }) => type === "array")
-                    .map(({ field, type }) => (
-                        <div key={field} className="mb-4 w-full flex flex-col justify-center m-auto">
-                            <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
-                                {field} (comma separated)
-                            </label>
-                            <input
-                                className="mt-1 block w-full p-2 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md"
-                                type="text"
-                                id={field}
-                                name={field}
-                                value={formData[field] ? formData[field].join(",") : ''}
-                                onChange={handleArrayChange}
-                            />
-                        </div>
-                    ))}
-            </div>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-                {fieldsForInput
-                    .filter(({ type }) => type === "number")
-                    .map(({ field, type }) => (
-                        <div key={field} className="mb-4">
-                            <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
-                                {field}
-                            </label>
-                            <input
-                                className="mt-1 block w-full p-2 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md"
-                                type={type}
-                                id={field}
-                                name={field}
-                                value={formData[field] || ''}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-            </div>
+        <Formik>
+        <form onSubmit={handleSubmit} 
+              className="create-form px-10 border-2 shadow-md rounded-lg p-4
+                w-10/12 sm:w-8/12 md:w-6/12 md:min-w-96 lg:w-5/12 lg:min-w-96
+                bg-white shadow-green-light-low-opacity border-green-medium
+                dark:bg-admin-sidebar-color dark:border-dashboard-light-color
+            ">
+
+            <TextInputFields fieldsForInput={fieldsForInput} handleChange={handleChange} formData={formData}/>
+            <ArrayInputFields fieldsForInput={fieldsForInput} handleArrayChange={handleArrayChange} formData={formData}/>
+            <NumberInputFields fieldsForInput={fieldsForInput} handleChange={handleChange} formData={formData}/>
+            
+           
             <button
                 type="submit"
-                className="bg-green-dark hover:bg-green-extra-dark dark:bg-blue-700 dark:hover:bg-blue-medium text-white px-4 py-2 rounded-md flex m-auto mt-4"
                 disabled={isAdding}
+                className="bg-green-dark 
+                            hover:bg-green-extra-dark 
+                            dark:bg-blue-700 
+                            dark:hover:bg-blue-medium 
+                            text-white 
+                            px-4 py-2 rounded-md flex m-auto mt-4"
             >
                 {isAdding ? 'Creating...' : 'Create Product'}
             </button>
         </form>
+        </Formik>
     );
 };

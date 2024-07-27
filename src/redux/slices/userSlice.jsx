@@ -56,6 +56,9 @@ const userAuthSlice = createSlice({
       state.phoneNumber = null;
       state.role = "";
       localStorage.removeItem('user');
+      localStorage.removeItem('wishlist');
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       localStorage.removeItem('user-role');
     },
     setUserRole: (state, action) => {

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Modal } from "../../../helpers/Modal";
 import { AppError } from "../../../helpers/AppError";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useGetProductByIdQuery, useUpdateProductMutation } from "../../../redux/api/productsApi";
 import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
 
 export const AdminEditProduct = () => {
+    const navigate = useNavigate();
     const params = useParams();
     const { data, isLoading, error } = useGetProductByIdQuery(params?.id);
     const [formData, setFormData] = useState({});
@@ -17,6 +18,7 @@ export const AdminEditProduct = () => {
     const fieldsForInput = [
         { field: "title", type: "text" },
         { field: "description", type: "text" },
+        { field: "image", type: "text" },  // Include image as array
         { field: "categoryId", type: "number" },
         { field: "subCategoryId", type: "number" },
         { field: "color", type: "text" },
@@ -27,7 +29,10 @@ export const AdminEditProduct = () => {
 
     useEffect(() => {
         if (data) {
-            setFormData(data);
+            setFormData({
+                ...data,
+                image: data.image.join(",")  // Convert image array to comma-separated string
+            });
         }
     }, [data]);
 
@@ -35,6 +40,7 @@ export const AdminEditProduct = () => {
         if (isSuccess) {
             setShowModal(true);
             setModalMessage("Product updated successfully!");
+            navigate('/dashboard/products');
         } else if (isError) {
             setShowModal(true);
             setModalMessage("Failed to update the product");
@@ -43,12 +49,21 @@ export const AdminEditProduct = () => {
 
     const handleUpdate = async () => {
         if (formData) {
+            const updatedData = {
+                ...formData,
+                image: formData.image.split(",")  // Convert comma-separated string back to array
+            };
             try {
-                await updateProduct({ id: params.id, updatedProduct: formData }).unwrap();
+                await updateProduct({ id: params.id, updatedProduct: updatedData }).unwrap();
             } catch (error) {
                 console.error('Failed to update the product:', error);
             }
         }
+    };
+
+    const handleBackClick = () => {
+        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+        navigate(basePath);
     };
 
     if (isLoading) return <p>Loading...</p>;
@@ -56,7 +71,7 @@ export const AdminEditProduct = () => {
 
     return (
         <div className="flex flex-col items-center py-5 relative">
-            <div className="return-back absolute top-4 left-5">
+            <div className="return-back absolute top-4 left-5 cursor-pointer" onClick={handleBackClick}>
                 <IoArrowBackSharp size={30} color="white"/>
             </div>
             <h2 className="text-white">Edit product with id: {params?.id}</h2>

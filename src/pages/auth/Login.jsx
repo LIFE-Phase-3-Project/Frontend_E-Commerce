@@ -1,8 +1,8 @@
-import { LoginForm } from "../components/login/LoginForm";
-import Wave from '../assets/images/wave.png'
-import DarkWave from '../assets/images/dark-wave.png'
-import Secure from '../assets/images/svg/secure.svg'
-import DarkSecure from '../assets/images/svg/dark-secure.svg'
+import { LoginForm } from "../../components/auth/login/LoginForm";
+import Wave from '../../assets/images/wave.png'
+import DarkWave from '../../assets/images/dark-wave.png'
+import Secure from '../../assets/images/svg/secure.svg'
+import DarkSecure from '../../assets/images/svg/dark-secure.svg'
 import { useSelector } from "react-redux";
 
 

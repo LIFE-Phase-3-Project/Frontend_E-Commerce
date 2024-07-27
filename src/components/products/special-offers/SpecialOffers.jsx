@@ -5,8 +5,8 @@ import { SpecialOffersImage } from "./SpecialOffersImage";
 import { useHandleMouseMove } from "./useHandleMouseMove";
 import { OfferDiscount } from "./OfferDiscount";
 import { useCardStyles } from "./useCardStyles";
-import { Loader } from "../../../helpers/Loader";
 import { AppError } from "../../../helpers/AppError";
+import { SpecialOffersSkeleton } from "../../../helpers/skeletons/SpecialOffersSkeleton";
 
 export const SpecialOffers = ({category=""}) => {
     const { data, error, isLoading } = useGetAllProductsQuery();
@@ -29,7 +29,7 @@ export const SpecialOffers = ({category=""}) => {
         }
     }, [productsWithOffers, randomProductId, isMouseInside]); 
   
-    if (isLoading) return <Loader />;
+    if (isLoading) return <SpecialOffersSkeleton />;
     if (error) return <AppError msg={"Error loading products"}/> 
 
     return (

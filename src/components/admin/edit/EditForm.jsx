@@ -1,12 +1,22 @@
 import { useEffect } from "react";
+import { Field, Formik } from "formik";
+import { ArrayInputFields } from "../create/ArrayInputFields";  // Import the ArrayInputFields component
 
-export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit, isUpdating,itemName }) => {
+export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit, isUpdating, itemName }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
+        });
+    };
+
+    const handleArrayChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value.split(",").map(item => item.trim())
         });
     };
 
@@ -24,6 +34,7 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
     }, [data]);
 
     return (
+        <Formik>
         <form onSubmit={handleSubmit} className="bg-white dark:bg-admin-sidebar-color px-10 border-2 border-green-medium shadow-md shadow-green-light-low-opacity dark:border-dashboard-light-color rounded-lg w-5/12 p-4">
             <div className="grid grid-cols-1 gap-4">
                 {fieldsForInput
@@ -44,6 +55,11 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
                         </div>
                     ))}
             </div>
+            <ArrayInputFields
+                fieldsForInput={fieldsForInput}
+                handleArrayChange={handleArrayChange}
+                formData={formData}
+            />
             <div className="grid grid-cols-2 gap-4 mt-4">
                 {fieldsForInput
                     .filter(({ type }) => type === "number")
@@ -71,5 +87,6 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
                 {isUpdating ? 'Updating...' : `Update ${itemName}`}
             </button>
         </form>
+        </Formik>
     );
 };

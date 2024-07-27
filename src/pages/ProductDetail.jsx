@@ -8,30 +8,36 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
 import ReviewSection from "../components/product-details/review/ReviewSection";
 import Recommendations from "../components/product-details/recommendations/Recommendations";
+import { useGetProductByIdQuery } from "../redux/api/productsApi";
 
 
 const ProductDetail = () => {
   const [productDetailItem, setProductDetailItem] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:8000/products/1');
-        if (!response.ok) {
-          throw new Error('Failed to fetch product data');
-        }
-        const data = await response.json();
-        setProductDetailItem(data); 
-      } catch (error) {
-        console.error('Error fetching product data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const { data, isLoading: loading } = useGetProductByIdQuery(5)
+  console.log("data")
+  console.log(data)
 
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       // const response = await fetch('http://localhost:8000/products/1');
+  //       // if (!response.ok) {
+  //       //   throw new Error('Failed to fetch product data');
+  //       // }
+  //       // const data = await response.json();
+  //       const { data } = useGetProductByIdQuery(1)
+  //       setProductDetailItem(data); 
+  //     } catch (error) {
+  //       console.error('Error fetching product data:', error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   const increment = () => {
     setProductDetailItem(prevState => ({
@@ -47,6 +53,10 @@ const ProductDetail = () => {
     }));
   };
 
+  useEffect(() => {
+    setProductDetailItem(data)
+  }, [data])
+
   const plusMinuceButton =
   "flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500";
   if (loading || !productDetailItem) {
@@ -58,7 +68,7 @@ const ProductDetail = () => {
     //     // Any other side effects you want to perform when stock changes
     //   }, [productDetailItem.stock]);
 
-    const images = productDetailItem.image.map((image, index) => ({
+    const images = productDetailItem?.image.map((image, index) => ({
       original: image,
       thumbnail: index < productDetailItem.image.length - 1 ? productDetailItem.image[index + 1] : image
     }));
@@ -81,7 +91,7 @@ const ProductDetail = () => {
 
       <div className="mx-auto px-5 lg:px-5 dark:text-cream">
         <h2 className="pt-3 text-2xl font-bold lg:pt-0 dark: text-cream">
-          {productDetailItem.title}
+          {productDetailItem?.title}
         </h2>
         <div className="mt-1">
           <div className="flex items-center">
@@ -107,7 +117,7 @@ const ProductDetail = () => {
         </p>
         <p className="font-bold">
           Cathegory:{" "}
-          <span className="font-normal">{productDetailItem.category.title}</span>
+          <span className="font-normal">{productDetailItem.category?.title}</span>
         </p>
         <p className="mt-4 text-4xl font-bold text-custom-green">
           ${productDetailItem.price}{" "}
@@ -115,7 +125,7 @@ const ProductDetail = () => {
         </p>
         <p className="mt-5 font-bold">
           
-          {productDetailItem.location.country=="Kosove" ? (
+          {productDetailItem.location?.country=="Kosove" ? (
             <span className="text-red-600 text-sm">Next Day Delivery  <FontAwesomeIcon icon={faCartShopping} /></span>
           ) : <></>}
         </p>
@@ -125,7 +135,7 @@ const ProductDetail = () => {
         <div className="mt-6">
           <p className="pb-2 text-xs text-gray-500">Size</p>
           <div className="flex gap-1" >
-            {productDetailItem.size.map((x, index) => {
+            {productDetailItem.size && productDetailItem.size.map((x, index) => {
               return (
                 <div
                   key={index}
