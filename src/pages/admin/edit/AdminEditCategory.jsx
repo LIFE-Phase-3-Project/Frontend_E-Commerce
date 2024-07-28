@@ -2,35 +2,27 @@ import { useState, useEffect } from "react";
 import { Modal } from "../../../helpers/Modal";
 import { AppError } from "../../../helpers/AppError";
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetProductByIdQuery, useUpdateProductMutation } from "../../../redux/api/productsApi";
 import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
+import { useGetCategoryByIdQuery, useUpdateCategoryMutation } from "../../../redux/api/categoriesApi";
 
-export const AdminEditProduct = () => {
+export const AdminEditCategory = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const { data, isLoading, error } = useGetProductByIdQuery(params?.id);
+    const { data, isLoading, error } = useGetCategoryByIdQuery(params?.id);
     const [formData, setFormData] = useState({});
-    const [updateProduct, { isLoading: isUpdating, isError, isSuccess }] = useUpdateProductMutation();
+    const [updateCategory, { isLoading: isUpdating, isError, isSuccess }] = useUpdateCategoryMutation();
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
 
     const fieldsForInput = [
-        { field: "title", type: "text" },
-        { field: "description", type: "text" },
-        { field: "image", type: "text" },
-        { field: "subCategoryId", type: "number" },
-        { field: "color", type: "text" },
-        { field: "price", type: "number" },
-        { field: "ratings", type: "number" },
-        { field: "stock", type: "number" }
+        { field: "categoryName", type: "text" },
     ];
 
     useEffect(() => {
         if (data) {
             setFormData({
                 ...data,
-                image: data.image.join(",") 
             });
         }
     }, [data]);
@@ -38,11 +30,11 @@ export const AdminEditProduct = () => {
     useEffect(() => {
         if (isSuccess) {
             setShowModal(true);
-            setModalMessage("Product updated successfully!");
-            navigate('/dashboard/products');
+            setModalMessage("Category updated successfully!");
+            navigate('/dashboard/categories');
         } else if (isError) {
             setShowModal(true);
-            setModalMessage("Failed to update the product");
+            setModalMessage("Failed to update the category");
         }
     }, [isSuccess, isError]);
 
@@ -50,12 +42,11 @@ export const AdminEditProduct = () => {
         if (formData) {
             const updatedData = {
                 ...formData,
-                image: formData.image.split(",") 
             };
             try {
-                await updateProduct({ id: params.id, updatedProduct: updatedData }).unwrap();
+                await updateCategory({ id: params.id, updatedCategory: updatedData }).unwrap();
             } catch (error) {
-                console.error('Failed to update the product:', error);
+                console.error('Failed to update the category:', error);
             }
         }
     };
@@ -69,11 +60,11 @@ export const AdminEditProduct = () => {
     if (error) return <AppError msg={error?.data?.title || "Something went wrong"} />;
 
     return (
-        <div className="flex flex-col items-center py-5 relative">
+        <div className="flex flex-col items-center py-5 py-12 relative">
             <div className="return-back absolute top-4 left-5 cursor-pointer" onClick={handleBackClick}>
                 <IoArrowBackSharp size={30} color="white"/>
             </div>
-            <h2 className="text-white">Edit product with id: {params?.id}</h2>
+            <h2 className="text-white">Edit category with id: {params?.id}</h2>
             <EditForm
                 data={data}
                 fieldsForInput={fieldsForInput}
@@ -81,7 +72,7 @@ export const AdminEditProduct = () => {
                 setFormData={setFormData}
                 onSubmit={handleUpdate}
                 isUpdating={isUpdating}
-                itemName={"product"}
+                itemName={"category"}
             />
             {showModal && <Modal msg={modalMessage} />}
         </div>

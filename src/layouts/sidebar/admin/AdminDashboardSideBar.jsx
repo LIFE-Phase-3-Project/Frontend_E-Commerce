@@ -27,7 +27,10 @@ export const AdminDashboardSideBar = () => {
             <div className="flex items-center justify-center mt-2">
                 <button
                     onClick={logout}
-                    className='w-6/12 text-center py-1 border-2 border-green-light hover:border-green-medium hover:bg-green-medium hover:text-white dark:border-dashboard-light-color'>
+                    className='w-6/12 text-center py-1 border-2
+                                border-green-light hover:border-green-medium hover:bg-green-medium hover:text-white
+                                dark:border-dashboard-light-color hover:dark:bg-dashboard-light-color
+                                '>
                     Log out
                 </button>
             </div>

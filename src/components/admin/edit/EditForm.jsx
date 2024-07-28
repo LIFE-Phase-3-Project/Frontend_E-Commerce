@@ -1,6 +1,8 @@
 import { useEffect } from "react";
-import { Field, Formik } from "formik";
-import { ArrayInputFields } from "../create/ArrayInputFields";  // Import the ArrayInputFields component
+import { Formik } from "formik";
+import { ArrayInputFields } from "../create/ArrayInputFields"; 
+import { TextInputFields } from "../create/TextInputFields"; 
+import { NumberInputFields } from "../create/NumberInputFields"; 
 
 export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit, isUpdating, itemName }) => {
 
@@ -29,64 +31,46 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
 
     useEffect(() => {
         if (data) {
-            setFormData(data);
+            setFormData({
+                ...data,
+                image: data.image ? data.image.join(",") : ''
+            });
         }
     }, [data]);
 
     return (
         <Formik>
-        <form onSubmit={handleSubmit} className="bg-white dark:bg-admin-sidebar-color px-10 border-2 border-green-medium shadow-md shadow-green-light-low-opacity dark:border-dashboard-light-color rounded-lg w-5/12 p-4">
-            <div className="grid grid-cols-1 gap-4">
-                {fieldsForInput
-                    .filter(({ type }) => type === "text")
-                    .map(({ field, type }) => (
-                        <div key={field} className="mb-4 w-full flex flex-col justify-center m-auto">
-                            <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
-                                {field}
-                            </label>
-                            <input
-                                className="mt-1 block w-full p-2 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md"
-                                type={type}
-                                id={field}
-                                name={field}
-                                value={formData[field] || ''}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-            </div>
-            <ArrayInputFields
-                fieldsForInput={fieldsForInput}
-                handleArrayChange={handleArrayChange}
-                formData={formData}
-            />
-            <div className="grid grid-cols-2 gap-4 mt-4">
-                {fieldsForInput
-                    .filter(({ type }) => type === "number")
-                    .map(({ field, type }) => (
-                        <div key={field} className="mb-4">
-                            <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
-                                {field}
-                            </label>
-                            <input
-                                className="mt-1 block w-full p-2 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md"
-                                type={type}
-                                id={field}
-                                name={field}
-                                value={formData[field] || ''}
-                                onChange={handleChange}
-                            />
-                        </div>
-                    ))}
-            </div>
-            <button
-                type="submit"
-                className="bg-green-dark hover:bg-green-extra-dark dark:bg-blue-700 dark:hover:bg-blue-medium text-white px-4 py-2 capitalize rounded-md flex m-auto mt-4"
-                disabled={isUpdating}
-            >
-                {isUpdating ? 'Updating...' : `Update ${itemName}`}
-            </button>
-        </form>
+            <form onSubmit={handleSubmit} 
+                className="edit-form 
+                    px-10 border-2 shadow-md rounded-lg p-4
+                    w-10/12 sm:w-8/12 md:w-6/12 md:min-w-96 lg:w-5/12 lg:min-w-96
+                    border-green-medium shadow-green-light-low-opacity bg-white
+                    dark:border-dashboard-light-color dark:bg-admin-sidebar-color
+                ">
+               
+                <TextInputFields 
+                    fieldsForInput={fieldsForInput}
+                    handleChange={ handleChange}
+                    formData={formData}
+                />
+                <ArrayInputFields
+                    fieldsForInput={fieldsForInput}
+                    handleArrayChange={handleArrayChange}
+                    formData={formData}
+                />
+                <NumberInputFields 
+                    fieldsForInput={fieldsForInput}
+                    handleChange={handleChange} 
+                    formData={formData}
+                />
+                <button
+                    type="submit"
+                    className="bg-green-dark hover:bg-green-extra-dark dark:bg-blue-700 dark:hover:bg-blue-medium text-white px-4 py-2 capitalize rounded-md flex m-auto mt-4"
+                    disabled={isUpdating}
+                >
+                    {isUpdating ? 'Updating...' : `Update ${itemName}`}
+                </button>
+            </form>
         </Formik>
     );
 };

@@ -3,7 +3,7 @@ import { TextInputFields } from "./TextInputFields";
 import { NumberInputFields } from "./NumberInputFields";
 import { Formik } from "formik";
 
-export const CreateForm = ({ fieldsForInput, formData, setFormData, onSubmit, isAdding }) => {
+export const CreateForm = ({ itemName, fieldsForInput, formData, setFormData, onSubmit, isAdding }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -52,7 +52,7 @@ export const CreateForm = ({ fieldsForInput, formData, setFormData, onSubmit, is
                             text-white 
                             px-4 py-2 rounded-md flex m-auto mt-4"
             >
-                {isAdding ? 'Creating...' : 'Create Product'}
+                {isAdding ? 'Creating...' : `Create ${itemName}`}
             </button>
         </form>
         </Formik>

@@ -105,6 +105,7 @@ export const AdminCreateProduct = () => {
             </div>
             <h2 className="text-white">Create a new product</h2>
             <CreateForm
+                itemName="product"
                 fieldsForInput={fieldsForInput}
                 formData={formData}
                 setFormData={setFormData}

@@ -38,6 +38,10 @@ module.exports = {
         "pink-extra-light": "#D68CAC",
         "pink-light-low-opacity": "#B26A81",
         "on-hover-pink": "#943F6A",
+
+        "dark-light-pink":"#ACCEEE",
+        "dark-on-hover-pink":"#7CB2E4",
+
         "dark-cream":"#D1DDFA",
         
         "custom-purple": "#10002b",
@@ -46,11 +50,9 @@ module.exports = {
         "purple-medium": "#5a189a",
         "purple-light": "#7b2cbf",
         "purple-extra-light": "#c77dff",
-
-
         "dark-on-hover-purple":"#3D5F52",
-        "dark-light-pink":"#ACCEEE",
-        "dark-on-hover-pink":"#7CB2E4",
+
+       
 
         // dark for admin dashboard
         "admin-blue-color": "#141b2d",

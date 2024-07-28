@@ -2,7 +2,7 @@ import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 
-export const DesktopTable = ({ data,theadTh, deletingId, handleDelete, page, setPage, nrOfPages, itemName }) => {
+export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, page, setPage, nrOfPages }) => {
     return (
         <>
             <thead className="hidden lg:table-header-group">
@@ -22,30 +22,30 @@ export const DesktopTable = ({ data,theadTh, deletingId, handleDelete, page, set
                             if (header === "Edit") {
                                 return (
                                     <td key={key} className="py-2 w-16 cursor-pointer">
-                                        <Link to={`${item.id}`} className="flex items-center justify-center">
+                                        <Link to={`${name === "category" ? item.categoryId : item.id}`} className="flex items-center justify-center">
                                             <MdModeEdit className="w-full" />
                                         </Link>
                                     </td>
                                 );
                             } else if (header === "Delete") {
                                 return (
-                                    <td key={key} className="py-2 w-20 cursor-pointer" onClick={() => handleDelete(item.id)}>
+                                    <td key={key} className="py-2 w-20 cursor-pointer" onClick={() => handleDelete(name === "category" ? item.categoryId : item.id)}>
                                         <MdDelete className={`w-full ${deletingId === item.id ? 'text-red-500' : ''}`} />
                                     </td>
                                 );
                             } else {
-                                return <td key={key} className="py-2 w-12">{item[header.toLowerCase()]}</td>;
+                                return <td key={key} className="py-2 w-12">{name === "category" ? item[header] : item[header.toLowerCase()]}</td>;
                             }
                         })}
                     </tr>
                 ))}
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
-                    <td className="text-center" colSpan={theadTh.length > 2 ? 2 : 1}>
+                    <td className="text-center" colSpan={theadTh.length > 2 ? nrOfPages > 1 ? 2 : theadTh.length : 1}>
                         <Link to={'create'} className="flex items-center justify-center">
-                            Create {itemName} <IoMdAdd className="ml-2" size={20}/>
+                            Create {name} <IoMdAdd className="ml-2" size={20}/>
                         </Link>
                     </td>
-                    <td colSpan={theadTh.length > 2 ? theadTh.length -2 : 1} className="text-end py-1 pr-16 text-sm">
+                    {nrOfPages > 1 && <td colSpan={theadTh.length > 2 ? theadTh.length -2 : 1} className="text-end py-1 pr-16 text-sm">
                         <button 
                             disabled={page <= 1}
                             onClick={() => setPage(page -1)}
@@ -64,6 +64,7 @@ export const DesktopTable = ({ data,theadTh, deletingId, handleDelete, page, set
                             Next
                         </button>
                     </td>
+                    }
                 </tr>
             </tbody>
         </>

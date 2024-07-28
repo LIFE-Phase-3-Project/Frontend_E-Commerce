@@ -30,8 +30,8 @@ export const AppRoutes = () => {
     const shouldShowSidebar = () => {
         if (!isDashboard) return false;
 
-        const productDetailPattern = /^\/dashboard\/products\/\d+$/;
-        if (location.pathname.includes("create") || productDetailPattern.test(location.pathname)) {
+        const productDetailPattern = [/^\/dashboard\/products\/\d+$/,/^\/dashboard\/categories\/\d+$/];
+        if (location.pathname.includes("create") || productDetailPattern.some(p =>p.test(location.pathname))) {
             return false;
         }
 
