@@ -33,6 +33,10 @@
     color: #fff;
 }
 
+.desktop-tbody tr:last-child:hover, .mobile-tbody tr:last-child:hover {
+    background-color: #0a513a;
+}
+
 @media (max-width: 1000px) {
     .create-form, .edit-form {
         min-width: 460px

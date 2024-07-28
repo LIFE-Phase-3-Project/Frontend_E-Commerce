@@ -18,7 +18,6 @@ export const AdminEditProduct = () => {
     const fieldsForInput = [
         { field: "title", type: "text" },
         { field: "description", type: "text" },
-        { field: "image", type: "text" },
         { field: "subCategoryId", type: "number" },
         { field: "color", type: "text" },
         { field: "price", type: "number" },
@@ -30,7 +29,7 @@ export const AdminEditProduct = () => {
         if (data) {
             setFormData({
                 ...data,
-                image: data.image.join(",") 
+                image: data.image || []  // Ensure image is an array
             });
         }
     }, [data]);
@@ -50,7 +49,7 @@ export const AdminEditProduct = () => {
         if (formData) {
             const updatedData = {
                 ...formData,
-                image: formData.image.split(",") 
+                image: formData.image || []  // Ensure image is an array
             };
             try {
                 await updateProduct({ id: params.id, updatedProduct: updatedData }).unwrap();

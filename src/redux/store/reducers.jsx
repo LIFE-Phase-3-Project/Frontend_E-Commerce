@@ -11,6 +11,7 @@ import { brandsApi } from '../api/brandsApi';
 import { subCategoriesApi } from '../api/subCategoriesApi '
 import { authApi } from '../api/authApi';
 import { wishlistApi } from '../api/wishListApi';
+import { reviewsApi } from '../api/reviewsApi';
 
 export const reducers = {
     darkTheme: darkModeSlice,
@@ -27,4 +28,5 @@ export const reducers = {
     [subCategoriesApi.reducerPath]: subCategoriesApi.reducer,
     [authApi.reducerPath]: authApi.reducer,
     [wishlistApi.reducerPath]: wishlistApi.reducer,
+    [reviewsApi.reducerPath]: reviewsApi.reducer,
 }

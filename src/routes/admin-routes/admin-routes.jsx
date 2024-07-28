@@ -9,6 +9,7 @@ import { AdminEditProduct } from '../../pages/admin/edit/AdminEditProduct';
 import { AdminCreateProduct } from '../../pages/admin/create/AdminCreateProduct';
 import { AdminEditCategory } from '../../pages/admin/edit/AdminEditCategory';
 import { AdminCreateCategory } from '../../pages/admin/create/AdminCreateCategory';
+import { AdminDashboardReviews } from '../../pages/admin/AdminDashboardReviews';
 
 export const AdminRoutes = [
     <Route key={uuidv4()} path="/dashboard" element={<AdminDashboard />}/>,
@@ -18,6 +19,7 @@ export const AdminRoutes = [
     <Route key={uuidv4()} path="/dashboard/categories" element={<AdminDashboardCategories />}/>,
     <Route key={uuidv4()} path="/dashboard/categories/:id" element={<AdminEditCategory />}/>,
     <Route key={uuidv4()} path="/dashboard/categories/create" element={<AdminCreateCategory />}/>,
+    <Route key={uuidv4()} path="/dashboard/reviews" element={<AdminDashboardReviews />}/>,
     <Route key={uuidv4()} path="/dashboard/brands" element={<AdminDashboardBrands />}/>,
     <Route key={uuidv4()} path="/dashboard/users" element={<AdminDashboardUsers />}/>,
 ]

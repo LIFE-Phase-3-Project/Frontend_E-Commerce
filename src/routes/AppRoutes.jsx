@@ -1,8 +1,8 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { DefaultRoutes } from "./default-routes/default-routes";
 import { AdminRoutes } from "./admin-routes/admin-routes";
-import NavBar from '../layouts/navbar/NavBar';
-import Footer from '../layouts/footer/Footer';
+import NavBar from '../layouts/NavBar/NavBar';
+import Footer from '../layouts/Footer/Footer';
 import ScrollToTop from "./ScrollToTop";
 import { useSelector } from "react-redux";
 import { AdminDashboardSideBar } from "../layouts/sidebar/admin/AdminDashboardSideBar";

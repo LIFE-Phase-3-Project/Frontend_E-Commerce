@@ -1,13 +1,17 @@
 import { Field } from "formik";
+import React from "react";
 
 export const ArrayInputFields = ({ fieldsForInput, handleArrayChange, formData }) => {
     return (
         <div className="grid grid-cols-1 gap-4">
             {fieldsForInput
-                .filter(({ type }) => type === "array")
+                .filter(({ type }) => type === "array" && type !== "image") 
                 .map(({ field }) => (
                     <div key={field} className="mb-4 w-full flex flex-col justify-center m-auto">
-                        <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor={field}>
+                        <label
+                            className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700"
+                            htmlFor={field}
+                        >
                             {field} (comma separated)
                         </label>
                         <Field
@@ -16,7 +20,7 @@ export const ArrayInputFields = ({ fieldsForInput, handleArrayChange, formData }
                             placeholder={`${field.charAt(0).toUpperCase() + field.slice(1)}...`}
                             id={field}
                             name={field}
-                            value={formData[field] ? formData[field].join(",") : ''}
+                            value={formData[field] ? formData[field].join(",") : ""}
                             onChange={handleArrayChange}
                         />
                     </div>

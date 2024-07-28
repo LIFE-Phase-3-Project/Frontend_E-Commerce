@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Modal } from "../../../helpers/Modal";
 import { CreateForm } from "../../../components/admin/create/CreateForm";
@@ -12,12 +11,12 @@ export const AdminCreateProduct = () => {
         description: "",
         subCategoryId: 0,
         color: "",
-        image: [""],
+        image: [],
         price: 0,
         ratings: 0,
         stock: 0
     });
-    const [addProduct, { isLoading: isAdding,  isSuccess, error }] = usePostProductMutation();
+    const [addProduct, { isLoading: isAdding, isSuccess, error }] = usePostProductMutation();
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
 
@@ -31,7 +30,6 @@ export const AdminCreateProduct = () => {
     const fieldsForInput = [
         { field: "title", type: "text" },
         { field: "description", type: "text" },
-        { field: "image", type: "array" },
         { field: "subCategoryId", type: "number" },
         { field: "color", type: "text" },
         { field: "price", type: "number" },
@@ -48,16 +46,15 @@ export const AdminCreateProduct = () => {
                 description: "",
                 subCategoryId: 0,
                 color: "",
-                image: [""],
+                image: [],
                 price: 0,
                 ratings: 0,
                 stock: 0
             });
-            navigate('/dashboard/products')
+            navigate('/dashboard/products');
         } else if (error) {
             setShowModal(true);
             setModalMessage(error?.data);
-            navigate('/dashboard/products')
         }
     }, [isSuccess, error]);
 
@@ -84,7 +81,7 @@ export const AdminCreateProduct = () => {
                     description: "",
                     subCategoryId: 0,
                     color: "",
-                    image: [""],
+                    image: [],
                     price: 0,
                     ratings: 0,
                     stock: 0
@@ -96,7 +93,6 @@ export const AdminCreateProduct = () => {
             }
         }
     };
-    
 
     return (
         <div className="flex flex-col items-center py-5 relative">

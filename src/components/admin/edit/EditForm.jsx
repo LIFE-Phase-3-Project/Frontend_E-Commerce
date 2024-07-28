@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Formik } from "formik";
+import { useDropzone } from 'react-dropzone';
 import { ArrayInputFields } from "../create/ArrayInputFields"; 
 import { TextInputFields } from "../create/TextInputFields"; 
 import { NumberInputFields } from "../create/NumberInputFields"; 
@@ -22,6 +23,23 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
         });
     };
 
+    const handleFileDrop = (acceptedFiles) => {
+        const fileNames = acceptedFiles.map(file => file.path);
+        setFormData({
+            ...formData,
+            image: [...formData.image, ...fileNames],
+        });
+    };
+
+    const handleRemoveImage = (e, indexToRemove) => {
+        e.stopPropagation(); // Stop the click event from propagating
+        const updatedImages = formData.image.filter((_, index) => index !== indexToRemove);
+        setFormData({
+            ...formData,
+            image: updatedImages,
+        });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (onSubmit) {
@@ -33,10 +51,15 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
         if (data) {
             setFormData({
                 ...data,
-                image: data.image ? data.image.join(",") : ''
+                image: data.image ? data.image : [],
             });
         }
     }, [data]);
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop: handleFileDrop,
+        accept: 'image/*',
+    });
 
     return (
         <Formik>
@@ -47,10 +70,10 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
                     border-green-medium shadow-green-light-low-opacity bg-white
                     dark:border-dashboard-light-color dark:bg-admin-sidebar-color
                 ">
-               
+
                 <TextInputFields 
                     fieldsForInput={fieldsForInput}
-                    handleChange={ handleChange}
+                    handleChange={handleChange}
                     formData={formData}
                 />
                 <ArrayInputFields
@@ -63,6 +86,36 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
                     handleChange={handleChange} 
                     formData={formData}
                 />
+
+                {itemName !== "category" && (
+                    <div className="mb-4 w-full flex flex-col justify-center m-auto">
+                        <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor="image">
+                            Image
+                        </label>
+                        <div {...getRootProps({ className: 'dropzone' })} className="mt-1 block w-full p-4 border border-green-dark dark:border-gray-300 text-green-dark dark:text-dashboard-extra-light bg-transparent rounded-md cursor-pointer">
+                            <input {...getInputProps()} />
+                            {formData.image && formData.image.length > 0 ? (
+                                <ul>
+                                    {formData.image.map((fileName, index) => (
+                                        <li key={index} className="flex items-center justify-between">
+                                            <span className="truncate w-4/5">{fileName}</span>
+                                            <button
+                                                type="button"
+                                                className="ml-2 text-red-600"
+                                                onClick={(e) => handleRemoveImage(e, index)}
+                                            >
+                                                Remove
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p>Drag & drop some files here, or click to select files</p>
+                            )}
+                        </div>
+                    </div>
+                )}
+                
                 <button
                     type="submit"
                     className="bg-green-dark hover:bg-green-extra-dark dark:bg-blue-700 dark:hover:bg-blue-medium text-white px-4 py-2 capitalize rounded-md flex m-auto mt-4"
