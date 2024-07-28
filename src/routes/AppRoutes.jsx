@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { Login } from "../pages/auth/Login";
 import { Register } from "../pages/auth/Register";
+import { AnimatePresence } from "framer-motion";
 
 
 export const AppRoutes = () => {
@@ -41,7 +42,7 @@ export const AppRoutes = () => {
     useEffect(() => {
         const createPattern = /\/create/;
         const productDetailPattern = /^\/dashboard\/products\/\d+$/;
-        const categoryDetailPattern = /^\/dashboard\/category\/\d+$/;
+        const categoryDetailPattern = /^\/dashboard\/categories\/\d+$/;
 
         if (user?.role === "admin" && isDarkMode && isDashboard) {
             document.body.style.backgroundColor = "#141b2d";
@@ -63,19 +64,21 @@ export const AppRoutes = () => {
             <div className={isDashboard ? "flex" : ""}>
                 {(shouldShowSidebar() && user?.role === "admin") && <AdminDashboardSideBar />}
                 <div className={(shouldShowSidebar() && user?.role === "admin") ? "w-10/12 md:w-9/12 lg:w-10/12" : "w-full"}>
-                    <Routes>
-                        {DefaultRoutes}
-                        {user?.role === "admin" && AdminRoutes}
+                    <AnimatePresence>
+                        <Routes location={location} key={location.pathname}>
+                            {DefaultRoutes}
+                            {user?.role === "admin" && AdminRoutes}
 
-                        {
-                            !user.isLoggedIn &&
-                            <>
-                                <Route key={uuidv4()} path="/login" element={<Login />}/>
-                                <Route key={uuidv4()} path="/register" element={<Register />}/>                      
-                            </>
-                        }
-                        <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl">Page not found</h1></div>} />
-                    </Routes>
+                            {
+                                !user.isLoggedIn &&
+                                <>
+                                    <Route key={uuidv4()} path="/login" element={<Login />}/>
+                                    <Route key={uuidv4()} path="/register" element={<Register />}/>                      
+                                </>
+                            }
+                            <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl">Page not found</h1></div>} />
+                        </Routes>
+                    </AnimatePresence>
                 </div>
             </div>
             <GetFooter />

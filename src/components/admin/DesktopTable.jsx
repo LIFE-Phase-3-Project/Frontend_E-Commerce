@@ -12,7 +12,7 @@ export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, pag
                     ))}
                 </tr>
             </thead>
-            <tbody className="hidden lg:table-row-group
+            <tbody className="desktop-tbody hidden lg:table-row-group
                             [&>*:nth-child(even)]:bg-green-200 hover:[&>*:nth-child(even)]:bg-green-extra-light [&>*:nth-child(even)]:text-green-extra-dark
                             dark:[&>*:nth-child(even)]:bg-gray-500 dark:hover:[&>*:nth-child(even)]:bg-admin-sidebar-color dark:[&>*:nth-child(even)]:text-gray-300">
                                 

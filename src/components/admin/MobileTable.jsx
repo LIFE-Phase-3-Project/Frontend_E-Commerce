@@ -17,7 +17,7 @@ export const MobileTable = ({ name, data,theadTh, deletingId, handleDelete, page
                     <th className="capitalize" colSpan="2">{name} Table</th>
                 </tr>
             </thead>
-            <tbody className="lg:hidden ml-12 text-center w-9/12">
+            <tbody className="mobile-tbody lg:hidden ml-12 text-center w-9/12">
                 {data && data.map((item) => (
                     <React.Fragment key={item.id}>
                         {theadTh.map((header, key) => (

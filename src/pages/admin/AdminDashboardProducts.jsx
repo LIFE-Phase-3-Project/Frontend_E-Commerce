@@ -45,7 +45,7 @@ export const AdminDashboardProducts = () => {
     if (isError) return <div>Error loading products</div>;
 
     return (
-        <div className="lg:flex lg:flex-col lg:items-center relative">
+        <div className="admin-dashboard-products lg:flex lg:flex-col lg:items-center relative">
             <table className="w-9/12 my-10 lg:mt-0 lg:w-12/12 ml-12 lg:ml-0 lg:absolute top-16 left-1/2 lg:transform lg:-translate-x-1/2 border border-green-800 dark:border-admin-sidebar-color">
 
                 <DesktopTable name={"product"} data={data?.items} theadTh={theadTh} deletingId={deletingId} handleDelete={handleDelete} page={page} setPage={setPage} nrOfPages={nrOfPages}/>

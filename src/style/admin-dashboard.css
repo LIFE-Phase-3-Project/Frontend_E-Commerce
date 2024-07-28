@@ -1,3 +1,12 @@
+@import url('./animations/animations.css');
+
+.admin-dashboard-products {
+    animation: bounceFadeOut 0.5s both;
+}
+.admin-dashboard-categories {
+    animation: bounceFadeIn 0.5s both;
+}
+
 .dashboard-sidebar-hamburger span {
     width: 26px;
     height: 3px;
@@ -17,6 +26,11 @@
 .create-form, .edit-form {
     margin-top: 10px;
     min-width: 520px
+}
+
+.desktop-tbody tr:last-child, .mobile-tbody tr:last-child {
+    background-color: #186049;
+    color: #fff;
 }
 
 @media (max-width: 1000px) {
