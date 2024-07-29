@@ -1,5 +1,12 @@
 @import url('./animations/animations.css');
 
+:root {
+    --form-tbody-tr-last-child: #186049;
+}
+.dark {
+    --form-tbody-tr-last-child:#141b2d;
+}
+
 .admin-dashboard-products {
     animation: bounceFadeOut 0.5s both;
 }
@@ -29,12 +36,33 @@
 }
 
 .desktop-tbody tr:last-child, .mobile-tbody tr:last-child {
-    background-color: #186049;
+    background-color: var(--form-tbody-tr-last-child) !important;
     color: #fff;
 }
 
-.desktop-tbody tr:last-child:hover, .mobile-tbody tr:last-child:hover {
-    background-color: #0a513a;
+.orders-per-month {
+    flex: 0.66;
+}
+
+.last-orders {
+    flex: 0.32;
+}
+
+.pending-status-payments {
+    flex: 0.32;
+}
+.payments-per-month {
+    flex: 0.65;
+}
+
+@media (max-width: 1150px) {
+    .admin-dashboard-orders, .admin-dashboard-payments {
+        flex-direction: column;
+    }
+
+    .last-orders, .payments-per-month {
+        margin-top: 55px;
+    }
 }
 
 @media (max-width: 1000px) {

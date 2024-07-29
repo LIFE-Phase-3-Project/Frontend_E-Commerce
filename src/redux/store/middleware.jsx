@@ -5,6 +5,8 @@ import { subCategoriesApi } from '../api/subCategoriesApi ';
 import { authApi } from '../api/authApi';
 import { wishlistApi } from '../api/wishListApi';
 import { reviewsApi } from '../api/reviewsApi';
+import { ordersApi } from '../api/ordersApi';
+import { paymentsApi } from '../api/paymentsApi';
 
 export const middleware = [
     productsApi.middleware,
@@ -14,4 +16,6 @@ export const middleware = [
     authApi.middleware,
     wishlistApi.middleware,
     reviewsApi.middleware,
+    ordersApi.middleware,
+    paymentsApi.middleware,
 ]

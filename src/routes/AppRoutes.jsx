@@ -63,7 +63,7 @@ export const AppRoutes = () => {
             <GetNavBar />
             <div className={isDashboard ? "flex" : ""}>
                 {(shouldShowSidebar() && user?.role === "admin") && <AdminDashboardSideBar />}
-                <div className={(shouldShowSidebar() && user?.role === "admin") ? "w-10/12 md:w-9/12 lg:w-10/12" : "w-full"}>
+                <div className={(shouldShowSidebar() && user?.role === "admin") ? "w-11/12 md:w-9/12 lg:w-10/12" : "w-full"}>
                     <AnimatePresence>
                         <Routes location={location} key={location.pathname}>
                             {DefaultRoutes}

@@ -56,6 +56,7 @@ module.exports = {
 
         // dark for admin dashboard
         "admin-blue-color": "#141b2d",
+        "admin-green-dashboard-color": "#24794e",
         "admin-sidebar-color": "#1F2A40",
         "dashboard-light-color": "#727681",
         "dashboard-extra-light": "#d0d1d5"

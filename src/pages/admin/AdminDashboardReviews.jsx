@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 import { Loader } from '../../helpers/Loader';
-import { DesktopTable } from "../../components/admin/DesktopTable";
-import { MobileTable } from "../../components/admin/MobileTable";
+import { DesktopTable } from "../../components/admin/tables/DesktopTable";
+import { MobileTable } from "../../components/admin/tables/MobileTable";
 import { useGetAllReviewsQuery, useDeleteReviewMutation } from "../../redux/api/reviewsApi";
 
 export const AdminDashboardReviews = () => {

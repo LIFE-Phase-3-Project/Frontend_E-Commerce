@@ -1,8 +1,8 @@
 import { useDeleteProductMutation, } from "../../redux/api/productsApi";
 import React, { useState } from "react";
 import { Loader } from '../../helpers/Loader'
-import { DesktopTable } from "../../components/admin/DesktopTable";
-import { MobileTable } from "../../components/admin/MobileTable";
+import { DesktopTable } from "../../components/admin/tables/DesktopTable";
+import { MobileTable } from "../../components/admin/tables/MobileTable";
 import { useGetAllUsersQuery } from "../../redux/api/authApi";
 
 export const AdminDashboardUsers = () => {
