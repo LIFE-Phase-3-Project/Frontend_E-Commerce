@@ -16,7 +16,7 @@ export const NumberInputFields = ({fieldsForInput, handleChange, formData}) => {
                             placeholder={`${field.charAt(0).toUpperCase() + field.slice(1)}...`}
                             id={field}
                             name={field}
-                            value={formData[field] || ''}
+                            value={formData[field] !== undefined && formData[field] !== null ? formData[field] : ''}
                             onChange={handleChange}
                         />
                     </div>

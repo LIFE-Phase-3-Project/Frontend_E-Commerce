@@ -10,9 +10,11 @@ import { AdminCreateProduct } from '../../pages/admin/create/AdminCreateProduct'
 import { AdminEditCategory } from '../../pages/admin/edit/AdminEditCategory';
 import { AdminCreateCategory } from '../../pages/admin/create/AdminCreateCategory';
 import { AdminDashboardReviews } from '../../pages/admin/AdminDashboardReviews';
+import { AdminDashboardInventory } from '../../pages/admin/inventory/AdminDashboardInventory';
 
 export const AdminRoutes = [
     <Route key={uuidv4()} path="/dashboard" element={<AdminDashboard />}/>,
+    <Route key={uuidv4()} path="dashboard/inventory" element={<AdminDashboardInventory />}/>,
     <Route key={uuidv4()} path="/dashboard/products" element={<AdminDashboardProducts />}/>,
     <Route key={uuidv4()} path="/dashboard/products/:id" element={<AdminEditProduct />}/>,
     <Route key={uuidv4()} path="/dashboard/products/create" element={<AdminCreateProduct />}/>,

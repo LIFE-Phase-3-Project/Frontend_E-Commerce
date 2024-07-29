@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { MdOutlineNightlight, MdOutlineNightlightRound } from 'react-icons/md';
+import { FiSun } from "react-icons/fi";
 import { darkMode, lightMode } from '../../redux/slices/darkModeSlice';
 import { useDispatch } from 'react-redux';
 
 
-function DarkTheme() {
+function DarkTheme({fontSize="30px", marginLeft="20px"}) {
   const [theme, setTheme] = useState(() => localStorage.getItem('darkMode') === 'true')
 
   const dispatch = useDispatch()
@@ -27,17 +28,17 @@ useEffect(() => {
   return (
     <div>
       {theme ? (
-        <MdOutlineNightlightRound
-          fontSize="30px"
-          color="#042977"
-          style={{ marginLeft: '20px', cursor: 'pointer' }}
+        <FiSun
+          fontSize={fontSize}
+          color="#FAEED1"
+          style={{ marginLeft: marginLeft, cursor: 'pointer' }}
           onClick={handleDark}
         />
       ) : (
         <MdOutlineNightlight
-          fontSize="30px"
+          fontSize={fontSize}
           color="#FAEED1"
-          style={{ marginLeft: '20px', cursor: 'pointer' }}
+          style={{ marginLeft: marginLeft, cursor: 'pointer' }}
           onClick={handleDark}
         />
       )}

@@ -23,7 +23,7 @@ export const CreateForm = ({ itemName, fieldsForInput, formData, setFormData, on
     };
 
     const handleFileDrop = (acceptedFiles) => {
-        const fileNames = acceptedFiles.map(file => file.path); // Extracting just the file names
+        const fileNames = acceptedFiles.map(file => file.path); 
         setFormData({
             ...formData,
             image: [...formData.image, ...fileNames],
@@ -31,7 +31,7 @@ export const CreateForm = ({ itemName, fieldsForInput, formData, setFormData, on
     };
 
     const handleRemoveImage = (e, indexToRemove) => {
-        e.stopPropagation(); // Stop the click event from propagating
+        e.stopPropagation();
         const updatedImages = formData.image.filter((_, index) => index !== indexToRemove);
         setFormData({
             ...formData,

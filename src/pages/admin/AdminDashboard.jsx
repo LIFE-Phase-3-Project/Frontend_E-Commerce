@@ -4,9 +4,9 @@ import { AdminDashboardSales } from "../../components/admin/dashboard/AdminDashb
 
 export const AdminDashboard = () => {
     return (
-        <div className="admin-dashboard text-green-800 dark:text-white pl-7 pr-5">
-            <div className="admin-dashboard-head mt-7">
-                <h2 className="text-2xl">Dashboard</h2>
+        <div className="w-full admin-dashboard bg-green-100 dark:bg-admin-blue-color text-green-800 dark:text-white pl-7 pr-5">
+            <div className="admin-dashboard-head pt-7">
+                <h2 className="text-3xl font-bold dark:font-normal">Dashboard</h2>
                 <h3 className="text-md text-orange-700 dark:text-green-400">Welcome to your dashboard</h3>
             </div>
 

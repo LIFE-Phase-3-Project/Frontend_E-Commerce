@@ -32,7 +32,7 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
     };
 
     const handleRemoveImage = (e, indexToRemove) => {
-        e.stopPropagation(); // Stop the click event from propagating
+        e.stopPropagation(); 
         const updatedImages = formData.image.filter((_, index) => index !== indexToRemove);
         setFormData({
             ...formData,

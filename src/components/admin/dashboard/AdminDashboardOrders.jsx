@@ -27,11 +27,11 @@ export const AdminDashboardOrders = () => {
 
         <div className="last-orders bg-admin-green-dashboard-color text-white dark:bg-admin-sidebar-color box-border">
             <div className="last-orders-items">
-                <h2 className='mb-2 py-3 text-center text-lg border-b-8 border-gray-200 dark:border-admin-blue-color'>Last orders</h2>
+                <h2 className='mb-2 py-3 text-center text-lg border-b-8 border-green-100 dark:border-admin-blue-color'>Last orders</h2>
 
                 {filteredOrders?.map((order, key) => {
                     return (
-                        <div key={key} className='flex justify-between border-b-8 border-gray-200 dark:border-admin-blue-color py-4 px-6'>
+                        <div key={key} className='flex justify-between border-b-8 border-green-100 dark:border-admin-blue-color py-4 px-6'>
                             <h2>{order?.name}</h2>
                             <h2>{order?.orderTotal.toFixed(2)}&#8364;</h2>
                         </div>

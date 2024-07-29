@@ -29,7 +29,8 @@ export const AdminEditProduct = () => {
         if (data) {
             setFormData({
                 ...data,
-                image: data.image || []  // Ensure image is an array
+                image: data.image || [],
+                stock: data.stock || 0
             });
         }
     }, [data]);
@@ -43,13 +44,13 @@ export const AdminEditProduct = () => {
             setShowModal(true);
             setModalMessage("Failed to update the product");
         }
-    }, [isSuccess, isError]);
+    }, [isSuccess, isError, navigate]);
 
     const handleUpdate = async () => {
         if (formData) {
             const updatedData = {
                 ...formData,
-                image: formData.image || []  // Ensure image is an array
+                image: formData.image || []  
             };
             try {
                 await updateProduct({ id: params.id, updatedProduct: updatedData }).unwrap();
