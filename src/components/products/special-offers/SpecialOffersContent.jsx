@@ -10,8 +10,8 @@ export const SpecialOffersContent = ({ productsWithOffers, randomProductId, cate
   }, []);
 
   const linkTo = category
-    ? productsWithOffers?.[randomProductId]?.id
-    : `${productsWithOffers?.[randomProductId]?.category?.title}/${productsWithOffers?.[randomProductId]?.id}`;
+    ? `${productsWithOffers?.[randomProductId]?.id}`
+    : `${productsWithOffers?.[randomProductId]?.categoryId}/${productsWithOffers?.[randomProductId]?.id}`;
 
   return (
     <div className="special-offers-content w-7/12 flex flex-col items-center">

@@ -1,14 +1,14 @@
 import { useDispatch } from "react-redux"
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { changeActivePage } from "../../../redux/slices/paginationSlice";
+import { changePage } from "../../../redux/slices/paginationSlice";
 import { setFilters } from "../../../redux/slices/filtersSlice";
 
 export const OrderBy = () => {
     const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
     const orderBy = (e) => {
-        dispatch(changeActivePage(1))
+        dispatch(changePage(1))
         dispatch(setFilters({SortOrder: e.target.value}))
     }
     

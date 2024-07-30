@@ -13,7 +13,7 @@ export const ProductSection = ({category=""}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(setPaginationValues({activePage: 1, postsPerPage: 12}))
+        dispatch(setPaginationValues({ page: 1, pageSize: 12 }))
         dispatch(setFilters({ page: 1, pageSize: 12 }))
     },[])
 

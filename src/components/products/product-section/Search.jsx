@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { CiSearch } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { setFilters } from "../../../redux/slices/filtersSlice";
-import { changeActivePage } from "../../../redux/slices/paginationSlice";
+import { changePage } from "../../../redux/slices/paginationSlice";
 import { useDebounce } from "../../../helpers/hooks/useDebounce";
 
 export const Search = () => {
@@ -26,7 +26,7 @@ export const Search = () => {
     }, [i18n]);
 
     useEffect(() => {
-        dispatch(changeActivePage(1));
+        dispatch(changePage(1));
         dispatch(setFilters({ SearchTerm: debouncedSearchTerm }));
     }, [debouncedSearchTerm, dispatch]);
 
@@ -35,6 +35,7 @@ export const Search = () => {
                             md:w-6/12
                             lg:w-5/12 lg:max-w-md
                             text-green-dark bg-white
+                            dark:text-white
                             dark:text-dark-green-dark dark:bg-zinc-950
                             ${focusInput 
                                 ? "border-green-dark dark:border-gray-700" 

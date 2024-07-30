@@ -11,9 +11,9 @@ const filtersSlice = createSlice({
         },
 
         clearFilters: (state, action) => {
-            const { activePage, postsPerPage } = action.payload;
-            if(activePage || postsPerPage) {
-                state.filters = { _page: activePage, _per_page: postsPerPage}
+            const { postsPerPage } = action.payload;
+            if( postsPerPage ) {
+                state.filters = { page: 1, pageSize: postsPerPage}
             } else {
                 state.filters = {}
             }

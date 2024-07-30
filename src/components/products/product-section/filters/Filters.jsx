@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Color } from "./colors/FilterByColor";
-import { useDispatch, useSelector } from "react-redux";
-// import { clearFilters } from "../../../../redux/slices/productsSlice";
+import { useDispatch } from "react-redux";
 import '../../../../i18n/i18n'
 import { FilterByCategory } from "./category/FilterByCategory";
 import { FilterBySubCategory } from "./subcategory/FilterBySubCategories";
 import { Price } from "./price/Prices";
 import { FilterByBrands } from "./brands/FilterByBrands";
 import { clearFilters } from "../../../../redux/slices/filtersSlice";
+import { changePage } from "../../../../redux/slices/paginationSlice";
 
 export const Filters = ({ category = "", isHamburgerActive }) => {
     const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
-    const { activePage, postsPerPage } = useSelector(state => state.pagination);
 
 
     const handleClick = () => {
-        dispatch(clearFilters({activePage, postsPerPage}));
+        dispatch(changePage(1));
+        dispatch(clearFilters({postsPerPage: 12}));
     };
 
     useEffect(() => {

@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { activePage: null, postsPerPage: null, totalCount: null }
+const initialState = { page: null, pageSize: null, totalCount: null }
 
 const paginationSlice = createSlice({
     name: "paginationSlice",
     initialState,
     reducers: { 
-        changeActivePage: (state, action) => {
-            state.activePage = action.payload;
+        changePage: (state, action) => {
+            state.page = action.payload;
         },
 
         setTotalCount: (state,action) => {
@@ -15,12 +15,12 @@ const paginationSlice = createSlice({
         },
 
         setPaginationValues: (state,action) => {
-            state.activePage = action.payload?.activePage;
-            state.postsPerPage = action.payload?.postsPerPage;
+            state.page = action.payload?.page;
+            state.pageSize = action.payload?.pageSize;
         }
     }
 })
 
-export const { changeActivePage, setTotalCount, setPaginationValues } = paginationSlice.actions
+export const { changePage, setTotalCount, setPaginationValues } = paginationSlice.actions
 
 export default paginationSlice.reducer

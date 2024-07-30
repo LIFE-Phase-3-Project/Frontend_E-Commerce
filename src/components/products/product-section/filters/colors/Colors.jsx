@@ -2,14 +2,14 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setFilters } from "../../../../../redux/slices/filtersSlice";
-import { changeActivePage } from "../../../../../redux/slices/paginationSlice";
+import { changePage } from "../../../../../redux/slices/paginationSlice";
 
 export const Colors = ({ color }) => {
     const dispatch = useDispatch();
 
     const handleClick = (colorTitle) => {
         dispatch(setFilters({Color: colorTitle.toLowerCase()}))
-        dispatch(changeActivePage(1))
+        dispatch(changePage(1))
     }
     return (
         <Link onClick={() => handleClick(color?.title)}>

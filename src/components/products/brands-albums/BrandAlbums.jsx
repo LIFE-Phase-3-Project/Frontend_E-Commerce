@@ -3,7 +3,51 @@ import { useEffect, useState } from "react";
 import { useGetAllBrandsQuery } from "../../../redux/api/brandsApi";
 
 export const BrandAlbums = () => {
-    const { data } = useGetAllBrandsQuery();
+    // const { data } = useGetAllBrandsQuery();
+    const data = [
+        {
+            "id": 1,
+            "title": "Brooks Brothers",
+            "description": "",
+            "image": "https://photo-cdn2.icons8.com/ry9FbUGuYZYjXhss7Oc3_Y_de5xp7YaeyxiNj8ztaFM/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvMjk1LzFh/OTBkMTUzLWJjMzQt/NGQ5Zi1hN2RjLWIx/YmQyYzk5MTFhNS5q/cGc.webp",
+            "products": []
+        },
+        {
+            "id": 2,
+            "title": "J.Crew",
+            "description": "New year products",
+            "image": "https://photo-cdn2.icons8.com/vjYHLl5MOL1sEpFe80t78zhbKYxgLre7xkMgs5Ep10o/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNjY4LzEy/NmM0MzVhLTVjMjYt/NGFiMS1iZDkyLTQx/ZDZlMjFhMzdiNy5q/cGc.webp",
+            "products": []
+        },
+        {
+            "id": 3,
+            "title": "Oculus",
+            "description": "Vr products",
+            "image": "https://photo-cdn2.icons8.com/UobajmbolyqouQphxELSRe0lS1mGEtTwvZWbe6nv4tw/rs:fit:576:385/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvNzQ1Lzk4MDcz/N2U0LTAzYmEtNGMx/My05NjQ2LWJhM2Zh/MjI2Mzk5Ni5qcGc.webp",
+            "products": []
+        },
+        {
+            "id": 4,
+            "title": "KitchenAid",
+            "description": "Kitchen products",
+            "image": "https://photo-cdn2.icons8.com/QpVsTefkdelqakpB8CP-zrY6ja-gxM9rMic46201dQM/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNzE1LzYx/Y2EwNmFlLWQzNDct/NGY5Zi05OTc1LTNl/NjViOWZiNzdiMC5w/bmc.webp",
+            "products": []
+        },
+        {
+            "id": 5,
+            "title": "Coca Cola",
+            "description": "Drinks",
+            "image": "https://photo-cdn2.icons8.com/FUCPmp_jGBhBOJdNsCvXJ8Ho4zPGbANJZ0h8wz-iVNA/rs:fit:576:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5l/eHRlcm5hbC9hMmE0/Mi83ZjNlNDFjZGEz/Zjk0MTg1OGFlNWRj/NWU2NzI2MjE4MC5q/cGc.webp",
+            "products": []
+        },    
+        {
+            "id": 6,
+            "title": "Patagonia",
+            "description": "Clothes products",
+            "image": "https://photo-cdn2.icons8.com/tjjNILMAkvwJklhh1wKiBGMJEeHCsZRGrXYm5ey_bZ0/rs:fit:576:863/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvMTMvM2YyYjQ5/OWQtZWI1Mi00NmRk/LWFhNGMtZmYwYWQ5/OGEwOWIyLmpwZw.webp",
+            "products": []
+        },        
+    ]
     const [documentWidth, setDocumentWidth] = useState(document.body.clientWidth);
     const [filteredData, setFilteredData] = useState([]);
 

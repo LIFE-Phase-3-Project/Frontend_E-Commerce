@@ -1,0 +1,1 @@
+Dark theme changes when press ctrl + ;
