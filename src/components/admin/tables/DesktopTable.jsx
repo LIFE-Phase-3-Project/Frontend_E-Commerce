@@ -2,7 +2,7 @@ import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
 
-export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, page, setPage, nrOfPages }) => {
+export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, handleDelete, page, setPage, nrOfPages }) => {
     return (
         <>
             <thead className="hidden lg:table-header-group">
@@ -18,8 +18,8 @@ export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, pag
                                 
                 {data && data.map((item) => (
                     <tr className="text-center text-green-extra-dark bg-green-100 hover:bg-green-extra-light dark:bg-dashboard-extra-light dark:hover:bg-admin-sidebar-color dark:hover:text-white" key={item.id}>
-                        {theadTh.map((header, key) => {
-                            if (header === "Edit") {
+                        {dataFields.map((field, key) => {
+                            if (field === "edit") {
                                 return (
                                     <td key={key} className="py-2 w-16 cursor-pointer">
                                         <Link to={`${name === "category" ? item.categoryId : item.id}`} className="flex items-center justify-center">
@@ -27,14 +27,14 @@ export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, pag
                                         </Link>
                                     </td>
                                 );
-                            } else if (header === "Delete") {
+                            } else if (field === "delete") {
                                 return (
                                     <td key={key} className="py-2 w-20 cursor-pointer" onClick={() => handleDelete(name === "category" ? item.categoryId : item.id)}>
                                         <MdDelete className={`w-full ${deletingId === item.id ? 'text-red-500' : ''}`} />
                                     </td>
                                 );
                             } else {
-                                return <td key={key} className="py-2 w-12">{name === "category" ? item[header] : item[header.toLowerCase()]}</td>;
+                                return <td key={key} className="py-2 w-12">{item[field]}</td>;
                             }
                         })}
                     </tr>
@@ -69,4 +69,4 @@ export const DesktopTable = ({ name, data,theadTh, deletingId, handleDelete, pag
             </tbody>
         </>
     );
-}
+};

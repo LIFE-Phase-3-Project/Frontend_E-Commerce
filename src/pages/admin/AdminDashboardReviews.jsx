@@ -12,10 +12,11 @@ export const AdminDashboardReviews = () => {
     const { data, isLoading, isError, refetch } = useGetAllReviewsQuery();
     console.log("reviews-data")
     console.log(data)
-    const [deleteCategory] = useDeleteReviewMutation();
+    const [deleteReview] = useDeleteReviewMutation();
     const [deletingId, setDeletingId] = useState(null);
 
-    const theadTh = ["categoryId", "categoryName", "Edit", "Delete"];
+    const theadTh = ["Review ID", "Product Name", "Rating", "Comment", "Edit", "Delete"];
+    const dataFields = ["reviewId", "productName", "rating", "comment", "edit", "delete"];
     const nrOfPages = Math.ceil(data?.length / 10);
 
     useEffect(() => {
@@ -27,24 +28,25 @@ export const AdminDashboardReviews = () => {
         console.log(id)
         setDeletingId(id);
         try {
-            await deleteCategory(id).unwrap();
+            await deleteReview(id).unwrap();
             refetch();
         } catch (error) {
-            console.error('Error deleting category:', error);
+            console.error('Error deleting review:', error);
             setDeletingId(null);
         }
     };
 
     if (isLoading) return <Loader />;
-    if (isError) return <div>Error loading categories</div>;
+    if (isError) return <div>Error loading reviews</div>;
 
     return (
-        <div className="admin-dashboard-categories lg:flex lg:flex-col lg:items-center relative">
+        <div className="admin-dashboard-reviews lg:flex lg:flex-col lg:items-center relative">
             <table className="w-9/12 my-10 lg:mt-0 lg:w-12/12 ml-12 lg:ml-0 lg:absolute top-16 left-1/2 lg:transform lg:-translate-x-1/2 border border-green-800 dark:border-admin-sidebar-color">
                 <DesktopTable 
-                    name="category" 
+                    name="review" 
                     data={data} 
                     theadTh={theadTh} 
+                    dataFields={dataFields} 
                     deletingId={deletingId} 
                     handleDelete={handleDelete} 
                     page={page} 
@@ -52,9 +54,10 @@ export const AdminDashboardReviews = () => {
                     nrOfPages={nrOfPages} 
                 />
                 <MobileTable 
-                    name="category" 
+                    name="review" 
                     data={data} 
                     theadTh={theadTh} 
+                    dataFields={dataFields} 
                     deletingId={deletingId} 
                     handleDelete={handleDelete} 
                     page={page} 

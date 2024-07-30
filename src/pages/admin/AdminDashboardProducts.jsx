@@ -20,6 +20,7 @@ export const AdminDashboardProducts = () => {
 
 
     const theadTh = ["Id", "Title", "Price", "Stock", "Ratings", "Edit", "Delete"];
+    const dataFields = ["id", "title", "price", "stock", "ratings", "edit", "delete"];
     const nrOfPages = Math.ceil(data?.totalCount / data?.pageSize)
 
     const handleDelete = async (id) => {
@@ -51,7 +52,8 @@ export const AdminDashboardProducts = () => {
                 <DesktopTable 
                     name={"product"} 
                     data={data?.items} 
-                    theadTh={theadTh} 
+                    theadTh={theadTh}
+                    dataFields={dataFields}
                     deletingId={deletingId} 
                     handleDelete={handleDelete} 
                     page={page} 
@@ -62,6 +64,7 @@ export const AdminDashboardProducts = () => {
                     name="product" 
                     data={data?.items}
                     theadTh={theadTh}
+                    dataFields={dataFields}
                     deletingId={deletingId}
                     handleDelete={handleDelete}
                     page={page}

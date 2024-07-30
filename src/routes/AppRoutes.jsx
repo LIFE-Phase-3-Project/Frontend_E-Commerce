@@ -31,7 +31,7 @@ export const AppRoutes = () => {
     const shouldShowSidebar = () => {
         if (!isDashboard) return false;
 
-        const productDetailPattern = [/^\/dashboard\/products\/\d+$/,/^\/dashboard\/categories\/\d+$/];
+        const productDetailPattern = [/^\/dashboard\/products\/\d+$/,/^\/dashboard\/categories\/\d+$/,/^\/dashboard\/categories\/\d+$/];
         if (location.pathname.includes("create") || productDetailPattern.some(p =>p.test(location.pathname))) {
             return false;
         }
@@ -44,7 +44,7 @@ export const AppRoutes = () => {
         const productDetailPattern = /^\/dashboard\/products\/\d+$/;
         const categoryDetailPattern = /^\/dashboard\/categories\/\d+$/;
 
-        if (user?.role === "admin" && isDarkMode && isDashboard) {
+        if ((user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin") && isDarkMode && isDashboard) {
             document.body.style.backgroundColor = "#141b2d";
         } else if (
             createPattern.test(location.pathname) ||
@@ -62,12 +62,12 @@ export const AppRoutes = () => {
             <ScrollToTop />
             <GetNavBar />
             <div className={isDashboard ? "flex" : ""}>
-                {(shouldShowSidebar() && user?.role === "admin") && <AdminDashboardSideBar />}
+                {(shouldShowSidebar() && (user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin")) && <AdminDashboardSideBar />}
                 <div className={(shouldShowSidebar() && user?.role === "admin") ? "w-11/12 md:w-9/12 lg:w-10/12" : "w-full"}>
                     <AnimatePresence>
                         <Routes location={location} key={location.pathname}>
                             {DefaultRoutes}
-                            {user?.role === "admin" && AdminRoutes}
+                            {(user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin") && AdminRoutes}
 
                             {
                                 !user.isLoggedIn &&

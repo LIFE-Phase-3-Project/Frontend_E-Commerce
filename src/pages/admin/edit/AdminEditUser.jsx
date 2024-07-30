@@ -4,19 +4,24 @@ import { AppError } from "../../../helpers/AppError";
 import { useParams, useNavigate } from "react-router-dom";
 import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
-import { useGetCategoryByIdQuery, useUpdateCategoryMutation } from "../../../redux/api/categoriesApi";
+import { useGetUserByIDQuery, useUpdateUserMutation } from "../../../redux/api/authApi";
 
-export const AdminEditCategory = () => {
+export const AdminEditUser = () => {
     const navigate = useNavigate();
     const params = useParams();
-    const { data, isLoading, error } = useGetCategoryByIdQuery(params?.id);
+    const { data, isLoading, error } = useGetUserByIDQuery(params?.id);
     const [formData, setFormData] = useState({});
-    const [updateCategory, { isLoading: isUpdating, isError, isSuccess }] = useUpdateCategoryMutation();
+    const [updateUser, { isLoading: isUpdating, isError, isSuccess }] = useUpdateUserMutation();
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
 
     const fieldsForInput = [
-        { field: "categoryName", type: "text" },
+        { field: "email", type: "text" },
+        { field: "firstName", type: "text" },
+        { field: "lastName", type: "text" },
+        { field: "email", type: "text" },
+        { field: "phoneNumber", type: "text" },
+        { field: "address", type: "text" },
     ];
 
     useEffect(() => {
@@ -30,11 +35,11 @@ export const AdminEditCategory = () => {
     useEffect(() => {
         if (isSuccess) {
             setShowModal(true);
-            setModalMessage("Category updated successfully!");
+            setModalMessage("User updated successfully!");
             navigate('/dashboard/categories');
         } else if (isError) {
             setShowModal(true);
-            setModalMessage("Failed to update the category");
+            setModalMessage("Failed to update the User");
         }
     }, [isSuccess, isError]);
 
@@ -44,9 +49,9 @@ export const AdminEditCategory = () => {
                 ...formData,
             };
             try {
-                await updateCategory({ id: params.id, updatedCategory: updatedData }).unwrap();
+                await updateUser({ id: params.id, updatedUser: updatedData }).unwrap();
             } catch (error) {
-                console.error('Failed to update the category:', error);
+                console.error('Failed to update the User:', error);
             }
         }
     };
@@ -64,7 +69,7 @@ export const AdminEditCategory = () => {
             <div className="return-back absolute top-4 left-5 cursor-pointer" onClick={handleBackClick}>
                 <IoArrowBackSharp size={30} color="white"/>
             </div>
-            <h2 className="text-white">Edit category with id: {params?.id}</h2>
+            <h2 className="text-white">Edit User with id: {params?.id}</h2>
             <EditForm
                 data={data}
                 fieldsForInput={fieldsForInput}
@@ -72,7 +77,7 @@ export const AdminEditCategory = () => {
                 setFormData={setFormData}
                 onSubmit={handleUpdate}
                 isUpdating={isUpdating}
-                itemName={"category"}
+                itemName={"User"}
                 haveImage={false}
             />
             {showModal && <Modal msg={modalMessage} />}

@@ -64,7 +64,7 @@ export const LoginForm = () => {
                 phoneNumber: userData.phoneNumber,
                 password: userData.password
             }));
-            if (role.toLowerCase() === "admin") {
+            if (role.toLowerCase() === "admin" || role.toLowerCase() === "superadmin") {
                 navigate('/dashboard');
             } else if (role.toLowerCase() === "customer") {
                 navigate('/products');

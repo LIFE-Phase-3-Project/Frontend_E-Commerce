@@ -5,7 +5,7 @@ import { ArrayInputFields } from "../create/ArrayInputFields";
 import { TextInputFields } from "../create/TextInputFields"; 
 import { NumberInputFields } from "../create/NumberInputFields"; 
 
-export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit, isUpdating, itemName }) => {
+export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit, isUpdating, itemName, haveImage=true }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -87,7 +87,7 @@ export const EditForm = ({ data, fieldsForInput, formData, setFormData, onSubmit
                     formData={formData}
                 />
 
-                {itemName !== "category" && (
+                {haveImage && (
                     <div className="mb-4 w-full flex flex-col justify-center m-auto">
                         <label className="text-green-extra-dark dark:text-dashboard-extra-light block capitalize text-sm font-medium text-gray-700" htmlFor="image">
                             Image

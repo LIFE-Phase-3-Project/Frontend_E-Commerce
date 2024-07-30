@@ -13,7 +13,8 @@ export const AdminDashboardCategories = () => {
     const [deleteCategory] = useDeleteCategoryMutation();
     const [deletingId, setDeletingId] = useState(null);
 
-    const theadTh = ["categoryId", "categoryName", "Edit", "Delete"];
+    const theadTh = ["Category ID", "Category Name", "Edit", "Delete"];
+    const dataFields = ["categoryId", "categoryName", "edit", "delete"];
     const nrOfPages = Math.ceil(data?.length / 10);
 
     useEffect(() => {
@@ -21,8 +22,6 @@ export const AdminDashboardCategories = () => {
     }, [location]);
 
     const handleDelete = async (id) => {
-        console.log("id")
-        console.log(id)
         setDeletingId(id);
         try {
             await deleteCategory(id).unwrap();
@@ -43,6 +42,7 @@ export const AdminDashboardCategories = () => {
                     name="category" 
                     data={data} 
                     theadTh={theadTh} 
+                    dataFields={dataFields} 
                     deletingId={deletingId} 
                     handleDelete={handleDelete} 
                     page={page} 
@@ -53,6 +53,7 @@ export const AdminDashboardCategories = () => {
                     name="category" 
                     data={data} 
                     theadTh={theadTh} 
+                    dataFields={dataFields} 
                     deletingId={deletingId} 
                     handleDelete={handleDelete} 
                     page={page} 
