@@ -5,7 +5,11 @@ export const SpecialOffersImage = ({productsWithOffers, randomProductId}) => {
           style={{
             backgroundImage: `url('${
               productsWithOffers &&
-              productsWithOffers[randomProductId]?.image[0]
+              (
+                productsWithOffers[randomProductId]?.image 
+                && productsWithOffers[randomProductId]?.image.length > 0 
+                && productsWithOffers[randomProductId]?.image[0]
+              )
             }')`,
           }}
         ></div>
