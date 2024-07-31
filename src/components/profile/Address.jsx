@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useGetUserByIDQuery } from "../../redux/api/authApi";
+export const Address =(userId) => {
 
-export const Address =() => {
+  const { data, error, isLoading } = useGetUserByIDQuery(userId);
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    address: '',
+    firstName: data.firstName,
+    lastName: data.lastName,
+    address: data.address,
     secondAddress: '',
     postalCode: '',
     country:'',

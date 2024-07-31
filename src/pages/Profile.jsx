@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { PersonalInformation } from '../components/profile/PersonalInformation';
 import { Address } from '../components/profile/Address';
 import { Reviews } from '../components/profile/Reviews';
+import { Orders } from '../components/profile/orders/Orders';
+import { useGetUserByIDQuery } from "../redux/api/authApi";
 
 export const UserProfile = () => {
   
-  const [currentComponent, setCurrentComponent] = useState('Reviews');
-
+  const [currentComponent, setCurrentComponent] = useState('PersonalInformation');
+  const { data, isLoading: loading } = useGetUserByIDQuery(3)
+console.log(data);
   const handleNavClick = (component) => {
     setCurrentComponent(component);
   };
@@ -14,13 +17,15 @@ export const UserProfile = () => {
   const renderComponent = () => {
     switch (currentComponent) {
       case 'PersonalInformation':
-        return <PersonalInformation userId={1} />;
+        return <PersonalInformation userId={data} />;
       case 'Address':
-        return <Address userId={1} />;
+        return <Address userId={data} />;
       case 'Reviews':
-        return <Reviews userId={1} />;
+        return <Reviews userId={data} />;
+        case 'Orders':
+          return <Orders userId={data} />;
       default:
-        return <PersonalInformation userId={1} />;
+        return <PersonalInformation userId={data} />;
     }
   };
 

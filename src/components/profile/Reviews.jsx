@@ -1,45 +1,31 @@
 import { useState, useEffect } from "react";
+import { useGetReviewByIdQuery, useDeleteReviewMutation } from '../../redux/api/reviewsApi';
 
 export const Reviews = ({ reviewId }) => {
   const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { data, error, isLoading } = useGetReviewByIdQuery(reviewId);
+  const [deleteReview] = useDeleteReviewMutation();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://localhost:8000/reviews`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch product data');
-        }
-        const data = await response.json();
-        setReviews(data || []);
-      } catch (error) {
-        console.error('Error fetching product data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    if (data) {
+      setReviews(data);
+    }
+  }, [data]);
 
-    fetchData();
-  }, [reviewId]);
+  useEffect(() => {
+  isLoading={isLoading}
+  }, [isLoading]);
 
-  const handleDelete = (id) => {
-
-    setReviews(reviews.filter(review => review.id !== id));
-
-    // fetch(`http://localhost:8000/reviews/${id}`, { method: 'DELETE' })
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Failed to delete review');
-    //     }
-    //     console.log('Review deleted successfully');
-    //   })
-    //   .catch(error => {
-    //     console.error('Error deleting review:', error);
-    //   });
+  const handleDelete = async (id) => {
+    try {
+      await deleteReview(id).unwrap();
+      setReviews(reviews.filter(review => review.id !== id));
+    } catch (err) {
+      console.error("Failed to delete the review: ", err);
+    }
   };
 
-  if (loading) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -56,9 +42,9 @@ export const Reviews = ({ reviewId }) => {
           </span>
           <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
             <div className="items-center justify-between mb-3 sm:flex">
-              <time className="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0 ml-3">2 hours ago</time>
+              <time className="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0 ml-3">{review.date}</time>
               <div className="text-sm font-normal text-gray-500 dark:text-gray-300">
-                You commented on <a href="#" className="font-semibold text-gray-900 dark:text-white hover:underline">Product no.4</a>
+                You commented on <a href="#" className="font-semibold text-gray-900 dark:text-white hover:underline">{review.productId}</a>
               </div>
             </div>
             <div className="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
