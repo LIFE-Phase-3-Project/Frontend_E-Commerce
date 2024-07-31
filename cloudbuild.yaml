@@ -1,0 +1,18 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - '-t'
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest' 
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - push 
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+
+images:
+  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
