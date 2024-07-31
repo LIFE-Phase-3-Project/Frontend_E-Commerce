@@ -9,9 +9,6 @@ export const Pagination = () => {
     const { page, pageSize, totalCount } = useSelector(state => state.pagination);
     const pages = Math.ceil(totalCount / pageSize);
 
-    console.log("pageSize")
-    console.log(page)
-
     
     useEffect(() => {
         dispatch(setFilters({ page, pageSize }));

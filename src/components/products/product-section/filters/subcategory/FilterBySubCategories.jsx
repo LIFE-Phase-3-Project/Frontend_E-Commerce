@@ -15,8 +15,6 @@ export const FilterBySubCategory = ({ category: categoryId, t }) => {
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);
 
-    console.log("Data")
-    console.log(data)
 
     useEffect(() => {
         data && setCategory(data[0])
