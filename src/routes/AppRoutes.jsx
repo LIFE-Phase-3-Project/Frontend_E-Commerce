@@ -1,5 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { DefaultRoutes } from "./default-routes/default-routes";
+import { AuthRoutes } from "./auth-routes/auth-routes";
 import { AdminRoutes } from "./admin-routes/admin-routes";
 import NavBar from '../layouts/NavBar/NavBar';
 import Footer from '../layouts/Footer/Footer';
@@ -70,11 +71,12 @@ export const AppRoutes = () => {
                             {(user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin") && AdminRoutes}
 
                             {
-                                !user.isLoggedIn &&
-                                <>
-                                    <Route key={uuidv4()} path="/login" element={<Login />}/>
-                                    <Route key={uuidv4()} path="/register" element={<Register />}/>                      
-                                </>
+                                user.isLoggedIn 
+                                    ? user?.role === "customer" && <> {AuthRoutes} </>
+                                    : <>
+                                        <Route key={uuidv4()} path="/login" element={<Login />}/>
+                                        <Route key={uuidv4()} path="/register" element={<Register />}/>                      
+                                    </>
                             }
                             <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl">Page not found</h1></div>} />
                         </Routes>
