@@ -14,6 +14,7 @@ import { wishlistApi } from '../api/wishListApi';
 import { reviewsApi } from '../api/reviewsApi';
 import { ordersApi } from '../api/ordersApi';
 import { paymentsApi } from '../api/paymentsApi';
+import { shoppingCartApi } from '../api/shoppingCartApi';
 
 export const reducers = {
     darkTheme: darkModeSlice,
@@ -33,4 +34,5 @@ export const reducers = {
     [reviewsApi.reducerPath]: reviewsApi.reducer,
     [ordersApi.reducerPath]: ordersApi.reducer,
     [paymentsApi.reducerPath]: paymentsApi.reducer,
+    [shoppingCartApi.reducerPath]: shoppingCartApi.reducer,
 }

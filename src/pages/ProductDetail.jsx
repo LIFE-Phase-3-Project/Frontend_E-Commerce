@@ -7,12 +7,14 @@ import { faCartShopping, faHeart, faTruck } from '@fortawesome/free-solid-svg-ic
 import ReviewSection from "../components/product-details/review/ReviewSection";
 import Recommendations from "../components/product-details/recommendations/Recommendations";
 import { useGetProductByIdQuery } from "../redux/api/productsApi";
+import { useParams } from "react-router-dom";
 
-const ProductDetail = ({ productId }) => {
+const ProductDetail = () => {
   const [productDetailItem, setProductDetailItem] = useState(null);
   const [orderNumber, setOrderNumber] = useState(1);
+  const { id } = useParams()
 
-  const { data, isLoading: loading } = useGetProductByIdQuery(productId);
+  const { data, isLoading: loading } = useGetProductByIdQuery(id);
 
   useEffect(() => {
     if (data) {
