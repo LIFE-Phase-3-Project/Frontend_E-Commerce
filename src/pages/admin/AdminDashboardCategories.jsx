@@ -13,7 +13,13 @@ export const AdminDashboardCategories = () => {
     const [deleteCategory] = useDeleteCategoryMutation();
     const [deletingId, setDeletingId] = useState(null);
 
-    const theadTh = ["Category ID", "Category Name", "Edit", "Delete"];
+    const theadTh = [
+        { name: "categoryId", filterable: false },
+        { name: "categoryName", filterable: false },
+        { name: "Edit", filterable: false },
+        { name: "Delete", filterable: false }
+    ];
+    
     const dataFields = ["categoryId", "categoryName", "edit", "delete"];
     const nrOfPages = Math.ceil(data?.length / 10);
 

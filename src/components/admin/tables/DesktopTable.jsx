@@ -1,14 +1,22 @@
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { IoMdAdd } from "react-icons/io";
+import { FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 
-export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, handleDelete, page, setPage, nrOfPages }) => {
+export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, handleDelete, page, setPage, nrOfPages, sortField, sortDirection, handleSort }) => {
     return (
         <>
             <thead className="hidden lg:table-header-group">
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
-                    {theadTh.map((thText, key) => (
-                        <th key={key} className="py-2 capitalize">{thText}</th>
+                    {theadTh.map((th, key) => (
+                        <th key={key} className="py-2 capitalize cursor-pointer" onClick={() => th.filterable && handleSort(dataFields[key])}>
+                            {th.name}
+                            {th.filterable && (
+                                sortField === dataFields[key] ?
+                                    (sortDirection === "a-z" ? <FaSortUp className="inline ml-2" /> : <FaSortDown className="inline ml-2" />)
+                                    : <FaSort className="inline ml-2" />
+                            )}
+                        </th>
                     ))}
                 </tr>
             </thead>

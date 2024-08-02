@@ -25,7 +25,15 @@ export const AdminDashboardUsers = () => {
     }
     
     
-    const theadTh = ["Id", "First Name", "Last Name", "Email", "Role Id", "Edit", "Delete"];
+    const theadTh = [
+        { name: "Id", filterable: false },
+        { name: "First Name", filterable: false },
+        { name: "Last Name", filterable: false },
+        { name: "Email", filterable: false },
+        { name: "Role Id", filterable: false },
+        { name: "Edit", filterable: false },
+        { name: "Delete", filterable: false }
+    ];
     const dataFields = ["id", "firstName", "lastName", "email", "roleId", "edit", "delete"];
 
     const handleDelete = async (id) => {

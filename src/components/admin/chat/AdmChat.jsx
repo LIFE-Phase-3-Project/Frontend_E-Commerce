@@ -29,7 +29,7 @@ const AdmChat = ({ roomId }) => {
   return (
     <div className="flex-1 flex flex-col h-full p-4 lg:p-6">
       <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg flex flex-col h-full">
-        <div className="flex-grow overflow-y-auto p-2 lg:p-4 border-t border-gray-300 dark:border-gray-700">
+        <div className="adm-chat flex-grow overflow-y-auto p-2 lg:p-4 border-t border-gray-300 dark:border-gray-700">
           {messages.map((message) => (
             <AdmMessage key={message.id} message={message} />
           ))}

@@ -9,6 +9,8 @@ import { useLocation } from "react-router-dom";
 
 export const AdminDashboardProducts = () => {
     const [page, setPage] = useState(1)
+    const [sortField, setSortField] = useState(null);
+    const [sortDirection, setSortDirection] = useState("a-z");
 
     const filters = useSelector(state => state.filters.filters)
     const dispatch = useDispatch()
@@ -18,8 +20,16 @@ export const AdminDashboardProducts = () => {
     const [deleteProduct] = useDeleteProductMutation();
     const [deletingId, setDeletingId] = useState(null);
 
+    const theadTh = [
+        { name: "Id", filterable: false },
+        { name: "Title", filterable: true },
+        { name: "Price", filterable: false },
+        { name: "Stock", filterable: false },
+        { name: "Ratings", filterable: false },
+        { name: "Edit", filterable: false },
+        { name: "Delete", filterable: false }
+    ];
 
-    const theadTh = ["Id", "Title", "Price", "Stock", "Ratings", "Edit", "Delete"];
     const dataFields = ["id", "title", "price", "stock", "ratings", "edit", "delete"];
     const nrOfPages = Math.ceil(data?.totalCount / data?.pageSize)
 
@@ -34,13 +44,20 @@ export const AdminDashboardProducts = () => {
         }
     };
 
-    useEffect(() => {
-        refetch();
-    }, [location]);
+    const handleSort = (field) => {
+        const direction = sortField === field && sortDirection === "a-z" ? "z-a" : "a-z";
+        setSortField(field);
+        setSortDirection(direction);
+        dispatch(setFilters({ ...filters, sortField: field, SortOrder: direction }));
+    };
 
     useEffect(() => {
-        dispatch(setFilters({page: page ,pageSize:10}))
-    }, [data, page])
+        refetch();
+    }, [location, filters]);
+
+    useEffect(() => {
+        dispatch(setFilters({ page: page, pageSize: 10 }));
+    }, [page]);
 
     if (isLoading) return <Loader />;
     if (isError) return <div>Error loading products</div>;
@@ -48,7 +65,6 @@ export const AdminDashboardProducts = () => {
     return (
         <div className="admin-dashboard-products lg:flex lg:flex-col lg:items-center relative">
             <table className="w-9/12 my-10 lg:mt-0 lg:w-12/12 ml-12 lg:ml-0 lg:absolute top-16 left-1/2 lg:transform lg:-translate-x-1/2 border border-green-800 dark:border-admin-sidebar-color">
-
                 <DesktopTable 
                     name={"product"} 
                     data={data?.items} 
@@ -58,7 +74,10 @@ export const AdminDashboardProducts = () => {
                     handleDelete={handleDelete} 
                     page={page} 
                     setPage={setPage} 
-                    nrOfPages={nrOfPages}/>
+                    nrOfPages={nrOfPages}
+                    sortField={sortField}
+                    sortDirection={sortDirection}
+                    handleSort={handleSort} />
 
                 <MobileTable 
                     name="product" 
@@ -69,8 +88,10 @@ export const AdminDashboardProducts = () => {
                     handleDelete={handleDelete}
                     page={page}
                     setPage={setPage}
-                    nrOfPages={nrOfPages}/>
-
+                    nrOfPages={nrOfPages}
+                    sortField={sortField}
+                    sortDirection={sortDirection}
+                    handleSort={handleSort} />
             </table>
         </div>
     );
