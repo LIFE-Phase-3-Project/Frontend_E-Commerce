@@ -17,8 +17,8 @@ export const Products = () => {
         transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       <SpecialOffers />
-        {/* 
-        <BrandAlbums /> */}
+        
+        <BrandAlbums />
         <ProductSection />
     </motion.div>
   );

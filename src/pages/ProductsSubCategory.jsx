@@ -10,7 +10,7 @@ export const ProductsSubCategory = () => {
   return (
     <div className="products products-category-page mt-32">
         <SpecialOffers subCategory={route.subCategory}/>
-        {/* <BrandAlbums /> */}
+        <BrandAlbums />
         <ProductSection subCategory={route.subCategory}/>
     </div>
   );

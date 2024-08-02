@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { useGetAllBrandsQuery } from "../../../redux/api/brandsApi";
 
 export const BrandAlbums = () => {
-    // const { data } = useGetAllBrandsQuery();
     const data = [
         {
             "id": 1,
@@ -77,7 +75,7 @@ export const BrandAlbums = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [data, documentWidth]);
+    }, [documentWidth]);
     return (
         <div className="brand-albums mt-40 flex justify-center sm:justify-between px-4 lg:px-10">
             {filteredData?.map((category, key) => {

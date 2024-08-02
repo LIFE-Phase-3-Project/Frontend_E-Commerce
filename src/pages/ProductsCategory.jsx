@@ -10,7 +10,7 @@ export const ProductsCategory = () => {
   return (
     <div className="products products-category-page mt-32">
         <SpecialOffers category={route.category}/>
-        {/* <BrandAlbums /> */}
+        <BrandAlbums />
         <ProductSection category={route.category}/>
     </div>
   );
