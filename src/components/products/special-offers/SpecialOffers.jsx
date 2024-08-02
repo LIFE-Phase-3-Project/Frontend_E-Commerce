@@ -8,7 +8,7 @@ import { useCardStyles } from "./useCardStyles";
 import { AppError } from "../../../helpers/AppError";
 import { SpecialOffersSkeleton } from "../../../helpers/skeletons/SpecialOffersSkeleton";
 
-export const SpecialOffers = ({category=""}) => {
+export const SpecialOffers = ({category="", subCategory=""}) => {
     const { data, error, isLoading } = useGetAllProductsQuery();
     const [randomProductId, setRandomProductId] = useState(0);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -43,7 +43,7 @@ export const SpecialOffers = ({category=""}) => {
             style={cardStyles}
         >
             <OfferDiscount />
-            <SpecialOffersContent productsWithOffers={productsWithOffers} randomProductId={randomProductId} category={category}/>
+            <SpecialOffersContent productsWithOffers={productsWithOffers} randomProductId={randomProductId} category={category} subCategory={subCategory}/>
             <SpecialOffersImage productsWithOffers={productsWithOffers} randomProductId={randomProductId}/>      
         </div>
     );
