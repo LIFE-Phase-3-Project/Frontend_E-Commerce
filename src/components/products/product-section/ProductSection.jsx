@@ -8,8 +8,9 @@ import { useEffect } from "react"
 import { Pagination } from "./Pagination/Pagination"
 import { setPaginationValues } from "../../../redux/slices/paginationSlice"
 import { setFilters } from "../../../redux/slices/filtersSlice"
+import { SubCategoryProducts } from "./products-cards/SubCategoryProducts"
 
-export const ProductSection = ({category=""}) => {
+export const ProductSection = ({category="", subCategory=""}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,16 +20,21 @@ export const ProductSection = ({category=""}) => {
 
     return (
         <div id="product-section" className="product-section flex justify-between pt-24 px-4">
-            <ProductSectionLeft category={category}/>
+            <ProductSectionLeft category={category} subCategory={subCategory}/>
             <div className="product-section-right">
                 <div className="product-section-right-top h-9 flex items-start justify-center">
                     <Search />
                     <OrderBy />
                 </div>
 
-                { category 
-                    ? <CategoryProducts categoryId={category}/>
-                    :  <AllProducts /> 
+                {
+                    subCategory 
+                    ?
+                        <SubCategoryProducts subCategoryId={subCategory}/>
+                    :
+                    category 
+                        ? <CategoryProducts categoryId={category}/>
+                        :  <AllProducts /> 
                 }
                 <Pagination />
             </div>

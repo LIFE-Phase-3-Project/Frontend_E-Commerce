@@ -8,7 +8,6 @@ export const Colors = ({ color }) => {
     const dispatch = useDispatch();
 
     const handleClick = (colorTitle) => {
-        console.log(colorTitle)
         dispatch(setFilters({Color: colorTitle.toLowerCase()}))
         dispatch(changePage(1))
     }

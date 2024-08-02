@@ -2,22 +2,19 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Color } from "./colors/FilterByColor";
 import { useDispatch } from "react-redux";
-import '../../../../i18n/i18n'
+import '../../../../i18n/i18n';
 import { FilterByCategory } from "./category/FilterByCategory";
-import { FilterBySubCategory } from "./subcategory/FilterBySubCategories";
 import { Price } from "./price/Prices";
-import { FilterByBrands } from "./brands/FilterByBrands";
 import { clearFilters } from "../../../../redux/slices/filtersSlice";
 import { changePage } from "../../../../redux/slices/paginationSlice";
 
-export const Filters = ({ category = "", isHamburgerActive }) => {
+export const Filters = ({ category = "", subCategory="",isHamburgerActive }) => {
     const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
 
-
     const handleClick = () => {
         dispatch(changePage(1));
-        dispatch(clearFilters({postsPerPage: 12}));
+        dispatch(clearFilters({ postsPerPage: 12 }));
     };
 
     useEffect(() => {
@@ -31,12 +28,7 @@ export const Filters = ({ category = "", isHamburgerActive }) => {
                             `}>
             <div className="max-w-md mx-auto p-3">
                 <h3 className="text-xl border-b-2 mb-5 p-3">{t("filterBy")}</h3>
-                {
-                    category 
-                    ? <FilterBySubCategory category={category} t={t} />
-                    : <FilterByCategory category={category} t={t}/>
-                }
-                {/* <FilterByBrands t={t}/> */}
+                <FilterByCategory category={category} subCategory={subCategory} t={t} />
                 <Color />
                 <Price />
                 <h3 className="text-md p-3">{t("discountedProducts")}</h3>

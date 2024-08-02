@@ -53,6 +53,13 @@ export const productsApi = createApi({
         }
       }
     }),
+
+    getAllProductsBySubCategory: builder.query({
+      query: ({ id, filters = {} }) => ({
+        url: `Product/subcategory/${id}`,
+        params: filters,
+      }),
+    }),
   }),
 })
 
@@ -63,4 +70,5 @@ export const {
   useUpdateProductMutation,
   useDeleteProductMutation, 
   useGetAllProductsByCategoryQuery, 
+  useGetAllProductsBySubCategoryQuery, 
 } = productsApi

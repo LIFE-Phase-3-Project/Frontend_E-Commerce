@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react";
-import { useGetCategoryByIdQuery } from "../../../../../redux/api/categoriesApi";
-import { ProductsBySubCategories } from "./ProductsBySubCategories";
+import { ProductsBySubCategories } from "../category/ProductsBySubCategories";
 import { FiltersDropdown } from "../general/FiltersDropDown";
 import { ItemList } from "../general/ItemList";
 import { useSelector } from "react-redux";
+import { useGetSubCategoriesByIdQuery } from "../../../../../redux/api/subCategoriesApi ";
 
-export const FilterBySubCategory = ({ category: categoryId, t }) => {
+export const FilterBySubCategory = ({ subCategory: subCategoryId, t }) => {
     const [isDropdownActive, setIsDropdownActive] = useState(false);
-    const [category, setCategory] = useState({})
+    const [subCategory, setSubCategory] = useState({})
 
     
     const filters = useSelector((state) => state.filters.filters);
-    const { data } = useGetCategoryByIdQuery(categoryId, {filters});
+    const { data } = useGetSubCategoriesByIdQuery(subCategoryId, {filters});
+    console.log("data")
+    console.log(data)
 
     const toggleDropdown = () => setIsDropdownActive(!isDropdownActive);
 
 
     useEffect(() => {
-        data && setCategory(data[0])
-    }, [category, data])
+        data && setSubCategory(data[0])
+    }, [subCategory, data])
 
     return (
         <div className="filter-by-category">
             <FiltersDropdown
-                title={categoryId ? data?.categoryName : t("categories")}
+                title={subCategoryId ? data?.categoryName : t("categories")}
                 isActive={isDropdownActive}
                 toggleDropdown={toggleDropdown}
             >
@@ -31,9 +33,9 @@ export const FilterBySubCategory = ({ category: categoryId, t }) => {
                         items={data?.subcategories || []}
                         renderItem={(subcategory, key) => (
                             <ProductsBySubCategories
-                                key={key}
-                                subcategory={subcategory}
-                                categoryId={categoryId}
+                                // key={key}
+                                // subcategory={subcategory}
+                                // categoryId={categoryId}
                             />
                         )}/>
             </FiltersDropdown>
