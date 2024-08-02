@@ -1,0 +1,5 @@
+
+.user-chat-messages::-webkit-scrollbar { width: 7px; }
+.user-chat-messages::-webkit-scrollbar-track { background: #f1f1f1; }
+.user-chat-messages::-webkit-scrollbar-thumb { background: rgb(54, 54, 224); }
+.user-chat-messages::-webkit-scrollbar-thumb:hover { background: #555; }

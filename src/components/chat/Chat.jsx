@@ -28,9 +28,9 @@ const Chat = ({ roomId }) => {
   }, [messages]);
 
   return (
-    <div style={{height: "550px"}} className="user-chat flex flex-col max-w-3xl w-full mx-auto bg-white shadow-lg rounded-lg p-4 border border-gray-300">
-      <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg flex flex-col h-full">
-        <main className="flex-grow overflow-y-auto mb-4 p-2 bg-gray-100 rounded-lg">
+    <div style={{height: "550px"}} className="user-chat flex flex-col max-w-3xl w-full mx-auto bg-white dark:bg-admin-blue-color shadow-lg rounded-lg p-4 border border-gray-300">
+      <div className="bg-white dark:bg-admin-blue-color shadow-lg rounded-lg flex flex-col h-full">
+        <main className="user-chat-messages flex-grow overflow-y-auto mb-4 p-2 bg-gray-100 dark:bg-admin-sidebar-color rounded-lg">
           {messages.length ? (
             <>
               {messages.map((message) => (
