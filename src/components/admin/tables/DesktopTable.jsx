@@ -37,7 +37,7 @@ export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, hand
                                 );
                             } else if (field === "delete") {
                                 return (
-                                    <td key={key} className="py-2 w-20 cursor-pointer" onClick={() => handleDelete(name === "category" ? item.categoryId : item.id)}>
+                                    handleDelete && <td key={key} className="py-2 w-20 cursor-pointer" onClick={() => handleDelete(name === "category" ? item.categoryId : item.id)}>
                                         <MdDelete className={`w-full ${deletingId === item.id ? 'text-red-500' : ''}`} />
                                     </td>
                                 );
@@ -48,11 +48,13 @@ export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, hand
                     </tr>
                 ))}
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
+                    { name !== "user" &&
                     <td className="text-center" colSpan={theadTh.length > 2 ? nrOfPages > 1 ? 2 : theadTh.length : 1}>
                         <Link to={'create'} className="flex items-center justify-center">
                             Create {name} <IoMdAdd className="ml-2" size={20}/>
                         </Link>
                     </td>
+                    }
                     {nrOfPages > 1 && <td colSpan={theadTh.length > 2 ? theadTh.length -2 : 1} className="text-end py-1 pr-16 text-sm">
                         <button 
                             disabled={page <= 1}

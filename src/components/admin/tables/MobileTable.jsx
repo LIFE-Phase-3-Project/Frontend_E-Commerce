@@ -52,9 +52,11 @@ export const MobileTable = ({ name, data, theadTh, dataFields, deletingId, handl
                 ))}
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
                     <td colSpan={nrOfPages <= 1 ? 2 : null} className="text-center">
-                        <Link to={'create'} className="flex items-center justify-center">
-                            Create <IoMdAdd className="ml-2" size={20} />
-                        </Link>
+                        { name !== "user" &&
+                            <Link to={'create'} className="flex items-center justify-center">
+                                Create <IoMdAdd className="ml-2" size={20} />
+                            </Link>
+                        }
                     </td>
                     
                     {nrOfPages > 1 && (
