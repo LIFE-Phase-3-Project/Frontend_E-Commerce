@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useGetUserByIDQuery ,useUpdateUserMutation} from "../../redux/api/authApi";
+import { useTranslation } from 'react-i18next';
 
 export const PersonalInformation = (data) => {
 
   // const { data, error, isLoading } = useGetUserByIDQuery(userId);
- 
+  const { t, i18n } = useTranslation();
   const [updateUser] = useUpdateUserMutation();
   const [formData, setFormData] = useState({
     firstName: data.firstName,
@@ -18,6 +19,10 @@ export const PersonalInformation = (data) => {
     // gender: '',
     // email: ''
   });
+
+  useEffect(() => {
+    i18n.changeLanguage(navigator.language);
+}, [i18n]);
 
   const [errors, setErrors] = useState({});
 
@@ -70,11 +75,11 @@ export const PersonalInformation = (data) => {
 
   return (
     <div className="w-full md:w-3/4 p-4">
-      <h2 className="text-xl font-semibold mb-4 dark:text-cream">Personal information</h2>
+      <h2 className="text-xl font-semibold mb-4 dark:text-cream">{t('personalInformation')}</h2>
       <form className="space-y-4 dark:text-cream" onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-gray-700">First Name *</label>
+            <label className="block text-gray-700">{t('firstName')} *</label>
             <input
               type="text"
               name="firstName"
@@ -85,7 +90,7 @@ export const PersonalInformation = (data) => {
             {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
           </div>
           <div>
-            <label className="block text-gray-700">Last Name *</label>
+            <label className="block text-gray-700">{t('lastName')} *</label>
             <input
               type="text"
               name="lastName"
@@ -97,7 +102,7 @@ export const PersonalInformation = (data) => {
           </div>
         </div>
         <div>
-          <label className="block text-gray-700">Birthday</label>
+          <label className="block text-gray-700">{t('birthday')}</label>
           <input
             type="text"
             name="birthday"
@@ -107,7 +112,7 @@ export const PersonalInformation = (data) => {
           />
         </div>
         <div>
-          <label className="block text-gray-700">Gender</label>
+          <label className="block text-gray-700">{t('gender')}</label>
           <div className="mt-1 flex items-center space-x-4">
             <label className="flex items-center">
               <input
@@ -154,7 +159,7 @@ export const PersonalInformation = (data) => {
           <button type="submit" onClick={handleUpdateUser} className="inline-block bg-custom-purple text-white px-4 py-2 rounded">
             Save changes
           </button>
-          {submissionStatus === true && <p className="text-custom-green">Successfully updated your profile</p>}
+          {submissionStatus === true && <p className="text-custom-green">{t('successful')}</p>}
        
         </div>
       </form>

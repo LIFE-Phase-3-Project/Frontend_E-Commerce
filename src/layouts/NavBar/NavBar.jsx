@@ -71,16 +71,16 @@ function NavBar() {
       zIndex: 1000,
     },
     content: {
-      backgroundColor: 'white', // Adjust the background color if needed
-      border: 'none', // Optional: Removes the default border
-      borderRadius: '8px', // Optional: Adds border radius to the modal
-      padding: '20px', // Optional: Adds padding inside the modal
-      maxWidth: '90%', // Adjust width according to your needs
-      maxHeight: '90%', // Adjust height according to your needs
-      margin: 'auto', // Centers the modal horizontally
-      display: 'flex', // Make the content a flex container
-      flexDirection: 'row', // Arrange children in a row
-      gap: '20px', // Optional: Adds space between children
+      backgroundColor: 'white', 
+      border: 'none', 
+      borderRadius: '8px',
+      padding: '20px', 
+      maxWidth: '90%', 
+      maxHeight: '90%',
+      margin: 'auto', 
+      display: 'flex', 
+      flexDirection: 'row', 
+      gap: '20px', 
     }
   };
 
@@ -200,7 +200,7 @@ function NavBar() {
         style={customStyles}
       >
         <div style={{ flex: 1 }}>
-          <div>
+          <div className="dark: bg-custom-blue">
             <h2>Your cart</h2>
           </div>
           <CartModal />

@@ -35,12 +35,12 @@ export const CartModal = () => {
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   if (cartItems.length === 0) {
-    return <div className="p-4 text-gray-500 dark:text-gray-400">Your cart is empty.</div>;
+    return <div className="p-4 text-gray-500 dark:text-gray-400 dark:bg-custom-blue">Your cart is empty.</div>;
   }
 
   return (
-    <div>
-      <table>
+    <div className="dark:bg-custom-blue">
+      <table className="dark: bg-custom-blue">
         <tbody>
           {cartItems?.map(item => (
             <tr key={item.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
