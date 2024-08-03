@@ -7,12 +7,13 @@ import { faCartShopping, faHeart, faTruck } from '@fortawesome/free-solid-svg-ic
 import ReviewSection from "../components/product-details/review/ReviewSection";
 import Recommendations from "../components/product-details/recommendations/Recommendations";
 import { useGetProductByIdQuery, } from "../redux/api/productsApi";
-import {  useAddItemToCartMutation,   useUpdateQuantityMutation, } from "../redux/api/shoppingCartApi";
+import { Modal } from '../helpers/Modal'
+import {  useAddItemToCartMutation, useUpdateQuantityMutation, } from "../redux/api/shoppingCartApi";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const [productDetailItem, setProductDetailItem] = useState(null);
-  const [updateUser] = useAddItemToCartMutation();
+  const [addItemToCart] = useAddItemToCartMutation();
   const [updateQuantity] = useUpdateQuantityMutation();
   const [orderNumber, setOrderNumber] = useState(1);
   const { id } = useParams()
@@ -39,11 +40,10 @@ const ProductDetail = () => {
     localStorage.setItem('cart', JSON.stringify(currentCart));
 
     const sendId = product.id;
-    const updatedCart = { productId: sendId };
     try {
-      const response = await updateUser({ sendId, updatedCart }).unwrap();
+      const response = await addItemToCart(sendId).unwrap();
       const quantityResponse = await updateQuantity({sendId, orderNumber}).unwrap();
-      console.log('User updated:', response);
+      <Modal msg={"Item added successfully."}/>;
       console.log("Quantity added: " , quantityResponse);
       
     } catch (error) {
