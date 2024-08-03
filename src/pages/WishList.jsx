@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Loader } from '../helpers/Loader';
-import { AddToWishListIcon } from '../components/products/product-section/products-cards/AddToWishListIcon';
 import { ProductCard } from '../components/products/product-section/products-cards/ProductCard';
 import { Banner } from '../components/wishlist/Banner';
 import {useGetWishListEntriesQuery} from '../redux/api/wishListApi';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const WishList = () => {
-  const { id } = useParams();
-  const [products, setProducts] = useState();
-  const { data, isLoading } = useGetWishListEntriesQuery(id);
-
-  useEffect(() => {
-    if (data) {
-      setProducts(data);
-    }
-  }, [data]);
-
-  useEffect(() => {
-  isLoading={isLoading}
-  }, [isLoading]);
-
+  const { data, isLoading, refetch } = useGetWishListEntriesQuery();
+  const location = useLocation()
 
   if (isLoading) {
    <Loader/>
   }
+
+  useEffect(() => {
+    refetch()
+  }, [location.pathname])
 
   return (
    
@@ -35,15 +26,18 @@ export const WishList = () => {
           <h2 className="text-3xl font-semibold  text-gray-800  dark:text-cream">Your WishList</h2>
           <p className="text-gray-600 mb-4 dark:text-cream">Ready to buy?</p>
          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 dark:bg-background-blue dark:border-cream">
-            {products?.map((product) => (
-             <div>
-             <ProductCard product={product}/>
-             <button className="bg-custom-purple w-full hover:bg-on-hover-purple  hover:scale-110 text-white px-4 py-2 rounded-md transition duration-300">
-             Add to Cart
-           </button>
-           </div>
-            ))}
+          
+          <div className="flex flex-wrap justify-around gap-6 dark:bg-background-blue dark:border-cream">
+            {data?.map((product) => {
+             return (
+              <div>
+                <ProductCard product={product}/>
+                <button className="bg-custom-purple w-full hover:bg-on-hover-purple  hover:scale-110 text-white px-4 py-2 rounded-md transition duration-300">
+                  Add to Cart
+                </button>
+              </div>
+             )
+            })}
           </div>
         </div>
       </div>

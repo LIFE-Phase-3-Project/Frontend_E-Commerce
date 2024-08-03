@@ -10,13 +10,15 @@ import { useGetProductByIdQuery, } from "../redux/api/productsApi";
 import { Modal } from '../helpers/Modal'
 import {  useAddItemToCartMutation, useUpdateQuantityMutation, } from "../redux/api/shoppingCartApi";
 import { useParams } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const ProductDetail = () => {
   const [productDetailItem, setProductDetailItem] = useState(null);
   const [addItemToCart] = useAddItemToCartMutation();
   const [updateQuantity] = useUpdateQuantityMutation();
   const [orderNumber, setOrderNumber] = useState(1);
-  const { id } = useParams()
+  const { id } = useParams();
+  const { t, i18n } = useTranslation();
 
   const { data, isLoading: loading } = useGetProductByIdQuery(id);
 
@@ -52,6 +54,10 @@ const ProductDetail = () => {
       
     }
   };
+
+  useEffect(() => {
+    i18n.changeLanguage(navigator.language);
+}, [i18n]);
 
 
 
@@ -107,7 +113,7 @@ const ProductDetail = () => {
           </div>
         </div>
         <p className="mt-5 font-bold">
-          Availability:{" "}
+        {t('Availability')}{" "}
           {productDetailItem?.stock ? (
             <span className="text-green-600">In Stock </span>
           ) : (
@@ -115,7 +121,7 @@ const ProductDetail = () => {
           )}
         </p>
         <p className="font-bold">
-          Category:{" "}
+        {t("category")}{" "}
           <span className="font-normal">{productDetailItem?.category?.title}</span>
         </p>
         <p className="mt-4 text-4xl font-bold text-custom-green">
@@ -158,11 +164,11 @@ const ProductDetail = () => {
             onClick={() => addToCart(productDetailItem)}  
           >
             <FontAwesomeIcon icon={faTruck} />
-            Add to cart
+            {t("addToCart")}
           </button>
           <button className="flex h-12 w-1/3 items-center justify-center bg-light-pink duration-100 hover:bg-on-hover-pink">
             <FontAwesomeIcon icon={faHeart} />
-            Wishlist
+            {t("wishlist")}
           </button>
         </div>
       </div>

@@ -6,6 +6,7 @@ import {homeScrollEn, homeScrollSq} from "./home/home-scroll";
 import {productsSectionEn, productsSectionSq} from "./products/products-section";
 import { loginEn, loginSq } from "./auth/login";
 import { registerEn, registerSq } from "./auth/register";
+import { detailEn, detailSq } from "./product-detail/product-detail";
 
 i18n.use(initReactI18next).init({
     debug: true,
@@ -20,6 +21,7 @@ i18n.use(initReactI18next).init({
           ...productsSectionEn,
           ...loginEn,
           ...registerEn,
+          ...detailEn,
 
           search: "Search",
           seeMore: "See more",
@@ -37,6 +39,7 @@ i18n.use(initReactI18next).init({
             ...productsSectionSq,
             ...loginSq,
             ...registerSq,
+            ...detailSq,
 
             search: "Kërkoni",
             seeMore: "Shiko më shumë",
