@@ -14,6 +14,6 @@ export const DefaultRoutes = [
     <Route key={uuidv4()} path="/products/:category" element={<ProductsCategory />}/>,
     <Route key={uuidv4()} path="/products/:category/:subCategory" element={<ProductsSubCategory />}/>,
     <Route key={uuidv4()} path="/products/:category/:subCategory/:id" element={<ProductDetail />}/>,
-    <Route key={uuidv4()} path="/wishlist" element={<WishList />}/>,
-    <Route key={uuidv4()} path="/:id/profile" element={<UserProfile />}/>,
+    <Route key={uuidv4()} path="/wishlist/:id" element={<WishList />}/>,
+    <Route key={uuidv4()} path="/profile/:id" element={<UserProfile />}/>,
 ]
