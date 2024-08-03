@@ -36,7 +36,7 @@ const AdmSendMessage = ({ scroll, roomId }) => {
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="flex-grow p-3 rounded-lg border bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-600 shadow-sm"
+        className="flex-grow p-3 rounded-lg border text-black dark:text-white bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-600 shadow-sm"
         type='text'
         placeholder='Type your message here...'
       />

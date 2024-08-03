@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 export const AdminDashboardInventory = () => {
     const location = useLocation();
-    const { data, refetch } = useGetAllProductsQuery({ pageSize: 100 });
+    const { data, refetch } = useGetAllProductsQuery();
 
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },

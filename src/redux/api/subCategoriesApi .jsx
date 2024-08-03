@@ -12,19 +12,19 @@ export const subCategoriesApi = createApi({
     getAllSubCategories: builder.query({
       query: (filter= {}) => {
         return {
-          url: "sub-categories",
+          url: "SubCategory",
           params: filter
         }
       }
     }),
 
     getSubCategoriesById: builder.query({
-      query: (id) => `sub-categories/${id}`,
+      query: (id) => `SubCategory/${id}`,
     }),
 
     postSubCategorie: builder.mutation({
       query: (newSubCategory) => ({
-        url: 'sub-categories',
+        url: 'SubCategory',
         method: 'POST',
         body: newSubCategory,
       }),
@@ -32,7 +32,7 @@ export const subCategoriesApi = createApi({
 
     updateSubCategory: builder.mutation({
       query: ({ id, updatedSubCategory }) => ({
-        url: `sub-categories/${id}`,
+        url: `SubCategory/${id}`,
         method: 'PUT', 
         body: updatedSubCategory,
       }),
@@ -40,7 +40,7 @@ export const subCategoriesApi = createApi({
 
     deleteSubCategory: builder.mutation({
       query: (id) => ({
-        url: `sub-categories/${id}`,
+        url: `SubCategory/${id}`,
         method: 'DELETE',
       })
     })

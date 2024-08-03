@@ -78,8 +78,9 @@ export const LoginForm = () => {
 
 
     return (
-        <div className={`log-in-form border shadow-lg rounded-md py-5 px-7 h-auto
-                        ${isDarkTheme ? 'bg-dark border-pink-medium shadow-purple-dark' : 'bg-white border-green-medium shadow-green-light'}`}>
+        <div style={{ backgroundColor: isDarkTheme && "#1a1919" }} 
+            className={`log-in-form border shadow-lg rounded-md py-5 px-7 h-auto
+                        ${isDarkTheme ? 'border-pink-medium shadow-purple-dark' : 'bg-white border-green-medium shadow-green-light'}`}>
             <div className="log-in-form-head flex justify-center items-center mb-5">
                 <img src={isDarkTheme ? DarkFallThyk : FallThyk} alt="icon" width={140} />
             </div>

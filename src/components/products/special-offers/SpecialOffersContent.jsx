@@ -2,16 +2,18 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export const SpecialOffersContent = ({ productsWithOffers, randomProductId, category = "" }) => {
+export const SpecialOffersContent = ({ productsWithOffers, randomProductId, category = "", subCategory="" }) => {
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(navigator.language);
   }, []);
 
-  const linkTo = category
+  const linkTo = subCategory
     ? `${productsWithOffers?.[randomProductId]?.id}`
-    : `${productsWithOffers?.[randomProductId]?.categoryId}/${productsWithOffers?.[randomProductId]?.id}`;
+    : category
+      ? `${productsWithOffers?.[randomProductId]?.categoryId}/${productsWithOffers?.[randomProductId]?.id}`
+      : `${productsWithOffers?.[randomProductId]?.categoryId}/${productsWithOffers?.[randomProductId]?.subCategoryId}/${productsWithOffers?.[randomProductId]?.id}`;
 
   return (
     <div className="special-offers-content w-7/12 flex flex-col items-center">

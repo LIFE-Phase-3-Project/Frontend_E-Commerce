@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Filters } from "./filters/Filters";
 
-export const ProductSectionLeft = ({ category = "" }) => {
+export const ProductSectionLeft = ({ category = "", subCategory="" }) => {
     const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export const ProductSectionLeft = ({ category = "" }) => {
         <div className={`product-section-left ${isHamburgerActive ? "active" : ""} relative`}>
             <div className={`overlay ${isHamburgerActive ? "block" : "hidden"}`} onClick={handleClick}></div>
 
-            <Filters category={category} isHamburgerActive={isHamburgerActive} />
+            <Filters category={category} subCategory={subCategory} isHamburgerActive={isHamburgerActive} />
 
             <div onClick={handleClick} className={`product-section-hamburger absolute ${isHamburgerActive ? "active right-0 top-0" : ""} flex flex-col mt-3 md:hidden`}>
                 <span className="bg-custom-green dark:bg-blue-medium"></span>

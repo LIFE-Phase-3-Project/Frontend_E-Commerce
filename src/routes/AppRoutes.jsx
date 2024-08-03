@@ -78,7 +78,7 @@ export const AppRoutes = () => {
                                         <Route key={uuidv4()} path="/register" element={<Register />}/>                      
                                     </>
                             }
-                            <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl">Page not found</h1></div>} />
+                            <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl text-black dark:text-white">Page not found</h1></div>} />
                         </Routes>
                     </AnimatePresence>
                 </div>

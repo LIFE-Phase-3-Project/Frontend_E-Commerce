@@ -59,7 +59,9 @@ module.exports = {
         "admin-green-dashboard-color": "#24794e",
         "admin-sidebar-color": "#1F2A40",
         "dashboard-light-color": "#727681",
-        "dashboard-extra-light": "#d0d1d5"
+        "dashboard-extra-light": "#d0d1d5",
+        "black-dark": "#111010",
+        "black-medium": "#171515"
       }
     },
     screens:{

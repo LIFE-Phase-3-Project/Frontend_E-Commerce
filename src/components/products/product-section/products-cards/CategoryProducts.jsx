@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { ProductCards } from "./ProductCards";
-import { useGetAllProductsByCategoryQuery, useGetAllProductsQuery } from "../../../../redux/api/productsApi";
+import { useGetAllProductsQuery } from "../../../../redux/api/productsApi";
 import { useEffect } from "react";
 import { setProducts } from "../../../../redux/slices/productsSlice";
 import { setTotalCount } from "../../../../redux/slices/paginationSlice";

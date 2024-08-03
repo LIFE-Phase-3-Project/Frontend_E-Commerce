@@ -55,6 +55,12 @@
     flex: 0.65;
 }
 
+.adm-chat::-webkit-scrollbar { width: 7px; }
+.adm-chat::-webkit-scrollbar-track { background: #f1f1f1; }
+.adm-chat::-webkit-scrollbar-thumb { background: rgb(54, 54, 224); }
+.adm-chat::-webkit-scrollbar-thumb:hover { background: #555; }
+
+
 @media (max-width: 1150px) {
     .admin-dashboard-orders, .admin-dashboard-payments {
         flex-direction: column;
