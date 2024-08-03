@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { useGetUserByIDQuery } from "../../redux/api/authApi";
+import { useGetUserByIDQuery ,useUpdateUserMutation} from "../../redux/api/authApi";
 
-export const PersonalInformation = (userId) => {
+export const PersonalInformation = (data) => {
 
-  const { data, error, isLoading } = useGetUserByIDQuery(userId);
+  // const { data, error, isLoading } = useGetUserByIDQuery(userId);
  
+  const [updateUser] = useUpdateUserMutation();
   const [formData, setFormData] = useState({
-    // firstName: data.firstName,
-    // lastName: data.lastName,
-    // birthday: data.birthday,
-    // gender: data.gender,
-    // email: data.email
-    firstName: '',
-    lastName: '',
-    birthday: '',
-    gender: '',
-    email: ''
+    firstName: data.firstName,
+    lastName: data.lastName,
+    birthday: data.birthday,
+    gender: data.gender,
+    email: data.email
+    // firstName: '',
+    // lastName: '',
+    // birthday: '',
+    // gender: '',
+    // email: ''
   });
 
   const [errors, setErrors] = useState({});
@@ -38,6 +39,19 @@ export const PersonalInformation = (userId) => {
     if (!formData.email) errors.email = 'Email is required';
     else if (!/\S+@\S+\.\S+/.test(formData.email)) errors.email = 'Email is invalid';
     return errors;
+  };
+
+
+
+  const handleUpdateUser = async () => {
+    const sendId = data.id;
+    const updatedUser = { name: formData.firstName, lastName:formData.lastName,  email: formData.email,  };
+    try {
+      const response = await updateUser({ sendId, updatedUser }).unwrap();
+      console.log('User updated:', response);
+    } catch (error) {
+      console.error('Failed to update user:', error);
+    }
   };
 
 
@@ -137,7 +151,7 @@ export const PersonalInformation = (userId) => {
           </button>
         </div>
         <div className="mt-4 flex items-center space-x-2">
-          <button type="submit" className="inline-block bg-custom-purple text-white px-4 py-2 rounded">
+          <button type="submit" onClick={handleUpdateUser} className="inline-block bg-custom-purple text-white px-4 py-2 rounded">
             Save changes
           </button>
           {submissionStatus === true && <p className="text-custom-green">Successfully updated your profile</p>}

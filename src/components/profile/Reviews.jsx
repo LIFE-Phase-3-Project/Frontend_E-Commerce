@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useGetReviewByIdQuery, useDeleteReviewMutation } from '../../redux/api/reviewsApi';
 
-export const Reviews = ({ reviewId }) => {
+export const Reviews = ({ profileData }) => {
   const [reviews, setReviews] = useState([]);
-  const { data, error, isLoading } = useGetReviewByIdQuery(reviewId);
+  const { data, error, isLoading } = useGetReviewByIdQuery(profileData.id);
   const [deleteReview] = useDeleteReviewMutation();
 
   useEffect(() => {
