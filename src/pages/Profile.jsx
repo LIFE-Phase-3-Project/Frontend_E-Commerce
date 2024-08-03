@@ -4,11 +4,14 @@ import { Address } from '../components/profile/Address';
 import { Reviews } from '../components/profile/Reviews';
 import { Orders } from '../components/profile/orders/Orders';
 import { useGetUserByIDQuery } from "../redux/api/authApi";
+import { useParams } from "react-router-dom";
 
 export const UserProfile = () => {
   
   const [currentComponent, setCurrentComponent] = useState('PersonalInformation');
-  const { data, isLoading: loading } = useGetUserByIDQuery(3)
+  const { id } = useParams()
+
+  const { data, isLoading: loading } = useGetUserByIDQuery(id);
 console.log(data);
   const handleNavClick = (component) => {
     setCurrentComponent(component);

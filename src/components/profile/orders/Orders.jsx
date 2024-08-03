@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { OrderRow } from './OrderRow';
 import { useGetOrderByIdQuery } from '../../../redux/api/ordersApi';
 
-export const Orders = (id)=> {
-    const { data, error, isLoading } = useGetOrderByIdQuery(id);
+export const Orders = (data)=> {
+    // const { data, error, isLoading } = useGetOrderByIdQuery(id);
     return(
         <div>
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

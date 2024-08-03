@@ -6,11 +6,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faHeart, faTruck } from '@fortawesome/free-solid-svg-icons';
 import ReviewSection from "../components/product-details/review/ReviewSection";
 import Recommendations from "../components/product-details/recommendations/Recommendations";
-import { useGetProductByIdQuery } from "../redux/api/productsApi";
+import { useGetProductByIdQuery, } from "../redux/api/productsApi";
+import {  useAddItemToCartMutation,   useUpdateQuantityMutation, } from "../redux/api/shoppingCartApi";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
   const [productDetailItem, setProductDetailItem] = useState(null);
+  const [updateUser] = useAddItemToCartMutation();
+  const [updateQuantity] = useUpdateQuantityMutation();
   const [orderNumber, setOrderNumber] = useState(1);
   const { id } = useParams()
 
@@ -22,9 +25,10 @@ const ProductDetail = () => {
     }
   }, [data]);
 
-  const addToCart = (product) => {
+  async function addToCart(product){
     const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
     const productIndex = currentCart.findIndex(item => item.id === product.id);
+    
 
     if (productIndex > -1) {
       currentCart[productIndex].quantity += orderNumber;
@@ -33,7 +37,23 @@ const ProductDetail = () => {
     }
 
     localStorage.setItem('cart', JSON.stringify(currentCart));
+
+    const sendId = product.id;
+    const updatedCart = { productId: sendId };
+    try {
+      const response = await updateUser({ sendId, updatedCart }).unwrap();
+      const quantityResponse = await updateQuantity({sendId, orderNumber}).unwrap();
+      console.log('User updated:', response);
+      console.log("Quantity added: " , quantityResponse);
+      
+    } catch (error) {
+      console.error('Failed to update user:', error);
+      console.log("Failed to update quantity: " , error);
+      
+    }
   };
+
+
 
   const increment = () => {
     setOrderNumber(prevNumber => prevNumber + 1);
@@ -135,7 +155,7 @@ const ProductDetail = () => {
         <div className="mt-7 flex flex-row items-center gap-6">
           <button
             className="flex h-12 w-1/3 items-center justify-center bg-custom-purple text-white duration-100 hover:bg-on-hover-purple"
-            onClick={() => addToCart(productDetailItem)}
+            onClick={() => addToCart(productDetailItem)}  
           >
             <FontAwesomeIcon icon={faTruck} />
             Add to cart
