@@ -6,13 +6,14 @@ import { Orders } from '../components/profile/orders/Orders';
 import { useGetUserByIDQuery } from "../redux/api/authApi";
 import { useParams } from "react-router-dom";
 
-export const UserProfile = () => {
+const UserProfile = () => {
   
   const [currentComponent, setCurrentComponent] = useState('PersonalInformation');
   const { id } = useParams()
 
   const { data, isLoading: loading } = useGetUserByIDQuery(id);
-console.log(data);
+console.log("id here");
+console.log(id);
   const handleNavClick = (component) => {
     setCurrentComponent(component);
   };
@@ -26,7 +27,7 @@ console.log(data);
       case 'Reviews':
         return <Reviews userId={data} />;
         case 'Orders':
-          return <Orders userId={data} />;
+          return <Orders userId={id} />;
       default:
         return <PersonalInformation userId={data} />;
     }
@@ -51,3 +52,4 @@ console.log(data);
   );
 };
 
+export default UserProfile
