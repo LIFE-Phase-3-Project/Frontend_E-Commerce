@@ -62,20 +62,14 @@ function NavBar() {
     }
   }, [location]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error loading categories</div>;
-  }
-
-  const details = data.map(category => ({
-    name: category.name,
-    href: `/${category.name.toLowerCase()}`,
+ 
+  const details = data?.map(category => ({
+    name: category?.categoryName,
+    categoryId: category?.categoryId,
+    href: `/${category?.categoryName.toLowerCase()}`,
     current: false,
-    subCategories: category.subCategories,
-  }));
+    subcategories: category.subcategories,
+  })).slice(0,3);
 
   const customStyles = {
     overlay: {
@@ -190,9 +184,9 @@ function NavBar() {
 
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pb-3 pt-2">
-          {details.map((item) => (
+          {details?.map((item) => (
             <DisclosureButton
-              key={item.name}
+              key={item.categoryName}
               as="a"
               href={item.href}
               aria-current={item.current ? 'page' : undefined}
@@ -201,7 +195,7 @@ function NavBar() {
                 'block rounded-md px-3 py-2 text-base font-medium',
               )}
             >
-              {item.name}
+              {item?.categoryName}
             </DisclosureButton>
           ))}
         </div>
@@ -230,6 +224,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-
-
