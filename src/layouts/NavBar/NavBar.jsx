@@ -12,17 +12,15 @@ import { setLogout } from '../../redux/slices/userSlice';
 import Modal from 'react-modal';
 import {CartModal } from "../../components/cart-modal/CartModal";
 import { CheckOut } from '../../components/cart-modal/CheckOut';
+import {useGetAllCategoriesQuery} from "../../redux/api/categoriesApi";
 
 
 Modal.setAppElement('#root');  // Ensure you set the app element for accessibility
 
 function NavBar() {
-  const details = [
-    { name: 'Home', href: '/', current: false, subCategories: ["bedroom", "bathroom"] },
-    { name: 'Clothes', href: '/clothes', current: false, subCategories: ["Tshirt", "Pants"] },
-    { name: 'Technology', href: '/technology', current: false, subCategories: ["Phones", "Laptop"] },
-    { name: 'School', href: '/school', current: false, subCategories: ["Bags", "Notebooks"] },
-  ];
+  const { data, error, isLoading } = useGetAllCategoriesQuery();
+
+
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -64,7 +62,20 @@ function NavBar() {
     }
   }, [location]);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
+  if (error) {
+    return <div>Error loading categories</div>;
+  }
+
+  const details = data.map(category => ({
+    name: category.name,
+    href: `/${category.name.toLowerCase()}`,
+    current: false,
+    subCategories: category.subCategories,
+  }));
 
   const customStyles = {
     overlay: {
@@ -145,12 +156,13 @@ function NavBar() {
                     Products
                   </Link>
                 </MenuItem>
-
-                <MenuItem>
+               {user?.isLoggedIn? 
+                 <MenuItem>
                   <Link to="/profile/my-profile" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     Your Profile
                   </Link>
-                </MenuItem>
+                </MenuItem> : ""}
+               
                 <MenuItem>
                   <Link to="/wishlist" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     WishList
