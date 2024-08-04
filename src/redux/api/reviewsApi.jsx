@@ -40,7 +40,7 @@ export const reviewsApi = createApi({
       }
     }),
 
-    postCategorie: builder.mutation({
+    postReview: builder.mutation({
       query: (newReview) => ({
         url: 'Review',
         method: 'POST',
@@ -65,4 +65,4 @@ export const reviewsApi = createApi({
   }),
 })
 
-export const { useGetAllReviewsQuery, useGetReviewByProductIdQuery, usePostCategorieMutation, useUpdateReviewMutation, useDeleteReviewMutation } = reviewsApi
+export const { useGetAllReviewsQuery, useGetReviewByProductIdQuery, usePostReviewMutation, useUpdateReviewMutation, useDeleteReviewMutation } = reviewsApi
