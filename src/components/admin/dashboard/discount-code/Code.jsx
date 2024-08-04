@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeDiscountCode, setDiscountCode } from '../../../../redux/slices/discountCodeSlice';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setDiscountCode } from '../../../../redux/slices/discountCodeSlice';
 
 const generateRandomString = (length) => {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -16,38 +15,22 @@ const generateRandomString = (length) => {
 export const Code = () => {
     const [randomString, setRandomString] = useState('');
     const dispatch = useDispatch();
-    const discountCode = useSelector(state => state.discountCode.discountCode);
-    const navigate = useNavigate();
 
     useEffect(() => {
-        if (!discountCode) {
-            const storedCode = localStorage.getItem('discount-code');
+        const storedCode = localStorage.getItem('discount-code');
 
-            if (storedCode) {
-                setRandomString(storedCode);
-                dispatch(setDiscountCode(storedCode));
-            } else {
-                const newCode = generateRandomString(6);
-                dispatch(setDiscountCode(newCode));
-                setRandomString(newCode);
-                localStorage.setItem('discount-code', newCode);
-            }
+        if (storedCode) {
+            setRandomString(storedCode);
         } else {
-            setRandomString(discountCode);
+            const newCode = generateRandomString(6);
+            dispatch(setDiscountCode(newCode))
+            setRandomString(newCode);
         }
-    }, [dispatch, discountCode]);
-
-    const handleClick = () => {
-        console.log("delete");
-        dispatch(removeDiscountCode());
-        localStorage.removeItem('discount-code');
-        navigate('/dashboard');
-    };
+    }, []);
 
     return (
         <div className="absolute flex flex-col text-[5.5vw] w-[80vw] items-center text-green-dark dark:text-white">
             <h2>{randomString}</h2>
-            {discountCode && <button onClick={handleClick} className='text-xl'>Delete Discount code</button>}
         </div>
     );
 };
