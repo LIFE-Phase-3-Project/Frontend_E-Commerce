@@ -99,7 +99,7 @@ function NavBar() {
             <DisclosureButton className={`group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-on-hover-green hover:text-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}>
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
-              <GiHamburgerMenu />
+              <GiHamburgerMenu style={{ color: "white" }}/>
               {/* <img aria-hidden="true" className="block h-7 w-7 group-data-[open]:hidden" src={logo} />
               <img aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" src={logo} /> */}
             </DisclosureButton>
@@ -127,10 +127,10 @@ function NavBar() {
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
               <div>
-                <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                <MenuButton className="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  <GiHamburgerMenu size={20}/>
+                  <GiHamburgerMenu className='text-white' size={20}/>
                   {/* <img
                   
                     alt=""
