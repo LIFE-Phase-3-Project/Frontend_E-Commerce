@@ -3,32 +3,16 @@ steps:
     args:
       - build
       - '-t'
-      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest' 
       - '.'
-    id: Build
 
   - name: 'gcr.io/cloud-builders/docker'
     args: 
       - push 
-      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
-    id: Push
-    waitFor: ['Build']
-
-  - name: 'gcr.io/cloud-builders/kubectl'
-    args:
-      - 'set'
-      - 'image'
-      - 'deployment/frontend-deployment'
-      - 'frontend=$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
-      - '--namespace=e-commerce'
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=e-commerce-cluster'
-      - 'CLOUDSDK_CORE_PROJECT=$_PROJECT_ID'
-    waitFor: ['Push']
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
 
 images:
-  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
+  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY
