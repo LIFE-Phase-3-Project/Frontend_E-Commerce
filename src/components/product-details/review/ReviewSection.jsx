@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 const ReviewSection = ({ id, rating }) => {
   const [comments, setComments] = useState([]);
   const user = useSelector(state => state.user);
+  const darkMode = useSelector(state => state.darkTheme.darkMode);
   
   const { data, isLoading: loading, refetch } = useGetReviewByProductIdQuery(id);
   const [postComment] = usePostReviewMutation();
@@ -43,7 +44,7 @@ const ReviewSection = ({ id, rating }) => {
 
 
   const reviewExample = (name, date, comment, commentId, userId) => (
-    <div key={`${name}-${date}`} className="bg-white p-4 rounded-lg shadow-md flex my-1 dark:bg-background-blue dark:text-cream dark:shadow-light">
+    <div key={`${name}-${date}`} className="bg-white p-4 rounded-lg shadow-md flex my-1 dark:text-cream dark:shadow-light" style={{ background: darkMode ? "#151515" : "" }}>
       <div className="flex-1">
         <h3 className="text-lg font-bold">{name}</h3>
         <p className="text-gray-700 dark:text-cream">{comment}</p>
@@ -59,7 +60,7 @@ const ReviewSection = ({ id, rating }) => {
   }
 
   return (
-    <div className="bg-gray-100 p-6 dark:bg-background-blue dark:border-cream">
+    <div className="bg-gray-100 p-6 dark:border-cream dark:bg-transparent">
       <h2 className="text-xl font-semibold mb-4 dark:text-cream">Reviews</h2>
       <div className="comments-render">
         {comments?.map((comment, key) => (
@@ -68,13 +69,13 @@ const ReviewSection = ({ id, rating }) => {
           </div>
         ))}
       </div>
-      <form className="bg-white p-4 rounded-lg shadow-md dark:bg-background-blue" onSubmit={handleSubmit}>
+      <form className="bg-white p-4 rounded-lg shadow-md" style={{ backgroundColor: darkMode ? "#151515" : "" }} onSubmit={handleSubmit}>
         <h3 className="text-lg font-bold mb-2 dark:text-cream">Add a comment</h3>
         <div className="mb-4 flex items-center">
           <span className="block text-gray-700 font-bold mr-2 dark:text-cream">
             Email
           </span>
-          <h2>{ user?.email }</h2>
+          <h2 className='text-black dark:text-white'>{ user?.email }</h2>
         </div>
         <div className="mb-4">
           <label htmlFor="comment" className="block text-gray-700 font-bold mb-2 dark:text-cream">
@@ -85,7 +86,7 @@ const ReviewSection = ({ id, rating }) => {
             name="comment"
             rows="3"
             placeholder="Enter your comment"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-background-blue"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-transparent dark:border-gray-300 text-black dark:text-white"
           ></textarea>
         </div>
         <button
