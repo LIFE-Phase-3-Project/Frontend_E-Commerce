@@ -2,17 +2,18 @@ import { useState } from "react";
 import { useGetUserByIDQuery } from "../../redux/api/authApi";
 export const Address =(userId) => {
 
-  const { data, error, isLoading } = useGetUserByIDQuery(userId);
+  const { data, error, isLoading } = useGetUserByIDQuery(localStorage.getItem('userId') || null);
 
+    console.log(data)
   const [formData, setFormData] = useState({
-    firstName: data.firstName,
-    lastName: data.lastName,
-    address: data.address,
+    firstName: data?.firstName,
+    lastName: data?.lastName,
+    address: data?.address,
     secondAddress: '',
-    postalCode: '',
+    postalCode: '10000',
     country:'',
     city:'',
-    phoneNumber:''
+    phoneNumber:data?.phoneNumber
   });
 
   const [errors, setErrors] = useState({});
@@ -51,9 +52,7 @@ export const Address =(userId) => {
       setSubmissionStatus(true); 
     }
   };
-
-  
-    return(
+  return(
     <div className="w-full md:w-3/4 p-4">
       <h2 className="text-xl font-semibold mb-4 dark:text-cream">Add a new address</h2>
        <form className="space-y-4 dark:text-cream" onSubmit={handleSubmit}>

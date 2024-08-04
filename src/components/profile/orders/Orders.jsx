@@ -2,7 +2,7 @@ import React from 'react';
 import { OrderRow } from './OrderRow';
 import { useGetOrderByUserIdQuery } from '../../../redux/api/ordersApi';
 
-export const Orders = ({ userId }) => {
+export const Orders = () => {
   const { data, error, isLoading } = useGetOrderByUserIdQuery(localStorage.getItem('userId') || null);
 
   if (isLoading) return <div>Loading...</div>;

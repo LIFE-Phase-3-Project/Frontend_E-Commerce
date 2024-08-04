@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useGetReviewByProductIdQuery, useDeleteReviewMutation } from '../../redux/api/reviewsApi';
 
-export const Reviews = ({ profileData }) => {
+export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  const { data, error, isLoading } = useGetReviewByProductIdQuery(profileData.id);
+  const { data, error, isLoading } = useGetReviewByProductIdQuery(4);
   const [deleteReview] = useDeleteReviewMutation();
 
   useEffect(() => {
@@ -11,10 +11,6 @@ export const Reviews = ({ profileData }) => {
       setReviews(data);
     }
   }, [data]);
-
-  useEffect(() => {
-  isLoading={isLoading}
-  }, [isLoading]);
 
   const handleDelete = async (id) => {
     try {
@@ -35,10 +31,10 @@ export const Reviews = ({ profileData }) => {
 
   return (
     <ol className="relative border-s border-gray-200 dark:border-gray-700 w-3/6">
-      {reviews.map((review) => (
+      {reviews?.map((review) => (
         <li key={review.id} className="mb-10 ms-6">
           <span className="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
-            <img className="rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="Reviewer image" />
+            <img className="rounded-full shadow-lg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9E3AP3huMITYsiDh0Qa5mceXSHAyqggBIyQ&s" alt="Reviewer image" />
           </span>
           <div className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
             <div className="items-center justify-between mb-3 sm:flex">

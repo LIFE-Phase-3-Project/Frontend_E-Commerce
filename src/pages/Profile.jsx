@@ -25,9 +25,9 @@ console.log(id);
       case 'Address':
         return <Address userId={data} />;
       case 'Reviews':
-        return <Reviews userId={data} />;
+        return <Reviews userId={id} />;
         case 'Orders':
-          return <Orders userId={id} />;
+          return <Orders />;
       default:
         return <PersonalInformation userId={data} />;
     }
