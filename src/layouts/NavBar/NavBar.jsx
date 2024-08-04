@@ -147,7 +147,7 @@ function NavBar() {
                 </MenuItem>
 
                 <MenuItem>
-                  <Link to="/profile/:id" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                  <Link to="/profile/my-profile" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
                     Your Profile
                   </Link>
                 </MenuItem>

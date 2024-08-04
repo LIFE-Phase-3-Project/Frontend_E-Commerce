@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useGetUserByIDQuery ,useUpdateUserMutation} from "../../redux/api/authApi";
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
 export const PersonalInformation = (data) => {
+  const { data: user, error, isLoading } = useGetUserByIDQuery(localStorage.getItem('userId') || null);
 
-  // const { data, error, isLoading } = useGetUserByIDQuery(userId);
   const { t, i18n } = useTranslation();
   const [updateUser] = useUpdateUserMutation();
   const [formData, setFormData] = useState({
@@ -72,7 +73,6 @@ export const PersonalInformation = (data) => {
       setSubmissionStatus(true); 
     }
   };
-
   return (
     <div className="w-full md:w-3/4 p-4">
       <h2 className="text-xl font-semibold mb-4 dark:text-cream">{t('personalInformation')}</h2>
@@ -83,7 +83,7 @@ export const PersonalInformation = (data) => {
             <input
               type="text"
               name="firstName"
-              value={formData.firstName}
+              value={user?.firstName}
               onChange={handleChange}
               className="mt-1 block w-full border border-gray-300 rounded p-2 dark:bg-background-blue"
             />
@@ -94,7 +94,7 @@ export const PersonalInformation = (data) => {
             <input
               type="text"
               name="lastName"
-              value={formData.lastName}
+              value={user?.lastName}
               onChange={handleChange}
               className="mt-1 block w-full border border-gray-300 rounded p-2 dark:bg-background-blue"
             />
@@ -143,7 +143,7 @@ export const PersonalInformation = (data) => {
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={user?.email}
             onChange={handleChange}
             placeholder="name@example.com"
             className="mt-1 block w-full border border-gray-300 rounded p-2 dark:bg-background-blue"
