@@ -6,7 +6,7 @@ import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { useGetUserByIDQuery, useUpdateUserMutation } from "../../../redux/api/authApi";
 
-export const AdminEditUser = () => {
+const AdminEditUser = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { data, isLoading, error } = useGetUserByIDQuery(params?.id);
@@ -84,3 +84,5 @@ export const AdminEditUser = () => {
         </div>
     );
 };
+
+export default AdminEditUser

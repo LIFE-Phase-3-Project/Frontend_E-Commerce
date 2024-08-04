@@ -6,7 +6,7 @@ import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
 import { useGetCategoryByIdQuery, useUpdateCategoryMutation } from "../../../redux/api/categoriesApi";
 
-export const AdminEditCategory = () => {
+const AdminEditCategory = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { data, isLoading, error } = useGetCategoryByIdQuery(params?.id);
@@ -79,3 +79,5 @@ export const AdminEditCategory = () => {
         </div>
     );
 };
+
+export default AdminEditCategory

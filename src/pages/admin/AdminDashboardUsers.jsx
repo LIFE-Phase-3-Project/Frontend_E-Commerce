@@ -45,3 +45,5 @@ export const AdminDashboardUsers = () => {
         </div>
     );
 };
+
+export default AdminDashboardUsers

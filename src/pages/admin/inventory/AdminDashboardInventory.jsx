@@ -5,7 +5,7 @@ import { ProductsLowStock } from '../../../components/admin/dashboard/ProductsLo
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export const AdminDashboardInventory = () => {
+const AdminDashboardInventory = () => {
     const location = useLocation();
     const { data, refetch } = useGetAllProductsQuery();
 
@@ -37,3 +37,5 @@ export const AdminDashboardInventory = () => {
         </div>
     );
 };
+
+export default AdminDashboardInventory

@@ -6,7 +6,7 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 import { usePostCategorieMutation } from "../../../redux/api/categoriesApi";
 
-export const AdminCreateCategory = () => {
+const AdminCreateCategory = () => {
     const [formData, setFormData] = useState({
         categoryName: "",
     });
@@ -81,3 +81,5 @@ export const AdminCreateCategory = () => {
         </div>
     );
 };
+
+export default AdminCreateCategory

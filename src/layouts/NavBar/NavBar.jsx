@@ -156,6 +156,13 @@ function NavBar() {
                     Your Profile
                   </Link>
                 </MenuItem> : ""}
+
+               {(user?.isLoggedIn && (user?.role === "customer" || user?.role === "user")) && 
+                 <MenuItem>
+                  <Link to="/chat" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">
+                    Chat
+                  </Link>
+                </MenuItem>}
                
                 <MenuItem>
                   <Link to="/wishlist" className="block px-4 py-2 text-sm text-on-hover-green data-[focus]:bg-gray-100">

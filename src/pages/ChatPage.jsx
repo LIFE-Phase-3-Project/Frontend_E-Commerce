@@ -6,7 +6,7 @@ import { db } from '../firebase';
 import { query, where, getDocs, collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import '../style/chat.css'
 
-export const ChatPage = () => {
+const ChatPage = () => {
   const user = useSelector(state => state.user);
   const [roomId, setRoomId] = useState(null);
 
@@ -50,3 +50,5 @@ export const ChatPage = () => {
     </div>
   );
 };
+
+export default ChatPage

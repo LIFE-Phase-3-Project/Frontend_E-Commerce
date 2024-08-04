@@ -3,7 +3,7 @@ import { db } from '../../firebase';
 import { collection, query, onSnapshot } from 'firebase/firestore';
 import AdmChat from '../../components/admin/chat/AdmChat';
 
-export const AdminDashboardChat = () => {
+const AdminDashboardChat = () => {
   const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState('');
 
@@ -49,3 +49,5 @@ export const AdminDashboardChat = () => {
     </div>
   );
 };
+
+export default AdminDashboardChat

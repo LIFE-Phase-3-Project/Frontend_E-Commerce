@@ -5,7 +5,7 @@ import { DesktopTable } from "../../components/admin/tables/DesktopTable";
 import { MobileTable } from "../../components/admin/tables/MobileTable";
 import { useGetAllReviewsQuery, useDeleteReviewMutation } from "../../redux/api/reviewsApi";
 
-export const AdminDashboardReviews = () => {
+const AdminDashboardReviews = () => {
     const [page, setPage] = useState(1);
     const location = useLocation();
     
@@ -68,3 +68,5 @@ export const AdminDashboardReviews = () => {
         </div>
     );
 };
+
+export default AdminDashboardReviews

@@ -6,7 +6,7 @@ import { Orders } from '../components/profile/orders/Orders';
 import { useGetUserByIDQuery } from "../redux/api/authApi";
 import { useParams } from "react-router-dom";
 
-export const UserProfile = () => {
+const UserProfile = () => {
   
   const [currentComponent, setCurrentComponent] = useState('PersonalInformation');
   const { id } = useParams()
@@ -51,3 +51,4 @@ console.log(data);
   );
 };
 
+export default UserProfile

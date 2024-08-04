@@ -5,7 +5,7 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { usePostProductMutation } from "../../../redux/api/productsApi";
 import { useNavigate } from "react-router-dom";
 
-export const AdminCreateProduct = () => {
+const AdminCreateProduct = () => {
     const [formData, setFormData] = useState({
         title: "",
         description: "",
@@ -112,3 +112,5 @@ export const AdminCreateProduct = () => {
         </div>
     );
 };
+
+export default AdminCreateProduct

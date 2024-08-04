@@ -2,7 +2,7 @@ import { InformationCards } from "../../components/admin/dashboard/InformationCa
 import { AdminDashboardOrders } from '../../components/admin/dashboard/AdminDashboardOrders';
 import { AdminDashboardSales } from "../../components/admin/dashboard/AdminDashboardSales";
 
-export const AdminDashboard = () => {
+const AdminDashboard = () => {
     return (
         <div className="w-full admin-dashboard bg-green-100 dark:bg-admin-blue-color text-green-800 dark:text-white pl-7 pr-5">
             <div className="admin-dashboard-head pt-7">
@@ -17,3 +17,5 @@ export const AdminDashboard = () => {
         </div>
     );
 };
+
+export default AdminDashboard
