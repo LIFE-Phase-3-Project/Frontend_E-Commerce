@@ -2,7 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/images/logos/logoTemporary.png';
+import logo from '../../assets/images/logos/logo.png';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { MdOutlineNightlight } from "react-icons/md";
 import DarkTheme from "../../components/theme/DarkModeToggle";
@@ -13,6 +13,7 @@ import Modal from 'react-modal';
 import {CartModal } from "../../components/cart-modal/CartModal";
 import { CheckOut } from '../../components/cart-modal/CheckOut';
 import {useGetAllCategoriesQuery} from "../../redux/api/categoriesApi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 Modal.setAppElement('#root');  // Ensure you set the app element for accessibility
@@ -98,8 +99,9 @@ function NavBar() {
             <DisclosureButton className={`group relative inline-flex items-center justify-center rounded-md p-2 hover:bg-on-hover-green hover:text-cream focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white`}>
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
-              <img aria-hidden="true" className="block h-6 w-6 group-data-[open]:hidden" src={logo} />
-              <img aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" src={logo} />
+              <GiHamburgerMenu />
+              {/* <img aria-hidden="true" className="block h-7 w-7 group-data-[open]:hidden" src={logo} />
+              <img aria-hidden="true" className="hidden h-6 w-6 group-data-[open]:block" src={logo} /> */}
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
@@ -128,11 +130,13 @@ function NavBar() {
                 <MenuButton className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  <img
+                  <GiHamburgerMenu size={20}/>
+                  {/* <img
+                  
                     alt=""
                     src={logo}
                     className="h-8 w-12 rounded-full"
-                  />
+                  /> */}
                 </MenuButton>
               </div>
               <MenuItems
