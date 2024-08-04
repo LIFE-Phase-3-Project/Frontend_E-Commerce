@@ -5,6 +5,7 @@ import categoriesSlice from '../slices/categoriesSlice';
 import brandsSlice from '../slices/brandsSlice';
 import filtersSlice from '../slices/filtersSlice';
 import userSlice from '../slices/userSlice';
+import discountCode from '../slices/discountCodeSlice';
 import { productsApi } from '../api/productsApi';
 import { categoriesApi } from '../api/categoriesApi';
 import { brandsApi } from '../api/brandsApi';
@@ -24,6 +25,7 @@ export const reducers = {
     brands: brandsSlice,
     filters: filtersSlice,
     user: userSlice,
+    discountCode: discountCode,
 
     [productsApi.reducerPath]: productsApi.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,

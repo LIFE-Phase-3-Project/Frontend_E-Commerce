@@ -1,12 +1,12 @@
 import { MdOutlineReviews } from "react-icons/md"
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
-
+import { MdOutlineDiscount } from "react-icons/md";
 import { Link } from "react-router-dom"
 
 export const FAQLinks = () => {
     const links = [
-        { Icon: MdOutlineReviews, path: '/dashboard/reviews', text: 'Reviews' },
         { Icon: IoChatboxEllipsesOutline, path: '/dashboard/chat', text: 'Chat' },
+        { Icon: MdOutlineDiscount, path: '/dashboard/discount', text: 'Discount' },
     ];
 
     return (
