@@ -8,11 +8,11 @@ import ScrollToTop from "./ScrollToTop";
 import { useSelector } from "react-redux";
 import { AdminDashboardSideBar } from "../layouts/sidebar/admin/AdminDashboardSideBar";
 import { useEffect } from "react";
-import { v4 as uuidv4 } from 'uuid';
-import { Login } from "../pages/auth/Login";
-import { Register } from "../pages/auth/Register";
+import { Suspense } from 'react';
 import { AnimatePresence } from "framer-motion";
-
+import { Loader } from "../helpers/Loader";
+import { Login } from '../pages/auth/Login'
+import { Register } from '../pages/auth/Register'
 
 export const AppRoutes = () => {
     const routesWithoutNavbar = ["/login", "/register"];
@@ -65,22 +65,24 @@ export const AppRoutes = () => {
             <div className={isDashboard ? "flex" : ""}>
                 {(shouldShowSidebar() && (user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin")) && <AdminDashboardSideBar />}
                 <div className={(shouldShowSidebar() && user?.role === "admin") ? "w-11/12 md:w-9/12 lg:w-10/12" : "w-full"}>
-                    <AnimatePresence>
-                        <Routes location={location} key={location.pathname}>
-                            {DefaultRoutes}
-                            {(user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin") && AdminRoutes}
+                    <Suspense fallback={<Loader />}>
+                        <AnimatePresence>
+                            <Routes location={location} key={location.pathname}>
+                                {DefaultRoutes}
+                                {(user?.role.toLowerCase() === "admin" || user?.role.toLowerCase() === "superadmin") && AdminRoutes}
 
-                            {
-                                user.isLoggedIn 
-                                    ? user?.role === "customer" && <> {AuthRoutes} </>
-                                    : <>
-                                        <Route key={uuidv4()} path="/login" element={<Login />}/>
-                                        <Route key={uuidv4()} path="/register" element={<Register />}/>                      
-                                    </>
-                            }
-                            <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl text-black dark:text-white">Page not found</h1></div>} />
-                        </Routes>
-                    </AnimatePresence>
+                                {
+                                    user.isLoggedIn 
+                                        ? user?.role === "customer" && <> {AuthRoutes} </>
+                                        : <>
+                                            <Route path="/login" element={<Login />}/>
+                                            <Route path="/register" element={<Register />}/>                      
+                                        </>
+                                }
+                                <Route path="*" element={<div className="h-screen flex items-center justify-center"><h1 className="text-3xl text-black dark:text-white">Page not found</h1></div>} />
+                            </Routes>
+                        </AnimatePresence>
+                    </Suspense>
                 </div>
             </div>
             <GetFooter />

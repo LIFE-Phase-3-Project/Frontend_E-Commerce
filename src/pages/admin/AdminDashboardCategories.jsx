@@ -5,7 +5,7 @@ import { DesktopTable } from "../../components/admin/tables/DesktopTable";
 import { MobileTable } from "../../components/admin/tables/MobileTable";
 import { useDeleteCategoryMutation, useGetAllCategoriesQuery } from "../../redux/api/categoriesApi";
 
-export const AdminDashboardCategories = () => {
+const AdminDashboardCategories = () => {
     const [page, setPage] = useState(1);
     const location = useLocation();
     
@@ -70,3 +70,5 @@ export const AdminDashboardCategories = () => {
         </div>
     );
 };
+
+export default AdminDashboardCategories

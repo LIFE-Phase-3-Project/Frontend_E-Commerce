@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilters } from '../../redux/slices/filtersSlice'
 import { useLocation } from "react-router-dom";
 
-export const AdminDashboardProducts = () => {
+const AdminDashboardProducts = () => {
     const [page, setPage] = useState(1)
     const [sortField, setSortField] = useState(null);
     const [sortDirection, setSortDirection] = useState("a-z");
@@ -96,3 +96,5 @@ export const AdminDashboardProducts = () => {
         </div>
     );
 };
+
+export default AdminDashboardProducts

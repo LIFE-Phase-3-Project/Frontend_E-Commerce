@@ -1,7 +1,7 @@
 import { Code } from "../../components/admin/dashboard/discount-code/Code"
 import { Scene } from "../../components/admin/dashboard/discount-code/Scene"
 
-export const AdminDiscountCode = () => {
+const AdminDiscountCode = () => {
     return (
         <div className="flex items-center">
             <Code />
@@ -9,3 +9,5 @@ export const AdminDiscountCode = () => {
         </div>
     )
 }
+
+export default AdminDiscountCode

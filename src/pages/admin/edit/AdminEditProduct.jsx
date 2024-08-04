@@ -6,7 +6,7 @@ import { useGetProductByIdQuery, useUpdateProductMutation } from "../../../redux
 import { EditForm } from "../../../components/admin/edit/EditForm";
 import { IoArrowBackSharp } from "react-icons/io5";
 
-export const AdminEditProduct = () => {
+const AdminEditProduct = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { data, isLoading, error } = useGetProductByIdQuery(params?.id);
@@ -87,3 +87,5 @@ export const AdminEditProduct = () => {
         </div>
     );
 };
+
+export default AdminEditProduct
