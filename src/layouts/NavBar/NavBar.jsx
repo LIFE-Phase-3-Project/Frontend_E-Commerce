@@ -2,8 +2,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTruck } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/images/logos/logo.png';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
+import logo from '../../assets/images/logos/logo.png';
 import { MdOutlineNightlight } from "react-icons/md";
 import DarkTheme from "../../components/theme/DarkModeToggle";
 import MenuItemComp from './MenuItemComp';
