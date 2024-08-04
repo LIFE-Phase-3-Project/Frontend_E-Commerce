@@ -172,7 +172,7 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
-      <ReviewSection userId={productDetailItem?.id}/> 
+      <ReviewSection id={id}/> 
       <Recommendations />
     </section>
   );

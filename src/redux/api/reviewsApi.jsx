@@ -2,11 +2,24 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const baseUrl = process.env.REACT_APP_API_URL
 
+const authToken = () => {
+  return localStorage.getItem('token')
+}
+
 export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
   baseQuery: fetchBaseQuery({ 
     baseUrl,
-   }),
+    prepareHeaders: (headers) => {
+      const token = authToken();
+      
+      if(token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+
+      return headers
+    }
+  }),
 
   endpoints: (builder) => ({
     getAllReviews: builder.query({
@@ -18,10 +31,10 @@ export const reviewsApi = createApi({
       }
     }),
 
-    getReviewById: builder.query({
+    getReviewByProductId: builder.query({
       query: (id, filters={}) => {
         return {
-          url: `Review/${id}`,
+          url: `Review/product/${id}`,
           params: filters
         }
       }
@@ -52,4 +65,4 @@ export const reviewsApi = createApi({
   }),
 })
 
-export const { useGetAllReviewsQuery, useGetReviewByIdQuery, usePostCategorieMutation, useUpdateReviewMutation, useDeleteReviewMutation } = reviewsApi
+export const { useGetAllReviewsQuery, useGetReviewByProductIdQuery, usePostCategorieMutation, useUpdateReviewMutation, useDeleteReviewMutation } = reviewsApi

@@ -1,27 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useGetReviewByProductIdQuery } from '../../../redux/api/reviewsApi';
 
-const ReviewSection = (userId) => {
+const ReviewSection = ({id}) => {
     const [comments, setComments] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+    const { data, isLoading: loading } = useGetReviewByProductIdQuery(id)
 
     useEffect(() => {
-        const fetchComments = async () => {
-            try {
-                const response = await fetch(`http://localhost:8000/reviews/${userId}`);
-                if (!response.ok) {
-                    throw new Error('Failed to fetch comments');
-                }
-                const data = await response.json();
-                setComments(data);
-            } catch (error) {
-                console.error('Error fetching comments:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchComments();
-    }, []);
+        console.log("reviews")
+        console.log(data)
+        setComments(data)
+    }, [data])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,7 +18,6 @@ const ReviewSection = (userId) => {
         const comment = e.target.comment.value;
         const date = new Date().toLocaleDateString();
 
-        // You might want to send the new comment to your server here, but for now, just update the local state
         setComments([...comments, { name, date, comment }]);
 
         e.target.reset();
@@ -55,9 +43,9 @@ const ReviewSection = (userId) => {
         <div className="bg-gray-100 p-6 dark:bg-background-blue dark:border-cream">
             <h2 className="text-xl font-semibold mb-4 dark:text-cream">Reviews</h2>
             <div className="comments-render">
-                {comments.map((comment) => (
+                {comments?.map((comment) => (
                     <div key={comment.id}>
-                        {reviewExample(comment.username, comment.date, comment.description)}
+                        {reviewExample(comment.userOverview.firstName + " " + comment.userOverview.lastName, "12/10/2023", comment.comment)}
                     </div>
                 ))}
             </div>
