@@ -23,10 +23,9 @@ export const CreateForm = ({ itemName, fieldsForInput, formData, setFormData, on
     };
 
     const handleFileDrop = (acceptedFiles) => {
-        const fileNames = acceptedFiles.map(file => file.path); 
         setFormData({
             ...formData,
-            image: [...formData.image, ...fileNames],
+            image: acceptedFiles, // Store File objects
         });
     };
 
@@ -73,9 +72,9 @@ export const CreateForm = ({ itemName, fieldsForInput, formData, setFormData, on
                             <input {...getInputProps()} />
                             {formData.image && formData.image.length > 0 ? (
                                 <ul>
-                                    {formData.image.map((fileName, index) => (
+                                    {formData.image.map((file, index) => (
                                         <li key={index} className="flex items-center justify-between">
-                                            <span className="truncate w-4/5">{fileName}</span>
+                                            <span className="truncate w-4/5">{file.name}</span> {/* Use file.name for display */}
                                             <button
                                                 type="button"
                                                 className="ml-2 text-red-600"

@@ -39,8 +39,8 @@ export const AdminDashboardUsers = () => {
                     border-green-800 dark:border-admin-sidebar-color
                     lg:mt-0 lg:w-12/12 lg:absolute lg:transform lg:-translate-x-1/2 lg:ml-0
                     ">
-                <DesktopTable name={"user"} data={data} theadTh={theadTh} dataFields={dataFields}/>
-                <MobileTable name={"user"} data={data} theadTh={theadTh} dataFields={dataFields}/>
+                <DesktopTable name={"user"} data={data?.items} theadTh={theadTh} dataFields={dataFields}/>
+                <MobileTable name={"user"} data={data?.items} theadTh={theadTh} dataFields={dataFields}/>
             </table>
         </div>
     );

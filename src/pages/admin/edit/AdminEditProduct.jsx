@@ -10,7 +10,16 @@ export const AdminEditProduct = () => {
     const navigate = useNavigate();
     const params = useParams();
     const { data, isLoading, error } = useGetProductByIdQuery(params?.id);
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        title: "",
+        description: "",
+        subCategoryId: 0,
+        color: "",
+        image: [],
+        price: 0,
+        ratings: 0,
+        stock: 0
+    });
     const [updateProduct, { isLoading: isUpdating, isError, isSuccess }] = useUpdateProductMutation();
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState("");
@@ -29,7 +38,7 @@ export const AdminEditProduct = () => {
         if (data) {
             setFormData({
                 ...data,
-                image: data.image || [],
+                image: data.image ? data.image.map(url => ({ name: url })) : [],
                 stock: data.stock || 0
             });
         }
@@ -47,16 +56,22 @@ export const AdminEditProduct = () => {
     }, [isSuccess, isError, navigate]);
 
     const handleUpdate = async () => {
-        if (formData) {
-            const updatedData = {
-                ...formData,
-                image: formData.image || []  
-            };
-            try {
-                await updateProduct({ id: params.id, updatedProduct: updatedData }).unwrap();
-            } catch (error) {
-                console.error('Failed to update the product:', error);
+        const form = new FormData();
+        
+        Object.keys(formData).forEach(key => {
+            if (key === "image" && Array.isArray(formData[key])) {
+                formData[key].forEach((file) => {
+                    form.append('image', file); 
+                });
+            } else if (formData[key] !== null && formData[key] !== undefined) {
+                form.append(key, formData[key]);
             }
+        });
+    
+        try {
+            await updateProduct({ id: params.id, updatedProduct: form }).unwrap();
+        } catch (error) {
+            console.error('Failed to update the product:', error);
         }
     };
 

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { AddToWishListIcon } from "./AddToWishListIcon";
 import { ProductCardImage } from "./ProductCardImage";
 import { ProductCardContent } from "./ProductCardContent";
@@ -6,7 +6,14 @@ import { useSelector } from "react-redux";
 import { ProductsProductCardSkeleton } from "../../../../helpers/skeletons/ProductsProductCard";
 
 export const ProductCard = ({ isLoading, product }) => {
+    const location = useLocation();
     const params = useParams();
+    const pathname = location.pathname;
+    const segmentList = pathname.split("/").filter(segment => segment !== "");
+    const lastSegment = segmentList[segmentList.length - 1];
+
+    console.log("produc -categoryId")
+    console.log(params)
 
     const isUserLoggedIn = useSelector(state => state.user.isLoggedIn)
     if(isLoading) return <ProductsProductCardSkeleton />

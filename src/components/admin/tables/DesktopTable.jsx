@@ -24,8 +24,8 @@ export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, hand
                             [&>*:nth-child(even)]:bg-green-200 hover:[&>*:nth-child(even)]:bg-green-extra-light [&>*:nth-child(even)]:text-green-extra-dark
                             dark:[&>*:nth-child(even)]:bg-gray-500 dark:hover:[&>*:nth-child(even)]:bg-admin-sidebar-color dark:[&>*:nth-child(even)]:text-gray-300">
                                 
-                {data && data.map((item) => (
-                    <tr className="text-center text-green-extra-dark bg-green-100 hover:bg-green-extra-light dark:bg-dashboard-extra-light dark:hover:bg-admin-sidebar-color dark:hover:text-white" key={item.id}>
+                {data && data.map((item) => {
+                    return <tr className="text-center text-green-extra-dark bg-green-100 hover:bg-green-extra-light dark:bg-dashboard-extra-light dark:hover:bg-admin-sidebar-color dark:hover:text-white" key={item.id}>
                         {dataFields.map((field, key) => {
                             if (field === "edit") {
                                 return (
@@ -46,9 +46,9 @@ export const DesktopTable = ({ name, data, theadTh, dataFields, deletingId, hand
                             }
                         })}
                     </tr>
-                ))}
+})}
                 <tr className="bg-green-dark dark:bg-admin-sidebar-color text-white">
-                    { name !== "user" &&
+                    { (name !== "user" && name !== "reviews") &&
                     <td className="text-center" colSpan={theadTh.length > 2 ? nrOfPages > 1 ? 2 : theadTh.length : 1}>
                         <Link to={'create'} className="flex items-center justify-center">
                             Create {name} <IoMdAdd className="ml-2" size={20}/>

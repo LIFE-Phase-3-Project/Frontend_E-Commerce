@@ -1,5 +1,7 @@
 import { useGetAllCategoriesQuery } from "../../../redux/api/categoriesApi";
 import { useGetAllProductsQuery } from "../../../redux/api/productsApi";
+import { useGetAllUsersQuery } from "../../../redux/api/authApi";
+import { useGetAllReviewsQuery } from "../../../redux/api/reviewsApi";
 import { MdLocalMall } from "react-icons/md";
 import { HiOutlineUsers } from "react-icons/hi";
 import { VscPreview } from "react-icons/vsc";
@@ -10,6 +12,8 @@ import CountUp from 'react-countup';
 export const InformationCards = () => {
     const { data:products } = useGetAllProductsQuery({pageSize: 1});
     const { data:categories } = useGetAllCategoriesQuery({pageSize: 1});
+    const { data:users } = useGetAllUsersQuery({pageSize: 1});
+    const { data:reviews } = useGetAllReviewsQuery({pageSize: 1});
 
     const informationCards = [
         {
@@ -25,12 +29,12 @@ export const InformationCards = () => {
         {
             icon: HiOutlineUsers,
             name: "Users",
-            number: 100, 
+            number: users?.totalCount, 
         },
         {
             icon: VscPreview,
             name: "Reviews",
-            number: 50, 
+            number: reviews?.totalCount, 
         },
     ]
 

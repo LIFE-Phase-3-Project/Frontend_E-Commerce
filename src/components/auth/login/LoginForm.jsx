@@ -14,7 +14,7 @@ import { loginSchema } from '../../../helpers/validations/UserValidation';
 
 
 export const LoginForm = () => {
-
+    const [userRole, setUserRole] = useState('');
     const [userId, setUserId] = useState(null);
     const [errorMessage, setErrorMessage] = useState('');
     const isDarkTheme = useSelector(state => state.darkTheme.darkMode);
@@ -38,9 +38,12 @@ export const LoginForm = () => {
         setErrorMessage(''); 
         try {
             const response = await loginUser(data).unwrap();
+            console.log("response")
+            console.log(response)
             if (response.token) {
                 Cookies.set('token', response.token);
                 const decodedToken = VueJwtDecode.decode(response.token);
+                setUserRole(response.role)
 
                 localStorage.setItem('userId', decodedToken.nameid);
                 setUserId(decodedToken.nameid);
@@ -53,10 +56,9 @@ export const LoginForm = () => {
 
     useEffect(() => {
         if (userData && !isLoadingUser) {
-            const role = userData.roleName;
             dispatch(setLogInUser({
                 id: userData.id,
-                role: role,
+                role: userRole,
                 email: userData.email,
                 firstName: userData.firstName,
                 lastname: userData.lastname,
@@ -64,9 +66,9 @@ export const LoginForm = () => {
                 phoneNumber: userData.phoneNumber,
                 password: userData.password
             }));
-            if (role.toLowerCase() === "admin" || role.toLowerCase() === "superadmin") {
+            if (userRole?.toLowerCase() === "admin" || userRole?.toLowerCase() === "superadmin") {
                 navigate('/dashboard');
-            } else if (role.toLowerCase() === "customer") {
+            } else if (userRole?.toLowerCase() === "customer") {
                 navigate('/products');
             }
         }

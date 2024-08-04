@@ -37,12 +37,17 @@ export const AdminDashboardProducts = () => {
         setDeletingId(id);
         try {
             await deleteProduct(id).unwrap();
-            refetch();
+            console.log('Product deleted successfully');
+            refetch().then((newData) => {
+                console.log('Updated products after deletion:', newData);
+            });
         } catch (error) {
             console.error('Error deleting product:', error);
-            setDeletingId(null); 
+            setDeletingId(null);
         }
     };
+    
+    
 
     const handleSort = (field) => {
         const direction = sortField === field && sortDirection === "a-z" ? "z-a" : "a-z";
@@ -52,8 +57,12 @@ export const AdminDashboardProducts = () => {
     };
 
     useEffect(() => {
-        refetch();
+        console.log('Refetching products...');
+        refetch()
+          .then((newData) => console.log('Updated products:', newData))
+          .catch((error) => console.error('Error fetching updated products:', error));
     }, [location, filters]);
+    
 
     useEffect(() => {
         dispatch(setFilters({ page: page, pageSize: 10 }));

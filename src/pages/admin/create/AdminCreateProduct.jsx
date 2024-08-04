@@ -60,18 +60,21 @@ export const AdminCreateProduct = () => {
 
     const handleCreate = async () => {
         if (formData) {
-            const formattedData = {
-                ...formData,
-                subCategoryId: Number(formData.subCategoryId),
-                price: Number(formData.price),
-                ratings: Number(formData.ratings),
-                stock: Number(formData.stock),
-                image: formData.image || [],
-            };
-    
+            const formDataObject = new FormData();
+            formDataObject.append('title', formData.title);
+            formDataObject.append('description', formData.description);
+            formDataObject.append('subCategoryId', formData.subCategoryId);
+            formDataObject.append('color', formData.color);
+            formDataObject.append('price', formData.price);
+            formDataObject.append('ratings', formData.ratings);
+            formDataObject.append('stock', formData.stock);
+
+            formData.image.forEach((file) => {
+                formDataObject.append('image', file);
+            });
+
             try {
-                const response = await addProduct(formattedData).unwrap();
-    
+                const response = await addProduct(formDataObject).unwrap();
                 const message = typeof response === 'string' ? response : "Product created successfully!";
                 setShowModal(true);
                 setModalMessage(message);
