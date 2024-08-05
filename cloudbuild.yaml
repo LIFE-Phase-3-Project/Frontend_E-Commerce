@@ -14,6 +14,19 @@ steps:
     id: Push
     waitFor: ['Build']
 
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/frontend-deployment'
+      - 'frontend=$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
+      - '--namespace=e-commerce'
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=europe-west3'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=e-commerce-cluster'
+      - 'CLOUDSDK_CORE_PROJECT=$_PROJECT_ID'
+    waitFor: ['Push']
+
 images:
   - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
 
