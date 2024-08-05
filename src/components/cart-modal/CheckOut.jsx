@@ -51,19 +51,28 @@ export const CheckOut = () => {
 
     const handlePurchase = async () => {
         if (paymentMethod === 'stripe') {
-            try {
-                const paymentData = {
-                    amount: calculateTotalAfterDiscount(),
-                    shippingInfo,
-                };
-                await createPayment(paymentData).unwrap();
-            } catch (error) {
-                console.error('Payment creation failed:', error);
+          try {
+            console.log("orders")
+            console.log(orders)
+            const paymentData = {
+              description: "Order succeded",
+              orderId: orders[orders?.length -1].id
+            };
+            
+            const res = await createPayment(paymentData).unwrap();
+            
+            if (res && res.url) {
+              window.location.href = res.url;
+            } else {
+              console.error('Invalid response from payment creation');
             }
+          } catch (error) {
+            console.error('Payment creation failed:', error);
+          }
         } else if (paymentMethod === 'cash') {
+          // Handle cash payment logic if needed
         }
-    };
-
+      };
     const calculateTotalAfterDiscount = () => {
         return totalAmount - discountAmount + shippingPrice;
     };
@@ -94,11 +103,9 @@ export const CheckOut = () => {
         }
     };
 
-
-
-    const handleRemoveOrder = (orderName) => {
-        if (orderName) { 
-            const updatedOrders = orders.filter(order => order.name !== orderName);
+    const handleRemoveOrder = (orderId) => {
+        if (orderId) { 
+            const updatedOrders = orders.filter(order => order?.id !== orderId);
             setOrders(updatedOrders);
             getOrderTotal(); 
         } else {
@@ -173,7 +180,7 @@ export const CheckOut = () => {
                             orders?.map((order) => (
                                 <div key={order.id} className='flex items-center justify-between'>
                                     <h2>{order.name} | {order.orderTotal}&#8364;</h2>
-                                    <button onClick={() => handleRemoveOrder(order.name)} className="text-red-500">Remove</button>
+                                    <button onClick={() => handleRemoveOrder(order.id)} className="text-red-500">Remove</button>
                                 </div>
                             ))
                         }
@@ -232,7 +239,7 @@ export const CheckOut = () => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700 mb-2 dark:text-cream">ZIP Code:</label>
+                        <label className="block text-gray-700 mb-2 dark:text-cream">Zip Code:</label>
                         <input
                             type="text"
                             name="zip"
@@ -242,24 +249,38 @@ export const CheckOut = () => {
                             required
                         />
                     </div>
-                    <div className="mb-4">
-                        <label className="block text-gray-700 mb-2 dark:text-cream">Payment Method:</label>
-                        <select
-                            value={paymentMethod}
-                            onChange={handlePaymentMethodChange}   
-                            className="w-full px-3 py-2 border rounded-md dark:bg-custom-blue"
-                        >
-                            <option value="cash">Cash</option>
-                            <option value="stripe">Stripe</option>
-                        </select>
-                    </div>
                 </form>
+            </div>
+            <div className="payment-method mb-6">
+                <h2 className="text-2xl font-semibold mb-4 dark:text-cream">Payment Method</h2>
+                <div className="flex space-x-4">
+                    <label className="flex items-center">
+                        <input
+                            type="radio"
+                            value="cash"
+                            checked={paymentMethod === 'cash'}
+                            onChange={handlePaymentMethodChange}
+                            className="mr-2"
+                        />
+                        Cash
+                    </label>
+                    <label className="flex items-center">
+                        <input
+                            type="radio"
+                            value="stripe"
+                            checked={paymentMethod === 'stripe'}
+                            onChange={handlePaymentMethodChange}
+                            className="mr-2"
+                        />
+                        Stripe
+                    </label>
+                </div>
             </div>
             <button
                 onClick={handlePurchase}
-                className="w-full bg-on-hover-pink text-white py-2 rounded-md hover:bg-on-hover-purple"
+                className="w-full py-3 bg-blue-500 text-white rounded-md"
             >
-                Purchase
+                Complete Purchase
             </button>
         </div>
     );

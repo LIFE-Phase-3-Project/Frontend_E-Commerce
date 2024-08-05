@@ -2,11 +2,24 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 const baseUrl = process.env.REACT_APP_API_URL
 
+const authToken = () => {
+  return localStorage.getItem('token')
+}
+
 export const paymentsApi = createApi({
   reducerPath: 'paymentsApi',
   baseQuery: fetchBaseQuery({ 
     baseUrl,
-   }),
+    prepareHeaders: (headers) => {
+      const token = authToken();
+      
+      if(token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+
+      return headers
+    }
+  }),
 
   endpoints: (builder) => ({
     getAllPayments: builder.query({
@@ -65,7 +78,7 @@ export const paymentsApi = createApi({
     createPayment: builder.mutation({
       query: (updatedPayment) => ({
         url: 'Payments/create-payment',
-        method: 'PUT', 
+        method: 'POST', 
         body: updatedPayment,
       }),
     }),

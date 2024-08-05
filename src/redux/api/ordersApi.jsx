@@ -47,7 +47,7 @@ export const ordersApi = createApi({
 
     postOrder: builder.mutation({
       query: (newOrder) => ({
-        url: 'Order',
+        url: `Order?cartIdentifier=${newOrder?.cartIdentifier}&userId=${newOrder?.userId}`,
         method: 'POST',
         body: newOrder,
       }),
