@@ -3,19 +3,19 @@ steps:
     args:
       - build
       - '-t'
-      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
       - '.'
     id: Build
 
   - name: 'gcr.io/cloud-builders/docker'
     args: 
       - push 
-      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+      - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
     id: Push
     waitFor: ['Build']
 
 images:
-  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:latest'
+  - '$_HOSTNAME/$_PROJECT_ID/$_REPO_NAME/$_IMAGE:$SHORT_SHA'
 
 options:
   logging: CLOUD_LOGGING_ONLY
