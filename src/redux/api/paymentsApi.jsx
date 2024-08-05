@@ -1,0 +1,106 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+
+const baseUrl = process.env.REACT_APP_API_URL
+
+const authToken = () => {
+  return localStorage.getItem('token')
+}
+
+export const paymentsApi = createApi({
+  reducerPath: 'paymentsApi',
+  baseQuery: fetchBaseQuery({ 
+    baseUrl,
+    prepareHeaders: (headers) => {
+      const token = authToken();
+      
+      if(token) {
+        headers.set('Authorization', `Bearer ${token}`)
+      }
+
+      return headers
+    }
+  }),
+
+  endpoints: (builder) => ({
+    getAllPayments: builder.query({
+      query: (filters= {}) => {
+        return {
+          url: "Payments/payments",
+          params: filters
+        }
+      }
+    }),
+   
+    getPaymentsPerMonth: builder.query({
+      query: (filters= {}) => {
+        return {
+          url: "Payments/payments-per-month",
+          params: filters
+        }
+      }
+    }),
+
+    getPaymentById: builder.query({
+      query: (id, filters={}) => {
+        return {
+          url: `Payments/${id}`,
+          params: filters
+        }
+      }
+    }),
+
+    getPaymentOrderById: builder.query({
+      query: (id, filters={}) => {
+        return {
+          url: `Payments/order/${id}`,
+          params: filters
+        }
+      }
+    }),
+
+    getPaymentTransactionById: builder.query({
+      query: (id, filters={}) => {
+        return {
+          url: `Payments/transaction/${id}`,
+          params: filters
+        }
+      }
+    }),
+
+    createCashPayment: builder.mutation({
+      query: (newPayment) => ({
+        url: 'Payments/create-cash-payment',
+        method: 'POST',
+        body: newPayment,
+      }),
+    }),
+
+    createPayment: builder.mutation({
+      query: (updatedPayment) => ({
+        url: 'Payments/create-payment',
+        method: 'POST', 
+        body: updatedPayment,
+      }),
+    }),
+
+    createWebHook: builder.mutation({
+      query: (payment) => ({
+        url: 'Payments/webhook',
+        method: 'PUT', 
+        body: payment,
+      }),
+    }),
+
+  }),
+})
+
+export const { 
+  useGetAllPaymentsQuery,
+  useGetPaymentsPerMonthQuery,
+  useGetPaymentByIdQuery,
+  useGetPaymentOrderByIdQuery,
+  useGetPaymentTransactionByIdQuery,
+  useCreateCashPaymentMutation,
+  useCreatePaymentMutation,
+  useCreateWebHookMutation
+} = paymentsApi

@@ -1,0 +1,1770 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 2,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 3,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 4,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 5,
+            "title": "OTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 6,
+            "title": "Lacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 7,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 8,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 9,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 10,
+            "title": "QTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 11,
+            "title": "ELacoste T-Shirt",
+            "image": ["https://storefeederimages.blob.core.windows.net/intrendclothing/Products/0a5a3810-8c58-4370-a1a5-6a545c3f140c/Full/ibghy0v5mzs.jpg", "https://"],
+            "description": "Des",
+            "price": 500.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 1,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtina"
+            },
+            "stock": 1,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 12,
+            "title": "BTshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 24.90,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 13,
+            "title": "Lacoste-Women Polo",
+            "description": "Description of product",
+            "image": ["https://m.media-amazon.com/images/I/511MEMl+QgL._AC_UY1000_.jpg", "https://"],
+            "price": 320.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 4,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Denmark",
+                "city": "Copenhagen"
+            },
+            "stock": 5,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 14,
+            "title": "ATshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        },
+        {
+            "id": 15,
+            "title": "Tshirt",
+            "description": "Description of product",
+            "image": ["https://i.pinimg.com/originals/89/10/3e/89103ee0170a41fe431507a9f4d53667.png", "https://"],
+            "price": 30.00,
+            "discount": 50,
+            "color": "",
+            "ratings": 3,
+            "reviews": ["very nice review", "not so nice review", "unpleasant review"],
+            "location": {
+                "country": "Kosove",
+                "city": "Prishtine"
+            },
+            "stock": 10,
+            "category": {
+                "id": 1,
+                "title": "clothes"
+            }
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "title": "Clothes",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/3uAo_Q--aq154jywX47NfGs9ofVfnlN7EhtHd7iEa9c/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNjA4LzNk/YjlkZWRjLTI0NmUt/NDFiOC05M2U4LWU0/M2ZlNDNjZDAyZi5w/bmc.png",
+            "products": [],
+            "subcategory": []
+        },
+        {
+            "id": 2,
+            "title": "Gifts",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/vjYHLl5MOL1sEpFe80t78zhbKYxgLre7xkMgs5Ep10o/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNjY4LzEy/NmM0MzVhLTVjMjYt/NGFiMS1iZDkyLTQx/ZDZlMjFhMzdiNy5q/cGc.webp",
+            "products": [],
+            "subcategory": []
+        },
+        {
+            "id": 3,
+            "title": "Kitchen",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/QpVsTefkdelqakpB8CP-zrY6ja-gxM9rMic46201dQM/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNzE1LzYx/Y2EwNmFlLWQzNDct/NGY5Zi05OTc1LTNl/NjViOWZiNzdiMC5w/bmc.webp",
+            "products": [],
+            "subcategory": []
+        },
+        {
+            "id": 4,
+            "title": "Gifts",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/vjYHLl5MOL1sEpFe80t78zhbKYxgLre7xkMgs5Ep10o/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNjY4LzEy/NmM0MzVhLTVjMjYt/NGFiMS1iZDkyLTQx/ZDZlMjFhMzdiNy5q/cGc.webp",
+            "products": [],
+            "subcategory": []
+        },
+        {
+            "id": 5,
+            "title": "Kitchen",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/QpVsTefkdelqakpB8CP-zrY6ja-gxM9rMic46201dQM/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNzE1LzYx/Y2EwNmFlLWQzNDct/NGY5Zi05OTc1LTNl/NjViOWZiNzdiMC5w/bmc.webp",
+            "products": [],
+            "subcategory": []
+        },
+        {
+            "id": 6,
+            "title": "Clothes",
+            "description": "des",
+            "image": "https://photo-cdn2.icons8.com/3uAo_Q--aq154jywX47NfGs9ofVfnlN7EhtHd7iEa9c/rs:fit:288:192/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L2NvbmNlcHRfcHJl/dmlld3MvNjA4LzNk/YjlkZWRjLTI0NmUt/NDFiOC05M2U4LWU0/M2ZlNDNjZDAyZi5w/bmc.png",
+            "products": [],
+            "subcategory": []
+        }
+    ],
+    "brands": [
+        {
+            "id": 1,
+            "title": "",
+            "description": "",
+            "image": "",
+            "products": []
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "username": "John",
+            "email": "",
+            "phoneNumber": "",
+            "role": "",
+            "address": "",
+            "reviews": ["not so nice review"],
+            "history": [],
+            "wishlist": 1
+        },
+        {
+            "id": 2,
+            "username": "Jane",
+            "email": "",
+            "phoneNumber": "",
+            "role": "",
+            "address": "",
+            "reviews": ["great review"],
+            "history": [],
+            "wishlist": 1
+        },
+        {
+            "id": 3,
+            "username": "Jim",
+            "email": "",
+            "phoneNumber": "",
+            "role": "",
+            "address": "",
+            "reviews": ["great review", "not so nice review"],
+            "history": [],
+            "wishlist": 1
+        },
+        {
+            "id": 4,
+            "username": "Jenna",
+            "email": "",
+            "phoneNumber": "",
+            "role": "",
+            "address": "",
+            "reviews": ["great review","unpleasant review"],
+            "history": [],
+            "wishlist": 1
+        }
+    ],
+    "wishlists": [
+        {
+            "id": 1,
+            "products": [3, 2, 2,3,3,3,2,2,2]
+        }
+    ],
+    "discountCodes": [
+        {
+            "id": 1,
+            "code": "Erblin20",
+            "percentage": 20
+        },
+        {
+            "id": 2,
+            "code": "Rulega20",
+            "percentage": 20
+        },
+        {
+            "id": 3,
+            "code": "Altina10",
+            "percentage": 10
+        },
+        {
+            "id": 4,
+            "code": "Shpend10",
+            "percentage": 10
+        },
+        {
+            "id": 5,
+            "code": "Mal5",
+            "percentage": 5
+        },
+        {
+            "id": 6,
+            "code": "Donat5",
+            "percentage": 5
+        }
+    ],
+    "reviews": [
+        {
+            "id": 1,
+            "userId": 1,
+            "productId": 2,
+            "description": "good",
+            "date": ""
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "productId": 3,
+            "description": "somewhat good",
+            "date": ""
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "productId": 1,
+            "description": "bad",
+            "date": ""
+        }
+    ]
+}

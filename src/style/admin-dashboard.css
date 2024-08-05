@@ -1,0 +1,91 @@
+@import url('./animations/animations.css');
+
+:root {
+    --form-tbody-tr-last-child: #186049;
+}
+.dark {
+    --form-tbody-tr-last-child:#141b2d;
+}
+
+.admin-dashboard-products {
+    animation: bounceFadeOut 0.5s both;
+}
+.admin-dashboard-categories {
+    animation: bounceFadeIn 0.5s both;
+}
+
+.dashboard-sidebar-hamburger span {
+    width: 26px;
+    height: 3px;
+    margin-top: 5px;
+    margin-right: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dashboard-sidebar-hamburger span:first-child{
+    margin-top: 0;
+}
+
+.dashboard-sidebar-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(11px);}
+.dashboard-sidebar-hamburger.active span:nth-child(2) { opacity: 0; }
+.dashboard-sidebar-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(11px); }
+
+.create-form, .edit-form {
+    margin-top: 10px;
+    min-width: 520px
+}
+
+.desktop-tbody tr:last-child, .mobile-tbody tr:last-child {
+    background-color: var(--form-tbody-tr-last-child) !important;
+    color: #fff;
+}
+
+.orders-per-month {
+    flex: 0.66;
+}
+
+.last-orders {
+    flex: 0.32;
+}
+
+.pending-status-payments {
+    flex: 0.32;
+}
+.payments-per-month {
+    flex: 0.65;
+}
+
+.adm-chat::-webkit-scrollbar { width: 7px; }
+.adm-chat::-webkit-scrollbar-track { background: #f1f1f1; }
+.adm-chat::-webkit-scrollbar-thumb { background: rgb(54, 54, 224); }
+.adm-chat::-webkit-scrollbar-thumb:hover { background: #555; }
+
+
+@media (max-width: 1150px) {
+    .admin-dashboard-orders, .admin-dashboard-payments {
+        flex-direction: column;
+    }
+
+    .last-orders, .payments-per-month {
+        margin-top: 55px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .create-form, .edit-form {
+        min-width: 460px
+    }
+}
+@media (max-width: 768px) {
+    .translate-x-0 {
+        transform: translateX(0);
+    }
+    
+    .-translate-x-full {
+        transform: translateX(-80%);
+    }
+
+    .create-form, .edit-form {
+        min-width: 270px
+    }
+}

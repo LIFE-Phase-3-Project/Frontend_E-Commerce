@@ -1,0 +1,11 @@
+@keyframes Like {
+    0% {
+        scale: 1
+    }
+    50% {
+        scale: 1.5;
+    }
+    100% {
+        scale: 1.1
+    }
+}
